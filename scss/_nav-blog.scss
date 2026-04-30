@@ -24,7 +24,6 @@ header {
       letter-spacing:  -1px;
       color:           var(--text);
       text-decoration: none;
-      margin-right:    auto;
 
       // "M" circle logo rendered via pseudo-element
       &::before {
@@ -45,6 +44,43 @@ header {
       }
 
       span { display: none; }
+    }
+
+    // ── Search pill in nav ────────────────────────────────────
+    .nav-search {
+      flex:          1;
+      max-width:     280px;
+      display:       flex;
+      border:        1px solid var(--border-light);
+      border-radius: 99px;
+      overflow:      hidden;
+      margin:        0 16px;
+
+      input {
+        flex:        1;
+        min-width:   0;
+        border:      none;
+        outline:     none;
+        padding:     6px 14px;
+        font-family: var(--font-sans);
+        font-size:   14px;
+        color:       var(--text);
+        background:  transparent;
+
+        &::placeholder { color: var(--subtle); }
+      }
+
+      button {
+        border:      none;
+        background:  transparent;
+        padding:     6px 12px;
+        cursor:      pointer;
+        color:       var(--muted);
+        font-size:   14px;
+        transition:  color 0.15s;
+
+        &:hover { color: var(--text); }
+      }
     }
 
     // ── Regular nav links ─────────────────────────────────────

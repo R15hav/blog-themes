@@ -24,6 +24,21 @@
       height:    30px;
       font-size: 18px;
     }
+
+    // Hide search pill — use dedicated search page on mobile
+    .nav-search { display: none; }
+  }
+
+  // Article interactions — stack reactions and shrink avatar
+  .article-author__avatar {
+    width:     32px;
+    height:    32px;
+    font-size: 13px;
+  }
+
+  .article-reactions {
+    flex-wrap: wrap;
+    gap:       8px;
   }
 
   // Main content area
@@ -82,4 +97,10 @@
 
   // Compact footer
   footer { padding: 16px; }
+
+  // Tighter reaction buttons on phones
+  .reaction-btn {
+    padding:   5px 10px;
+    font-size: 13px;
+  }
 }
