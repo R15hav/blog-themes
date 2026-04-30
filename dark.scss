@@ -1,0 +1,60 @@
+// ── Dark theme ────────────────────────────────────────────────────────────
+// Layer 1 override: only :root tokens, no component rules.
+// Copy this file as a starting point for any new theme.
+//
+// To create a new theme:
+//   1. Copy dark.scss → mytheme.scss
+//   2. Change the :root values below
+//   3. Optionally add component rules after :root (Layer 2 override)
+//   4. Run: npm run build -- --output mytheme.css
+//      or:  npx sass themes/mytheme.scss themes/mytheme.css --style compressed
+
+:root {
+  // ── Backgrounds ───────────────────────────────────────────────────────
+  --color-bg:           oklch(0.16 0.010 260);
+  --color-bg-subtle:    oklch(0.20 0.012 258);
+  --color-bg-muted:     oklch(0.24 0.014 256);
+
+  // ── Borders ───────────────────────────────────────────────────────────
+  --color-border:       oklch(0.30 0.010 255);
+  --color-border-soft:  oklch(0.25 0.008 255);
+  --color-border-strong:oklch(0.38 0.012 255);
+
+  // ── Text ──────────────────────────────────────────────────────────────
+  --color-text:         oklch(0.92 0.006 80);
+  --color-text-2:       oklch(0.76 0.010 78);
+  --color-text-3:       oklch(0.58 0.010 75);
+  --color-text-4:       oklch(0.44 0.008 72);
+
+  // ── Accent ────────────────────────────────────────────────────────────
+  --color-accent:       oklch(0.68 0.140 42);
+  --color-accent-bg:    oklch(0.68 0.140 42 / 0.14);
+  --color-accent-text:  oklch(0.78 0.130 44);
+  --color-accent-hover: oklch(0.72 0.135 43);
+  --color-accent-fg:    oklch(0.12 0.008 260);
+
+  // ── Links ─────────────────────────────────────────────────────────────
+  --color-link:         oklch(0.78 0.130 44);
+  --color-link-hover:   oklch(0.82 0.125 45);
+  --color-focus:        oklch(0.68 0.140 42 / 0.35);
+
+  // ── Semantic ──────────────────────────────────────────────────────────
+  --color-ok:           oklch(0.60 0.140 145);
+  --color-ok-text:      oklch(0.72 0.130 145);
+  --color-ok-bg:        oklch(0.68 0.140 145 / 0.16);
+  --color-warn:         oklch(0.72 0.140 80);
+  --color-warn-text:    oklch(0.78 0.130 80);
+  --color-warn-bg:      oklch(0.72 0.140 80 / 0.14);
+  --color-warn-border:  oklch(0.72 0.140 80 / 0.40);
+  --color-error:        oklch(0.72 0.160 30);
+  --color-liked:        oklch(0.68 0.220 25);
+
+  // ── Code ──────────────────────────────────────────────────────────────
+  --color-code-bg:      oklch(0.20 0.012 258);
+  --color-code-text:    oklch(0.88 0.008 80);
+
+  // ── Shadows ───────────────────────────────────────────────────────────
+  --shadow-sm:  0 1px 4px oklch(0 0 0 / 0.30);
+  --shadow-md:  0 4px 16px oklch(0 0 0 / 0.35);
+  --shadow-lg:  0 12px 40px oklch(0 0 0 / 0.50);
+}

@@ -1,6 +1,7 @@
-// ── EditorJS block output — formatting-* classes ─────────────────────────
-// All classes applied by frontend/app/(blog)/article/[articleId]/page.js
-// Do NOT rename these without updating that file.
+// ── EditorJS formatting-* output classes ──────────────────────────────────
+// These classes are applied by the article renderer in:
+//   frontend/app/(blog)/article/[articleId]/page.js
+// Do NOT rename without updating that file.
 
 .formatting-paragraph {
   font-family: var(--font-serif);
@@ -10,7 +11,6 @@
   margin-top: 0;
   margin-bottom: var(--space-5);
 
-  // Inline links inside body copy
   a {
     color: var(--color-text);
     text-decoration: underline;
@@ -18,16 +18,25 @@
     text-decoration-color: var(--color-border-strong);
     transition: text-decoration-color var(--transition-fast);
 
-    &:hover {
-      text-decoration-color: var(--color-text);
-    }
+    &:hover { text-decoration-color: var(--color-text); }
   }
 
   strong { font-weight: 700; }
   em     { font-style: italic; }
-  code   { font-family: var(--font-mono); font-size: 0.875em; }
-  mark   { background-color: #fef9c3; padding: 0 0.15em; border-radius: 2px; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  mark {
+    background: color-mix(in oklch, var(--color-warn-bg), transparent 20%);
+    padding: 0 0.15em;
+    border-radius: 2px;
+  }
 }
+
+// ── Headers ───────────────────────────────────────────────────────────────
 
 .formatting-header {
   font-family: var(--font-sans);
@@ -46,7 +55,7 @@
   &.h6, &:is(h6) { font-size: var(--text-base); font-weight: 700; }
 }
 
-// ── Lists ──────────────────────────────────────────────────────────────────
+// ── Lists ─────────────────────────────────────────────────────────────────
 
 .formatting-list-unordered,
 .formatting-list-ordered {
@@ -57,10 +66,10 @@
   padding-left: var(--space-6);
   margin-bottom: var(--space-5);
 
-  li {
-    margin-bottom: var(--space-2);
-  }
+  li { margin-bottom: var(--space-2); }
 }
+
+// ── Checklist ─────────────────────────────────────────────────────────────
 
 .formatting-checklist {
   list-style: none;
@@ -88,21 +97,21 @@
   }
 
   &.checked {
-    color: var(--color-text-secondary);
+    color: var(--color-text-2);
     text-decoration: line-through;
   }
 }
 
-// ── Callout blocks ─────────────────────────────────────────────────────────
+// ── Warning block ─────────────────────────────────────────────────────────
 
 .formatting-warning {
-  background-color: var(--color-warning-bg);
-  border: 1px solid var(--color-warning-border);
-  border-radius: var(--radius-lg);
+  background: var(--color-warn-bg);
+  border: 1px solid var(--color-warn-border);
+  border-radius: var(--radius-md);
   padding: var(--space-4) var(--space-5);
   margin-bottom: var(--space-5);
   font-size: var(--text-sm);
-  color: var(--color-warning-text);
+  color: var(--color-warn-text);
 
   strong {
     display: block;
@@ -113,17 +122,38 @@
 
   p {
     margin: 0;
-    color: var(--color-warning-text);
+    color: var(--color-warn-text);
     font-family: var(--font-sans);
     font-size: var(--text-sm);
     line-height: 1.6;
   }
 }
 
-// ── Quote ──────────────────────────────────────────────────────────────────
+// ── Alert blocks ──────────────────────────────────────────────────────────
+
+.formatting-alert {
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: var(--space-5);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  border-left: 4px solid transparent;
+
+  &--info      { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+  &--success   { background: #f0fdf4; border-color: #22c55e; color: #166534; }
+  &--warning   { background: var(--color-warn-bg); border-color: var(--color-warn-border); color: var(--color-warn-text); }
+  &--danger    { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
+  &--primary   { background: #f5f3ff; border-color: #8b5cf6; color: #4c1d95; }
+  &--secondary { background: #f8fafc; border-color: #94a3b8; color: #334155; }
+  &--dark      { background: #1e293b; border-color: #475569; color: #e2e8f0; }
+  &--light     { background: #f8fafc; border-color: #e2e8f0; color: #475569; }
+}
+
+// ── Quote ─────────────────────────────────────────────────────────────────
 
 .formatting-quote {
-  border-left: 3px solid var(--color-quote-border);
+  border-left: 3px solid var(--color-text);
   margin: var(--space-8) 0;
   padding: var(--space-2) var(--space-8);
 
@@ -139,7 +169,7 @@
   cite {
     font-family: var(--font-sans);
     font-size: var(--text-sm);
-    color: var(--color-text-tertiary);
+    color: var(--color-text-3);
     font-style: normal;
   }
 }
@@ -147,8 +177,8 @@
 // ── Code block ────────────────────────────────────────────────────────────
 
 .formatting-code {
-  background-color: var(--color-code-bg);
-  border-radius: var(--radius-lg);
+  background: var(--color-code-bg);
+  border-radius: var(--radius-md);
   padding: var(--space-5) var(--space-6);
   margin-bottom: var(--space-5);
   overflow-x: auto;
@@ -165,7 +195,7 @@
   }
 }
 
-// ── Delimiter ──────────────────────────────────────────────────────────────
+// ── Delimiter ─────────────────────────────────────────────────────────────
 
 .formatting-delimiter {
   border: none;
@@ -174,13 +204,11 @@
   width: 50%;
 }
 
-// ── Raw HTML ───────────────────────────────────────────────────────────────
+// ── Raw HTML ──────────────────────────────────────────────────────────────
 
-.formatting-raw {
-  margin-bottom: var(--space-5);
-}
+.formatting-raw { margin-bottom: var(--space-5); }
 
-// ── Table ──────────────────────────────────────────────────────────────────
+// ── Table ─────────────────────────────────────────────────────────────────
 
 .formatting-table {
   width: 100%;
@@ -190,12 +218,12 @@
   font-family: var(--font-sans);
 
   th {
-    background-color: var(--color-bg-subtle);
+    background: var(--color-bg-subtle);
     font-weight: 600;
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--color-text-secondary);
+    color: var(--color-text-2);
     padding: var(--space-3) var(--space-4);
     border-bottom: 2px solid var(--color-border);
     text-align: left;
@@ -210,32 +238,10 @@
     vertical-align: top;
   }
 
-  tr:last-child td {
-    border-bottom: none;
-  }
+  tr:last-child td { border-bottom: none; }
 }
 
-// ── Embed ─────────────────────────────────────────────────────────────────
-
-.embed-block {
-  margin: var(--space-8) 0;
-  text-align: center;
-
-  iframe {
-    max-width: 100%;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-  }
-
-  figcaption {
-    margin-top: var(--space-2);
-    font-size: var(--text-sm);
-    color: var(--color-text-tertiary);
-    font-style: italic;
-  }
-}
-
-// ── Image ─────────────────────────────────────────────────────────────────
+// ── Image & embed blocks ──────────────────────────────────────────────────
 
 .image-block {
   margin: var(--space-8) 0;
@@ -243,15 +249,33 @@
 
   img {
     max-width: 100%;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
   }
 
   figcaption {
     margin-top: var(--space-2);
     font-size: var(--text-sm);
-    color: var(--color-text-tertiary);
+    color: var(--color-text-3);
     font-style: italic;
     text-align: center;
+  }
+}
+
+.embed-block {
+  margin: var(--space-8) 0;
+  text-align: center;
+
+  iframe {
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-3);
+    font-style: italic;
   }
 }

@@ -1,4 +1,4 @@
-// ── Forms — inputs, labels, auth pages, admin settings ────────────────────
+// ── Form controls ──────────────────────────────────────────────────────────
 
 label {
   font-size: var(--text-sm);
@@ -16,191 +16,159 @@ select {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   outline: none;
   transition:
     border-color var(--transition-fast),
-    box-shadow   var(--transition-fast);
+    box-shadow var(--transition-fast);
 
-  &::placeholder {
-    color: var(--color-text-tertiary);
-  }
+  &::placeholder { color: var(--color-text-4); }
 
   &:focus {
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-focus-ring);
+    box-shadow: 0 0 0 3px var(--color-focus);
   }
 
   &:disabled {
-    background-color: var(--color-bg-muted);
+    background: var(--color-bg-muted);
     opacity: 0.6;
     cursor: not-allowed;
   }
 }
 
 textarea {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   line-height: 1.6;
   resize: vertical;
 }
 
-// ── Auth page forms ────────────────────────────────────────────────────────
+// ── .field — underline style used in auth & profile forms ────────────────
 
-.auth-main {
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
 
-  form {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8) var(--space-8);
-    box-shadow: var(--shadow-sm);
-  }
-
-  h2 {
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    margin-bottom: var(--space-6);
-    text-align: center;
-    letter-spacing: -0.02em;
-  }
-
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-base);
-  }
-
-  button[type="submit"] {
-    width: 100%;
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-base);
+  label {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
     font-weight: 600;
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-accent-fg);
-    border-radius: var(--radius-full);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-3);
+  }
 
-    &:hover:not(:disabled) {
-      background-color: var(--color-accent-hover);
-      border-color: var(--color-accent-hover);
+  input {
+    font-family: var(--font-serif);
+    font-size: 16.5px;
+    padding: 9px 0;
+    border: 0;
+    border-bottom: 1.5px solid var(--color-border);
+    background: transparent;
+    outline: 0;
+    color: var(--color-text);
+    transition: border-color var(--transition-fast);
+    border-radius: 0;
+    box-shadow: none;
+
+    &:focus {
+      border-bottom-color: var(--color-accent);
+      box-shadow: none;
     }
   }
 
-  p {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    text-align: center;
-    margin-bottom: 0;
-
-    a {
-      color: var(--color-accent);
-      font-weight: 500;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  // Registration success card
-  > div {
-    text-align: center;
-
-    h2 {
-      font-size: var(--text-2xl);
-    }
-
-    a {
-      color: var(--color-accent);
-      font-weight: 500;
-    }
-  }
+  .hint { font-family: var(--font-sans); font-size: 12px; color: var(--color-text-4); }
 }
 
-// ── Admin settings form ────────────────────────────────────────────────────
-
-.admin-settings-form {
-  background-color: var(--color-admin-card-bg);
-  border: 1px solid var(--color-admin-card-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-
-  input[type="text"],
-  input[type="url"] {
-    padding: var(--space-2) var(--space-3);
-  }
-
-  button[type="submit"] {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-accent-fg);
-
-    &:hover:not(:disabled) {
-      background-color: var(--color-accent-hover);
-      border-color: var(--color-accent-hover);
-    }
-  }
-}
-
-.upload-hint {
-  font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
-  margin: var(--space-1) 0 0;
-}
-
-.msg-success {
-  font-size: var(--text-sm);
-  color: var(--color-success);
-  font-weight: 500;
-}
-
-.logo-preview {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2);
-  background-color: var(--color-bg-subtle);
-}
-
-// ── Comment form ───────────────────────────────────────────────────────────
+// ── Comment form ──────────────────────────────────────────────────────────
 
 .comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: 18px;
 
   textarea {
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-sm);
-    background-color: var(--color-bg-subtle);
-    border-radius: var(--radius-lg);
+    width: 100%;
+    resize: vertical;
+    padding: var(--space-2) var(--space-3);
+    min-height: 72px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-subtle);
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--color-text);
+    outline: 0;
 
-    &:focus {
-      background-color: var(--color-bg);
-    }
+    &:focus { border-color: var(--color-accent); box-shadow: none; }
   }
+
+  button { align-self: flex-end; padding: 6px 16px; cursor: pointer; }
 }
 
-// ── Search page inline form ────────────────────────────────────────────────
+// ── Search page form ──────────────────────────────────────────────────────
 
-.search-page {
-
-  form input[type="text"],
-  form input {
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    background-color: var(--color-bg-muted);
-    border-color: transparent;
-    font-size: var(--text-base);
-
-    &:focus {
-      background-color: var(--color-bg);
-      border-color: var(--color-border-strong);
-    }
-  }
-
-  form button {
-    border-radius: var(--radius-full);
-    padding: var(--space-2) var(--space-5);
-    font-size: var(--text-sm);
-  }
+.search-page form {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: 36px;
 }
+
+.search-page input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--color-text);
+  outline: 0;
+
+  &:focus { border-color: var(--color-accent); box-shadow: none; }
+}
+
+// ── Profile fields (underline style) ─────────────────────────────────────
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-text-3);
+  }
+
+  input,
+  select,
+  textarea {
+    font-family: var(--font-serif);
+    font-size: 15.5px;
+    color: var(--color-text);
+    border: 0;
+    border-bottom: 1.5px solid var(--color-border);
+    background: transparent;
+    outline: 0;
+    padding: 7px 0;
+    border-radius: 0;
+    transition: border-color var(--transition-fast);
+    box-shadow: none;
+    resize: none;
+
+    &:focus { border-bottom-color: var(--color-accent); box-shadow: none; }
+  }
+
+  textarea { resize: vertical; min-height: 100px; }
+}
+
+.profile-field-full { grid-column: 1 / -1; }

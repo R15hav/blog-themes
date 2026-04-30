@@ -1,53 +1,95 @@
-// ── Buttons ───────────────────────────────────────────────────────────────
+// ── Buttons ────────────────────────────────────────────────────────────────
 
-button,
-input[type="submit"],
-input[type="button"] {
+.btn {
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  font-size: 13.5px;
   font-weight: 500;
-  line-height: 1;
-  cursor: pointer;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
-  padding: var(--space-2) var(--space-5);
-  border: 1px solid var(--color-border-strong);
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
   transition:
-    background-color var(--transition-fast),
-    border-color     var(--transition-fast),
-    color            var(--transition-fast),
-    box-shadow       var(--transition-fast);
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
 
-  &:hover:not(:disabled) {
-    background-color: var(--color-bg-muted);
-    border-color: var(--color-text);
-  }
+  &:disabled { opacity: 0.38; cursor: not-allowed; pointer-events: none; }
+}
 
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--color-focus-ring);
-  }
+.btn-primary {
+  background: var(--color-text);
+  color: var(--color-bg);
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  &:hover { background: var(--color-text-2); }
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-2);
+  border-color: var(--color-border);
+
+  &:hover { color: var(--color-text); border-color: var(--color-text-3); }
+}
+
+.btn-sm { padding: 6px 12px; font-size: 12.5px; }
+
+// ── Icon button ───────────────────────────────────────────────────────────
+
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+
+  &:hover {
+    background: var(--color-bg-subtle);
+    border-color: var(--color-border);
+    color: var(--color-text);
   }
 }
 
-// ── Primary / accent button ────────────────────────────────────────────────
-// Used for: form submit actions (Save, Post, etc.)
+// ── Rail buttons (article reading sidebar) ────────────────────────────────
 
-form[class*="settings"] button[type="submit"],
-form[class*="comment"] button[type="submit"],
-.comment-form button {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-accent-fg);
+.rail-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-2);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
 
-  &:hover:not(:disabled) {
-    background-color: var(--color-accent-hover);
-    border-color: var(--color-accent-hover);
-    color: var(--color-accent-fg);
-  }
+  &:hover { border-color: var(--color-text-3); color: var(--color-text); }
+}
+
+.rail-read {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-4);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.rail-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--color-border-soft);
 }

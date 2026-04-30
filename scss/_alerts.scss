@@ -1,33 +1,96 @@
-// ── Alerts and status states ──────────────────────────────────────────────
+// ── Alerts, status badges, feedback messages ──────────────────────────────
 
 [role="alert"] {
   font-size: var(--text-sm);
   color: var(--color-error);
-  background-color: #fef2f2;    // tailwind red-50
-  border: 1px solid #fecaca;    // tailwind red-200
-  border-radius: var(--radius-lg);
+  background: color-mix(in oklch, var(--color-error), var(--color-bg) 92%);
+  border: 1px solid color-mix(in oklch, var(--color-error), transparent 70%);
+  border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
   margin: var(--space-2) 0;
   line-height: 1.5;
 }
 
-.loading-indicator {
-  color: var(--color-text-tertiary);
-  font-size: var(--text-sm);
-  text-align: center;
-  padding: var(--space-4) 0;
+.msg-success { color: var(--color-ok-text);  font-family: var(--font-sans); font-size: 13.5px; }
+.msg-error   { color: var(--color-warn-text); font-family: var(--font-sans); font-size: 13.5px; }
 
-  // Subtle pulsing animation
-  animation: pulse 1.5s ease-in-out infinite;
+// ── Admin status badges ───────────────────────────────────────────────────
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1;   }
-    50%       { opacity: 0.5; }
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-2);
+  background: var(--color-bg);
+
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  &.ok {
+    color: var(--color-ok-text);
+    border-color: color-mix(in oklch, var(--color-ok), transparent 70%);
+    background: var(--color-ok-bg);
+  }
+
+  &.warn {
+    color: var(--color-warn-text);
+    border-color: color-mix(in oklch, var(--color-warn), transparent 70%);
+    background: color-mix(in oklch, var(--color-warn), var(--color-bg) 92%);
+  }
+
+  &.accent {
+    color: var(--color-accent-text);
+    border-color: color-mix(in oklch, var(--color-accent), transparent 70%);
+    background: var(--color-accent-bg);
   }
 }
 
+// ── Dashboard publish badges ──────────────────────────────────────────────
+
+.dash-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+
+  &.published {
+    background: var(--color-ok-bg);
+    color: var(--color-ok-text);
+  }
+
+  &.draft {
+    background: var(--color-bg-muted);
+    color: var(--color-text-3);
+    border: 1px solid var(--color-border);
+  }
+}
+
+// ── Loading / end-of-feed ─────────────────────────────────────────────────
+
+.loading-indicator {
+  color: var(--color-text-3);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--space-4) 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.5; }
+}
+
 .end-of-feed {
-  color: var(--color-text-tertiary);
+  color: var(--color-text-3);
   font-size: var(--text-sm);
   text-align: center;
   padding: var(--space-6) 0;
@@ -40,22 +103,17 @@
   }
 }
 
-.comments-empty {
-  color: var(--color-text-tertiary);
-  font-size: var(--text-sm);
-  font-style: italic;
+.comments-empty,
+.comment-login {
+  padding: var(--space-2) 0;
+  color: var(--color-text-3);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
 }
 
-.comment-login {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+.comment-login a {
+  color: var(--color-accent-text);
+  font-weight: 500;
 
-  a {
-    color: var(--color-accent);
-    font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  &:hover { text-decoration: underline; }
 }

@@ -1,28 +1,100 @@
-// ── Page shell ────────────────────────────────────────────────────────────
+// ── Layout — header, footer, page wrappers ────────────────────────────────
 
 header {
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
 
 footer {
-  color: var(--color-text-tertiary);
+  color: var(--color-text-3);
   font-size: var(--text-sm);
   border-top: 1px solid var(--color-border);
 }
 
-// ── Admin shell ───────────────────────────────────────────────────────────
-// Admin layout has no <header> — its pages own their full background.
-
-.admin-dashboard,
-.admin-page {
-  background-color: var(--color-admin-bg);
-  min-height: 100vh;
-}
-
-// ── Divider utility ───────────────────────────────────────────────────────
-
 .divider {
   border: none;
   border-top: 1px solid var(--color-border);
+}
+
+// ── Wordmark — shared across blog nav, auth nav, admin sidebar ────────────
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  text-decoration: none;
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    display: inline-block;
+    transform: translateY(-3px);
+  }
+}
+
+// ── Avatar — shared across all route groups ───────────────────────────────
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-text-2);
+
+  &.sm { width: 26px; height: 26px; font-size: 10px; }
+  &.lg { width: 52px; height: 52px; font-size: 16px; }
+}
+
+// ── Tag & meta chips — shared ─────────────────────────────────────────────
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+  background: var(--color-accent-bg);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+
+.meta        { font-family: var(--font-sans); font-size: 13px; color: var(--color-text-3); }
+.meta-mono   { font-family: var(--font-mono); font-size: 11.5px; color: var(--color-text-3); letter-spacing: 0.02em; }
+.dot-sep     { width: 3px; height: 3px; border-radius: 50%; background: var(--color-text-4); display: inline-block; flex-shrink: 0; }
+.byline-name { font-family: var(--font-sans); font-weight: 600; font-size: 14px; color: var(--color-text); }
+.byline-meta {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--color-text-3);
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+// ── Loading / utility ─────────────────────────────────────────────────────
+
+.loading-indicator,
+.end-of-feed {
+  padding: var(--space-3) 0;
+  color: var(--color-text-3);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
 }

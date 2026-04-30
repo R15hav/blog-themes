@@ -1,6 +1,7 @@
 // ── Default theme entry point ─────────────────────────────────────────────
 // Compiled to default.css by: npm run build
-// Visual layer only — layout/spacing structure lives in the frontend globals.css.
+// All tokens are defined in scss/_variables.scss — edit there to change
+// colours, fonts, radii, and spacing across the entire site.
 
 @use 'scss/variables';
 @use 'scss/base';
@@ -15,5 +16,7 @@
 @use 'scss/article';
 @use 'scss/formatting';
 @use 'scss/editor';
-@use 'scss/admin-dashboard';
+@use 'scss/admin';
+@use 'scss/auth';
+@use 'scss/profile';
 @use 'scss/responsive';

@@ -1,4 +1,7 @@
-// ── Element defaults ──────────────────────────────────────────────────────
+// ── Base element defaults ──────────────────────────────────────────────────
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
 html {
   font-size: 16px;
@@ -8,48 +11,16 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  line-height: 1.6;
+  font-family: var(--font-serif);
+  font-feature-settings: "kern", "liga", "onum";
+  min-height: 100vh;
 }
 
-// ── Headings ──────────────────────────────────────────────────────────────
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-text);
-  letter-spacing: -0.02em;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-
-    &:hover {
-      color: var(--color-text);
-      text-decoration: none;
-      opacity: 0.75;
-    }
-  }
-}
-
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-3xl); }
-h3 { font-size: var(--text-2xl); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
-h6 { font-size: var(--text-base); font-weight: 600; }
-
-// ── Body copy ──────────────────────────────────────────────────────────────
-
-p {
-  margin-top: 0;
-  margin-bottom: var(--space-4);
-  line-height: 1.75;
-  color: var(--color-text);
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -57,9 +28,7 @@ a {
   text-decoration: none;
   transition: color var(--transition-fast), opacity var(--transition-fast);
 
-  &:hover {
-    color: var(--color-link-hover);
-  }
+  &:hover { color: var(--color-link-hover); }
 
   &:focus-visible {
     outline: 2px solid var(--color-accent);
@@ -68,15 +37,8 @@ a {
   }
 }
 
-strong, b {
-  font-weight: 700;
-}
-
-em, i {
-  font-style: italic;
-}
-
-// ── Horizontal rule ────────────────────────────────────────────────────────
+strong, b { font-weight: 700; }
+em, i     { font-style: italic; }
 
 hr {
   border: none;
@@ -84,23 +46,21 @@ hr {
   margin: var(--space-6) 0;
 }
 
-// ── Code ──────────────────────────────────────────────────────────────────
-
 code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background-color: var(--color-code-bg);
+  background: var(--color-code-bg);
   color: var(--color-code-text);
   padding: 0.1em 0.35em;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 pre {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  background-color: var(--color-code-bg);
+  background: var(--color-code-bg);
   color: var(--color-code-text);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   padding: var(--space-4) var(--space-5);
   overflow-x: auto;
   line-height: 1.6;
@@ -114,64 +74,22 @@ pre {
   }
 }
 
-// ── Lists ─────────────────────────────────────────────────────────────────
-
-ul, ol {
-  padding-left: var(--space-6);
-  margin-bottom: var(--space-4);
-
-  li {
-    margin-bottom: var(--space-1);
-    line-height: 1.7;
-  }
-}
-
-// ── Blockquote ────────────────────────────────────────────────────────────
-
 blockquote {
-  border-left: 3px solid var(--color-quote-border);
-  margin: var(--space-6) 0;
-  padding: var(--space-2) var(--space-6);
+  border-left: 3px solid var(--color-accent);
+  padding: 4px 0 4px var(--space-5);
+  margin: var(--space-8) 0;
+  font-family: var(--font-serif);
   font-style: italic;
-  color: var(--color-text-secondary);
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--color-text-2);
 
-  p {
-    margin: 0;
-  }
-
-  cite {
+  p       { margin: 0; }
+  cite    {
     display: block;
     margin-top: var(--space-2);
     font-size: var(--text-sm);
     font-style: normal;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-3);
   }
-}
-
-// ── Images ────────────────────────────────────────────────────────────────
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-}
-
-// ── Tables ────────────────────────────────────────────────────────────────
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: var(--text-sm);
-}
-
-th {
-  font-weight: 600;
-  color: var(--color-text);
-  text-align: left;
-  border-bottom: 2px solid var(--color-border);
-}
-
-td {
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
 }
