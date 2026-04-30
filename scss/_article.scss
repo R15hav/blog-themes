@@ -1,0 +1,59 @@
+// ============================================================
+//  Article Reading Page
+//  Styles for the article title, publication date, back
+//  button, and the .article-body content wrapper.
+//  The individual EditorJS block styles live in _formatting.scss.
+// ============================================================
+
+// ── Article title ────────────────────────────────────────────
+
+article > h1 {
+  max-width:      var(--content-w);
+  margin:         0 auto 16px;
+  font-size:      46px;
+  font-weight:    700;
+  font-family:    var(--font-sans);
+  letter-spacing: -0.7px;
+  line-height:    1.1;
+}
+
+// ── Publication date ─────────────────────────────────────────
+
+article > p {
+  max-width:   var(--content-w);
+  margin:      0 auto 32px;
+  font-family: var(--font-sans);
+  font-size:   13px;
+  color:       var(--subtle);
+}
+
+// ── Back button / nav link inside article ────────────────────
+
+article {
+  a[href^="/"],
+  button {
+    display:         inline-flex;
+    align-items:     center;
+    gap:             6px;
+    font-family:     var(--font-sans);
+    font-size:       14px;
+    color:           var(--muted);
+    background:      transparent;
+    border:          none;
+    padding:         0;
+    margin:          0 auto 32px;
+    max-width:       var(--content-w);
+    display:         block;
+    cursor:          pointer;
+    text-decoration: none;
+
+    &:hover { color: var(--text); }
+  }
+}
+
+// ── Article body container ────────────────────────────────────
+
+.article-body {
+  max-width: var(--content-w);
+  margin:    0 auto;
+}

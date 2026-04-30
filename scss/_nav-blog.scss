@@ -1,0 +1,119 @@
+// ============================================================
+//  Blog Header Navigation  (NavLinks + AuthNav components)
+//  Covers the sticky top nav used on blog + auth pages.
+// ============================================================
+
+header {
+  nav {
+    max-width:   var(--max-w);
+    width:       100%;
+    margin:      0 auto;
+    display:     flex;
+    align-items: center;
+    gap:         0;
+
+    // Spacer spans rendered between links
+    span { display: none; }
+
+    // ── Logo / home link ──────────────────────────────────────
+    a.nav-home {
+      font-family:     var(--font-sans);
+      font-size:       26px;
+      font-weight:     700;
+      letter-spacing:  -1px;
+      color:           var(--text);
+      text-decoration: none;
+      margin-right:    auto;
+
+      // "M" circle logo rendered via pseudo-element
+      &::before {
+        content:         "M";
+        display:         inline-flex;
+        align-items:     center;
+        justify-content: center;
+        width:           36px;
+        height:          36px;
+        background:      var(--text);
+        color:           #fff;
+        border-radius:   50%;
+        font-size:       22px;
+        font-weight:     800;
+        letter-spacing:  0;
+        margin-right:    0;
+        font-family:     var(--font-sans);
+      }
+
+      span { display: none; }
+    }
+
+    // ── Regular nav links ─────────────────────────────────────
+    a:not(.nav-home) {
+      font-family:     var(--font-sans);
+      font-size:       14px;
+      color:           var(--text);
+      text-decoration: none;
+      font-weight:     400;
+      padding:         8px 16px;
+      border-radius:   99px;
+      transition:      background 0.15s;
+      white-space:     nowrap;
+
+      &:hover { background: rgba(0, 0, 0, 0.05); }
+    }
+
+    // Login — filled pill button
+    a[href="/login"] {
+      background:   var(--text);
+      color:        #fff;
+      font-weight:  500;
+      padding:      8px 20px;
+      margin-left:  8px;
+
+      &:hover { background: #3d3d3d; }
+    }
+
+    // Register — plain link
+    a[href="/register"] {
+      color:       var(--text);
+      margin-left: 4px;
+    }
+
+    // Logout button
+    button.btn-logout {
+      background:   transparent;
+      color:        var(--muted);
+      border:       none;
+      font-family:  var(--font-sans);
+      font-size:    14px;
+      font-weight:  400;
+      padding:      8px 16px;
+      border-radius: 99px;
+      cursor:       pointer;
+      margin-left:  4px;
+      transition:   background 0.15s;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color:      var(--text);
+      }
+    }
+
+    // Back button in nav context
+    button.btn-back {
+      background:  transparent;
+      color:       var(--muted);
+      border:      none;
+      font-family: var(--font-sans);
+      font-size:   14px;
+      padding:     8px 12px;
+      border-radius: 99px;
+      cursor:      pointer;
+      transition:  background 0.15s;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color:      var(--text);
+      }
+    }
+  }
+}

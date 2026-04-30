@@ -1,0 +1,34 @@
+// ============================================================
+//  Tables  (admin pages: users, articles, theme management)
+//  These are the base bare-element table styles. The content
+//  article table (.formatting-table) lives in _formatting.scss.
+// ============================================================
+
+table {
+  width:           100%;
+  border-collapse: collapse;
+  font-family:     var(--font-sans);
+  font-size:       14px;
+  margin-top:      16px;
+}
+
+th {
+  text-align:      left;
+  padding:         12px 16px;
+  border-bottom:   2px solid var(--text);
+  font-weight:     600;
+  font-size:       12px;
+  text-transform:  uppercase;
+  letter-spacing:  0.06em;
+  color:           var(--muted);
+  background:      transparent;
+}
+
+td {
+  padding:        12px 16px;
+  border-bottom:  1px solid var(--border-light);
+  vertical-align: middle;
+  color:          var(--text);
+}
+
+tr:hover td { background: #fafafa; }

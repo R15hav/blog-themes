@@ -1,0 +1,48 @@
+// ============================================================
+//  Layout
+//  Page shell: sticky header, main content area, footer,
+//  and the .divider utility used throughout.
+// ============================================================
+
+// ── Header ───────────────────────────────────────────────────
+
+header {
+  position:      sticky;
+  top:           0;
+  z-index:       100;
+  background:    var(--bg);
+  border-bottom: 1px solid var(--border-light);
+  height:        65px;
+  display:       flex;
+  align-items:   center;
+  padding:       0 24px;
+}
+
+// ── Main ─────────────────────────────────────────────────────
+
+main {
+  max-width:  var(--max-w);
+  margin:     0 auto;
+  padding:    48px 24px 80px;
+  min-height: calc(100vh - 65px);
+}
+
+// ── Footer ───────────────────────────────────────────────────
+
+footer {
+  border-top:  1px solid var(--border-light);
+  padding:     24px;
+  text-align:  center;
+  font-family: var(--font-sans);
+  font-size:   13px;
+  color:       var(--subtle);
+}
+
+// ── Divider utility ──────────────────────────────────────────
+
+.divider {
+  height:     1px;
+  background: var(--border-light);
+  margin:     32px auto;
+  max-width:  var(--content-w);
+}

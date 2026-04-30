@@ -1,0 +1,35 @@
+// ============================================================
+//  Buttons
+//  Base button styles + the green primary/submit variant.
+//  The nav-specific back/logout button overrides live in
+//  _nav-blog.scss and _nav-admin.scss respectively.
+// ============================================================
+
+button,
+input[type="submit"] {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         10px 24px;
+  background:      var(--text);
+  color:           #fff;
+  border:          none;
+  border-radius:   99px;
+  font-family:     var(--font-sans);
+  font-size:       14px;
+  font-weight:     500;
+  cursor:          pointer;
+  transition:      background 0.15s;
+  letter-spacing:  0.01em;
+
+  &:hover    { background: #3d3d3d; }
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+}
+
+// Primary / submit — green accent
+button[type="submit"],
+input[type="submit"] {
+  background: var(--accent);
+
+  &:hover { background: var(--accent-hover); }
+}

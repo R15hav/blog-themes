@@ -1,0 +1,40 @@
+// ============================================================
+//  Alerts & Status Messages
+//  [role=alert] for errors, plus inline feed state indicators.
+// ============================================================
+
+// ── Error / warning alert ─────────────────────────────────────
+
+[role="alert"] {
+  background:   #fff8f0;
+  color:        #b05c00;
+  border:       1px solid #ffd6a0;
+  border-radius: var(--radius);
+  padding:      12px 16px;
+  font-family:  var(--font-sans);
+  font-size:    14px;
+  max-width:    var(--content-w);
+  margin:       0 auto 16px;
+}
+
+// ── Feed state indicators (home page infinite scroll) ─────────
+
+.loading-indicator {
+  text-align:  center;
+  font-family: var(--font-sans);
+  font-size:   14px;
+  color:       var(--subtle);
+  padding:     16px 0;
+  max-width:   var(--content-w);
+  margin:      0 auto;
+}
+
+.end-of-feed {
+  text-align:  center;
+  font-family: var(--font-sans);
+  font-size:   13px;
+  color:       var(--subtle);
+  padding:     16px 0 0;
+  max-width:   var(--content-w);
+  margin:      0 auto;
+}

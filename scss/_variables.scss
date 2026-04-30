@@ -1,0 +1,42 @@
+// ============================================================
+//  Variables & Reset
+//  All design tokens live here. Change a value once, it
+//  propagates everywhere the variable is used.
+// ============================================================
+
+// ── Box-sizing reset ─────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ── Design tokens ────────────────────────────────────────────
+:root {
+  // Colours
+  --bg:           #ffffff;
+  --surface:      #ffffff;
+  --border:       rgba(0, 0, 0, 0.15);
+  --border-light: #e6e6e6;
+  --text:         #242424;
+  --muted:        #6b6b6b;
+  --subtle:       #9b9b9b;
+  --accent:       #1a8917;
+  --accent-hover: #156812;
+  --danger:       #c05e5e;
+  --success:      #1a8917;
+
+  // Misc
+  --radius: 4px;
+
+  // Typography
+  --font-serif: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans:  sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:  "Courier Prime", Courier, monospace;
+
+  // Layout widths
+  --max-w:     1192px;   // full page max-width
+  --content-w:  680px;   // reading column width
+}

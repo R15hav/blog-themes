@@ -1,0 +1,18 @@
+// ============================================================
+//  Editor.js Holder  (create-article + update-article pages)
+//  Styles the #editorjs container used while writing posts.
+// ============================================================
+
+#editorjs {
+  border:        none !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  border-radius: 0;
+  min-height:    300px;
+  padding:       0 !important;
+  background:    transparent;
+  font-family:   var(--font-serif);
+  font-size:     20px;
+  line-height:   1.8;
+  max-width:     var(--content-w);
+  margin:        0 auto;
+}
