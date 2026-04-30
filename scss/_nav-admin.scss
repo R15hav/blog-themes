@@ -1,55 +1,32 @@
-// ============================================================
-//  Admin Navigation  (AdminGuard component)
-//  Dark top bar rendered as body > nav on all admin pages.
-// ============================================================
+// ── Admin navigation ──────────────────────────────────────────────────────
+// The admin layout has no <header>. This file styles any nav-like elements
+// rendered inside admin pages (e.g. tab bars, breadcrumb links).
 
-body > nav {
-  background:  #242424;
-  color:       #e2e8f0;
-  padding:     0 24px;
-  height:      52px;
-  display:     flex;
-  gap:         8px;
-  align-items: center;
-  font-family: var(--font-sans);
-  font-size:   14px;
-  font-weight: 500;
-  flex-wrap:   wrap;
+.admin-dashboard,
+.admin-page {
+
+  h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
 
   a {
-    color:           #a8a8a8;
+    color: var(--color-accent);
     text-decoration: none;
-    padding:         6px 12px;
-    border-radius:   4px;
-    transition:      background 0.15s, color 0.15s;
 
     &:hover {
-      color:      #fff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-  }
-
-  strong {
-    color:        #fff;
-    font-size:    15px;
-    margin-right: 8px;
-  }
-
-  // Back button inside admin nav
-  button.btn-back {
-    background:   transparent;
-    color:        #a8a8a8;
-    border:       none;
-    font-family:  var(--font-sans);
-    font-size:    14px;
-    padding:      6px 12px;
-    border-radius: 4px;
-    cursor:       pointer;
-    transition:   background 0.15s, color 0.15s;
-
-    &:hover {
-      color:      #fff;
-      background: rgba(255, 255, 255, 0.08);
+      text-decoration: underline;
     }
   }
 }

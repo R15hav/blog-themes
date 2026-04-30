@@ -1,111 +1,81 @@
-// ============================================================
-//  Responsive Breakpoints
-//  Two breakpoints cover every page in the app.
-//  Edit values here — no need to hunt through other partials.
-// ============================================================
+// ── Responsive breakpoints ────────────────────────────────────────────────
 
-// ── Tablet + large phones (≤ 768px) ──────────────────────────
+// ── Tablet / large phone — ≤ 768 px ──────────────────────────────────────
 
 @media (max-width: 768px) {
 
-  // Header
-  header {
-    padding: 0 16px;
-    height:  57px;
+  .article-page > h1 {
+    font-size: var(--text-4xl);
   }
 
-  // Nav — allow links to wrap to a second line on small screens
-  header nav {
-    flex-wrap: wrap;
-    gap:       4px;
-
-    a.nav-home::before {
-      width:     30px;
-      height:    30px;
-      font-size: 18px;
-    }
-
-    // Collapse search pill to icon-only on mobile
-    .nav-search {
-      width:  42px;
-      margin: 0 8px;
-
-      input { display: none; }
-    }
+  .formatting-quote p {
+    font-size: var(--text-xl);
   }
 
-  // Article interactions — stack reactions and shrink avatar
-  .article-author__avatar {
-    width:     32px;
-    height:    32px;
-    font-size: 13px;
-  }
-
-  .article-reactions {
-    flex-wrap: wrap;
-    gap:       8px;
-  }
-
-  // Main content area
-  main { padding: 32px 16px 60px; }
-
-  // Global headings
-  h1 { font-size: 28px; }
-
-  // Article reading title
-  article > h1 { font-size: 32px; }
-
-  // Search bar goes full width
-  form[action="/search-article"] { max-width: 100%; }
-
-  // Generic auth/admin forms go full width
-  form { max-width: 100%; }
-
-  // Admin tables: allow horizontal scroll so columns don't crush
-  table {
-    display:    block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  // EditorJS holder
-  #editorjs { font-size: 18px; }
-
-  // Formatting blocks
   .formatting-paragraph,
   .formatting-list-unordered,
   .formatting-list-ordered,
-  .formatting-checklist-item,
-  .formatting-quote p {
-    font-size: 18px;
+  .formatting-checklist-item {
+    font-size: var(--text-base);
   }
 
-  .formatting-code code { font-size: 13px; }
+  .article-body {
+    font-size: var(--text-base);
+  }
+
+  .auth-main form,
+  .auth-main > div {
+    max-width: 100%;
+  }
+
+  .editor-title {
+    font-size: var(--text-2xl);
+  }
 }
 
-// ── Phones (≤ 480px) ─────────────────────────────────────────
+// ── Phone — ≤ 480 px ──────────────────────────────────────────────────────
 
 @media (max-width: 480px) {
 
-  // Tighter headings on small screens
-  h1            { font-size: 22px; }
-  article > h1  { font-size: 26px; }
-
-  // Slightly smaller body text for narrow viewports
-  .formatting-paragraph,
-  .formatting-list-unordered,
-  .formatting-list-ordered,
-  .formatting-checklist-item,
-  .formatting-quote p {
-    font-size: 17px;
+  .article-page > h1 {
+    font-size: var(--text-3xl);
   }
 
-  // Compact footer
-  footer { padding: 16px; }
+  header nav {
+    gap: 0.25rem;
+    padding: var(--space-2) var(--space-4);
 
-  // Tighter reaction buttons on phones
-  .reaction-btn {
-    padding:   5px 10px;
-    font-size: 13px;
+    // Hide search on smallest screens to prevent overflow
+    .nav-search input {
+      min-width: 100px;
+    }
+
+    a.nav-home {
+      font-size: var(--text-lg);
+    }
+  }
+
+  .home-feed article h2 {
+    font-size: var(--text-lg);
+  }
+
+  .stat-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-settings-form {
+    padding: var(--space-4);
+  }
+
+  .auth-main {
+    padding: var(--space-4);
+
+    form {
+      padding: var(--space-5) var(--space-4);
+    }
+  }
+
+  .editor-container {
+    padding: var(--space-4);
   }
 }

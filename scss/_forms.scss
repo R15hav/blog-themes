@@ -1,101 +1,206 @@
-// ============================================================
-//  Forms
-//  Generic form layout, labels, text inputs, and the
-//  search bar (pill style, used on home + search pages).
-// ============================================================
-
-// ── Search bar (pill) ─────────────────────────────────────────
-
-form[action="/search-article"] {
-  display:        flex;
-  flex-direction: row;
-  gap:            0;
-  margin:         0 auto 40px;
-  max-width:      var(--content-w);
-  border:         1px solid var(--border-light);
-  border-radius:  99px;
-  overflow:       hidden;
-  transition:     border-color 0.2s, box-shadow 0.2s;
-
-  &:focus-within {
-    border-color: var(--text);
-    box-shadow:   none;
-  }
-
-  input {
-    flex:        1;
-    border:      none;
-    padding:     12px 20px;
-    font-family: var(--font-sans);
-    font-size:   15px;
-    color:       var(--text);
-    background:  transparent;
-    outline:     none;
-
-    &::placeholder { color: var(--subtle); }
-  }
-
-  button {
-    border:        none;
-    border-left:   1px solid var(--border-light);
-    background:    transparent;
-    color:         var(--muted);
-    font-family:   var(--font-sans);
-    font-size:     14px;
-    font-weight:   500;
-    padding:       0 20px;
-    border-radius: 0;
-    cursor:        pointer;
-    transition:    background 0.15s, color 0.15s;
-
-    &:hover {
-      background: #f5f5f5;
-      color:      var(--text);
-    }
-  }
-}
-
-// ── Generic form layout ───────────────────────────────────────
-
-form {
-  display:        flex;
-  flex-direction: column;
-  gap:            16px;
-  max-width:      400px;
-  margin:         0 auto;
-}
-
-// ── Label ─────────────────────────────────────────────────────
+// ── Forms — inputs, labels, auth pages, admin settings ────────────────────
 
 label {
-  display:        flex;
-  flex-direction: column;
-  gap:            6px;
-  font-family:    var(--font-sans);
-  font-size:      14px;
-  font-weight:    500;
-  color:          var(--text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
 }
-
-// ── Text inputs ───────────────────────────────────────────────
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="url"] {
-  width:       100%;
-  padding:     10px 14px;
-  border:      1px solid var(--border-light);
-  border-radius: var(--radius);
-  font-size:   16px;
+input[type="url"],
+input[type="search"],
+textarea,
+select {
   font-family: var(--font-sans);
-  background:  var(--surface);
-  color:       var(--text);
-  transition:  border-color 0.15s;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow   var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  &:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+
+  &:disabled {
+    background-color: var(--color-bg-muted);
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
-input:focus {
-  outline:      none;
-  border-color: var(--text);
-  box-shadow:   none;
+textarea {
+  border-radius: var(--radius-lg);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+// ── Auth page forms ────────────────────────────────────────────────────────
+
+.auth-main {
+
+  form {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+    font-weight: 600;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-fg);
+    border-radius: var(--radius-full);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+    }
+  }
+
+  p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: 0;
+
+    a {
+      color: var(--color-accent);
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Registration success card
+  > div {
+    text-align: center;
+
+    h2 {
+      font-size: var(--text-2xl);
+    }
+
+    a {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+  }
+}
+
+// ── Admin settings form ────────────────────────────────────────────────────
+
+.admin-settings-form {
+  background-color: var(--color-admin-card-bg);
+  border: 1px solid var(--color-admin-card-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+
+  input[type="text"],
+  input[type="url"] {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  button[type="submit"] {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-fg);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+    }
+  }
+}
+
+.upload-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  margin: var(--space-1) 0 0;
+}
+
+.msg-success {
+  font-size: var(--text-sm);
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.logo-preview {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  background-color: var(--color-bg-subtle);
+}
+
+// ── Comment form ───────────────────────────────────────────────────────────
+
+.comment-form {
+
+  textarea {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-lg);
+
+    &:focus {
+      background-color: var(--color-bg);
+    }
+  }
+}
+
+// ── Search page inline form ────────────────────────────────────────────────
+
+.search-page {
+
+  form input[type="text"],
+  form input {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    background-color: var(--color-bg-muted);
+    border-color: transparent;
+    font-size: var(--text-base);
+
+    &:focus {
+      background-color: var(--color-bg);
+      border-color: var(--color-border-strong);
+    }
+  }
+
+  form button {
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-sm);
+  }
 }

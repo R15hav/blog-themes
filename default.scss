@@ -1,44 +1,19 @@
-// ============================================================
-//  Blog Platform Theme — default
-//
-//  This is the entry file. It only imports partials.
-//  To make changes: edit the relevant partial in scss/,
-//  then rebuild with:
-//
-//    npm run build        (compile once)
-//    npm run watch        (compile on save)
-//
-//  Partial index:
-//    _variables  — design tokens (:root) and box-sizing reset
-//    _base       — html, body, headings, p, a, hr
-//    _layout     — header shell, main, footer, .divider
-//    _nav-blog   — blog + auth top navigation
-//    _nav-admin        — admin dark top bar (body > nav)
-//    _admin-dashboard  — /admin metrics cards + settings form
-//    _buttons          — button and input[type=submit]
-//    _forms      — form layout, labels, inputs, search bar
-//    _tables     — bare table/th/td (admin pages)
-//    _alerts     — [role=alert], .loading-indicator, .end-of-feed
-//    _feed       — article feed cards (home + search)
-//    _article    — article reading page (title, date, back btn)
-//    _formatting — formatting-* classes (EditorJS blocks)
-//    _editor     — #editorjs holder (create/update pages)
-//    _responsive — @media breakpoints (768px + 480px)
-// ============================================================
+// ── Default theme entry point ─────────────────────────────────────────────
+// Compiled to default.css by: npm run build
+// Visual layer only — layout/spacing structure lives in the frontend globals.css.
 
 @use 'scss/variables';
 @use 'scss/base';
 @use 'scss/layout';
 @use 'scss/nav-blog';
 @use 'scss/nav-admin';
-@use 'scss/admin-dashboard';
 @use 'scss/buttons';
 @use 'scss/forms';
 @use 'scss/tables';
 @use 'scss/alerts';
 @use 'scss/feed';
 @use 'scss/article';
-@use 'scss/article-interactions';
 @use 'scss/formatting';
 @use 'scss/editor';
+@use 'scss/admin-dashboard';
 @use 'scss/responsive';

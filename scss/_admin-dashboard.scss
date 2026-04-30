@@ -1,98 +1,47 @@
-// ============================================================
-//  Admin Dashboard Page
-//  Styles for /admin — metrics overview cards and the site
-//  settings form (.admin-settings-form overrides the generic
-//  form layout from _forms.scss).
-// ============================================================
-
-// ── Page wrapper ──────────────────────────────────────────────
+// ── Admin dashboard: stat cards and settings ──────────────────────────────
 
 .admin-dashboard {
-  max-width: 900px;
-  margin:    0 auto;
-  padding:   1.5rem;
+  padding-top: var(--space-8);
 }
-
-// ── Metrics section ───────────────────────────────────────────
 
 .admin-metrics {
-  margin-bottom: 2rem;
+
+  > h2 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    border-bottom: none;
+    margin-bottom: var(--space-4);
+  }
 }
 
+// ── Stat cards grid ────────────────────────────────────────────────────────
+
 .stat-cards {
-  display:    flex;
-  gap:        1rem;
-  flex-wrap:  wrap;
-  margin-top: 1rem;
+  // Grid definition lives in globals.css (layout).
+  // This partial controls the card's visual appearance only.
 }
 
 .stat-card {
-  border:        1px solid var(--border-light);
-  border-radius: 8px;
-  padding:       1.25rem 1.5rem;
-  min-width:     130px;
-  text-align:    center;
+  background-color: var(--color-admin-card-bg);
+  border: 1px solid var(--color-admin-card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .stat-card-value {
-  font-size:   2rem;
-  font-weight: 700;
-  color:       var(--text);
+  color: var(--color-text);
 }
 
 .stat-card-label {
-  font-size:  0.85rem;
-  color:      var(--muted);
-  margin-top: 0.25rem;
-}
-
-// ── Settings form ─────────────────────────────────────────────
-//
-// Overrides the generic form from _forms.scss:
-//  - removes centre margin so it aligns left inside its section
-//  - wider max-width to accommodate URL inputs
-//  - label reset to block (generic label uses flex column)
-
-.admin-settings-form {
-  display:        flex;
-  flex-direction: column;
-  gap:            1rem;
-  max-width:      480px;
-  margin:         0;
-
-  label {
-    display:       block;
-    font-family:   var(--font-sans);
-    font-size:     14px;
-    font-weight:   500;
-    color:         var(--text);
-    margin-bottom: 0.25rem;
-  }
-
-  input[type="file"] {
-    display: block;
-  }
-}
-
-// ── Logo preview ──────────────────────────────────────────────
-
-.logo-preview {
-  max-height: 80px;
-  max-width:  200px;
-  object-fit: contain;
-  display:    block;
-}
-
-// ── Inline hints and status messages ─────────────────────────
-
-.upload-hint {
-  font-size:     0.85rem;
-  color:         var(--muted);
-  margin-bottom: 0.25rem;
-}
-
-.msg-success {
-  color:       var(--success);
-  font-family: var(--font-sans);
-  font-size:   14px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }

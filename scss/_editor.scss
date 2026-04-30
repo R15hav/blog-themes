@@ -1,18 +1,107 @@
-// ============================================================
-//  Editor.js Holder  (create-article + update-article pages)
-//  Styles the #editorjs container used while writing posts.
-// ============================================================
+// ── EditorJS write / edit page ────────────────────────────────────────────
 
-#editorjs {
-  border:        none !important;
-  border-bottom: 1px solid var(--border-light) !important;
+.editor-container {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.editor-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--color-border);
   border-radius: 0;
-  min-height:    300px;
-  padding:       0 !important;
-  background:    transparent;
-  font-family:   var(--font-serif);
-  font-size:     20px;
-  line-height:   1.8;
-  max-width:     var(--content-w);
-  margin:        0 auto;
+  outline: none;
+  padding-bottom: var(--space-3);
+  padding-left: 0;
+  padding-right: 0;
+  transition: border-color var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  &:focus {
+    border-bottom-color: var(--color-text);
+    box-shadow: none;
+  }
+}
+
+.editor-publish-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] {
+    accent-color: var(--color-accent);
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.editor-body,
+#editorjs {
+  min-height: 300px;
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  transition: border-color var(--transition-fast);
+
+  &:focus-within {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+
+  // EditorJS internal placeholder
+  .ce-paragraph[data-placeholder]:empty::before {
+    color: var(--color-text-tertiary);
+  }
+
+  // EditorJS toolbar
+  .ce-toolbar__plus,
+  .ce-toolbar__settings-btn {
+    color: var(--color-text-secondary);
+
+    &:hover {
+      color: var(--color-text);
+      background-color: var(--color-bg-muted);
+    }
+  }
+}
+
+// Save button and status in editor
+.editor-container {
+
+  > button {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-fg);
+    font-weight: 600;
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-full);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+    }
+  }
+
+  > p {
+    font-size: var(--text-sm);
+    color: var(--color-success);
+    margin: var(--space-2) 0 0;
+  }
 }

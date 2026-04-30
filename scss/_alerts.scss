@@ -1,40 +1,61 @@
-// ============================================================
-//  Alerts & Status Messages
-//  [role=alert] for errors, plus inline feed state indicators.
-// ============================================================
-
-// ── Error / warning alert ─────────────────────────────────────
+// ── Alerts and status states ──────────────────────────────────────────────
 
 [role="alert"] {
-  background:   #fff8f0;
-  color:        #b05c00;
-  border:       1px solid #ffd6a0;
-  border-radius: var(--radius);
-  padding:      12px 16px;
-  font-family:  var(--font-sans);
-  font-size:    14px;
-  max-width:    var(--content-w);
-  margin:       0 auto 16px;
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  background-color: #fef2f2;    // tailwind red-50
+  border: 1px solid #fecaca;    // tailwind red-200
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  margin: var(--space-2) 0;
+  line-height: 1.5;
 }
 
-// ── Feed state indicators (home page infinite scroll) ─────────
-
 .loading-indicator {
-  text-align:  center;
-  font-family: var(--font-sans);
-  font-size:   14px;
-  color:       var(--subtle);
-  padding:     16px 0;
-  max-width:   var(--content-w);
-  margin:      0 auto;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--space-4) 0;
+
+  // Subtle pulsing animation
+  animation: pulse 1.5s ease-in-out infinite;
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1;   }
+    50%       { opacity: 0.5; }
+  }
 }
 
 .end-of-feed {
-  text-align:  center;
-  font-family: var(--font-sans);
-  font-size:   13px;
-  color:       var(--subtle);
-  padding:     16px 0 0;
-  max-width:   var(--content-w);
-  margin:      0 auto;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--space-6) 0;
+
+  &::before {
+    content: "· · ·";
+    display: block;
+    letter-spacing: 0.5em;
+    margin-bottom: var(--space-2);
+  }
+}
+
+.comments-empty {
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
+.comment-login {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+
+  a {
+    color: var(--color-accent);
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
