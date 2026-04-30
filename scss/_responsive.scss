@@ -25,8 +25,13 @@
       font-size: 18px;
     }
 
-    // Hide search pill — use dedicated search page on mobile
-    .nav-search { display: none; }
+    // Collapse search pill to icon-only on mobile
+    .nav-search {
+      width:  42px;
+      margin: 0 8px;
+
+      input { display: none; }
+    }
   }
 
   // Article interactions — stack reactions and shrink avatar

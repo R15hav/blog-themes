@@ -142,9 +142,10 @@ header nav a.nav-home {
   letter-spacing: -1px;
   color: var(--text);
   text-decoration: none;
+  margin-right: auto;
 }
 header nav a.nav-home::before {
-  content: "M";
+  content: attr(data-initial, "M");
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -163,9 +164,11 @@ header nav a.nav-home span {
   display: none;
 }
 header nav .nav-search {
-  flex: 1;
-  max-width: 280px;
+  flex: none;
+  width: 220px;
   display: flex;
+  flex-direction: row;
+  gap: 0;
   border: 1px solid var(--border-light);
   border-radius: 99px;
   overflow: hidden;
@@ -618,7 +621,7 @@ article p .card-author {
   text-overflow: ellipsis;
 }
 
-article > h1 {
+.article-page > h1 {
   max-width: var(--content-w);
   margin: 0 auto 16px;
   font-size: 46px;
@@ -628,34 +631,9 @@ article > h1 {
   line-height: 1.1;
 }
 
-article > p {
+.article-page > .article-interactions {
   max-width: var(--content-w);
-  margin: 0 auto 32px;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--subtle);
-}
-
-article a[href^="/"],
-article button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  color: var(--muted);
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0 auto 32px;
-  max-width: var(--content-w);
-  display: block;
-  cursor: pointer;
-  text-decoration: none;
-}
-article a[href^="/"]:hover,
-article button:hover {
-  color: var(--text);
+  margin: 0 auto;
 }
 
 .article-body {
@@ -1119,6 +1097,10 @@ h6.formatting-header {
     font-size: 18px;
   }
   header nav .nav-search {
+    width: 42px;
+    margin: 0 8px;
+  }
+  header nav .nav-search input {
     display: none;
   }
   .article-author__avatar {

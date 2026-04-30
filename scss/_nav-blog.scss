@@ -24,10 +24,11 @@ header {
       letter-spacing:  -1px;
       color:           var(--text);
       text-decoration: none;
+      margin-right:    auto;
 
-      // "M" circle logo rendered via pseudo-element
+      // Circle logo — first letter comes from data-initial set by NavLinks/AuthNav
       &::before {
-        content:         "M";
+        content:         attr(data-initial, "M");
         display:         inline-flex;
         align-items:     center;
         justify-content: center;
@@ -48,13 +49,15 @@ header {
 
     // ── Search pill in nav ────────────────────────────────────
     .nav-search {
-      flex:          1;
-      max-width:     280px;
-      display:       flex;
-      border:        1px solid var(--border-light);
-      border-radius: 99px;
-      overflow:      hidden;
-      margin:        0 16px;
+      flex:           none;
+      width:          220px;
+      display:        flex;
+      flex-direction: row;
+      gap:            0;
+      border:         1px solid var(--border-light);
+      border-radius:  99px;
+      overflow:       hidden;
+      margin:         0 16px;
 
       input {
         flex:        1;
