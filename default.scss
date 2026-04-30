@@ -13,8 +13,9 @@
 //    _base       — html, body, headings, p, a, hr
 //    _layout     — header shell, main, footer, .divider
 //    _nav-blog   — blog + auth top navigation
-//    _nav-admin  — admin dark top bar (body > nav)
-//    _buttons    — button and input[type=submit]
+//    _nav-admin        — admin dark top bar (body > nav)
+//    _admin-dashboard  — /admin metrics cards + settings form
+//    _buttons          — button and input[type=submit]
 //    _forms      — form layout, labels, inputs, search bar
 //    _tables     — bare table/th/td (admin pages)
 //    _alerts     — [role=alert], .loading-indicator, .end-of-feed
@@ -30,6 +31,7 @@
 @use 'scss/layout';
 @use 'scss/nav-blog';
 @use 'scss/nav-admin';
+@use 'scss/admin-dashboard';
 @use 'scss/buttons';
 @use 'scss/forms';
 @use 'scss/tables';
