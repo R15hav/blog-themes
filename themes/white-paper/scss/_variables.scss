@@ -1,34 +1,27 @@
-// ── White Paper — Layer 1: token overrides ───────────────────────────────
-// Crisp white surface · cool charcoal ink · deep editorial blue accent.
-// Variable names match the frontend Paper design system exactly.
+// ── White Paper — variables ───────────────────────────────────────────────
+// Crisp white · editorial blue · clean typographic.
+// Era: Modern technical / corporate.
+// Display: Inter Tight · Body: Inter
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  // ── Backgrounds (clean whites) ────────────────────────────────────────
-  --paper:       oklch(0.990 0.003 95);   // near-pure white, faint warm breath
-  --paper-2:     oklch(0.972 0.006 90);   // off-white for cards / sidebar
-  --paper-3:     oklch(0.952 0.008 88);   // hover / muted tint
+  --paper:       oklch(0.995 0.001 250);
+  --paper-2:     oklch(0.975 0.003 250);
+  --paper-3:     oklch(0.95 0.005 250);
+  --rule:        oklch(0.86 0.008 250);
+  --rule-soft:   oklch(0.93 0.005 250);
+  --ink:         oklch(0.18 0.018 260);
+  --ink-2:       oklch(0.34 0.020 260);
+  --ink-3:       oklch(0.50 0.018 260);
+  --ink-4:       oklch(0.66 0.014 260);
+  --accent:      oklch(0.50 0.18 260);
+  --accent-soft: oklch(0.50 0.18 260 / 0.10);
+  --accent-ink:  oklch(0.42 0.18 260);
+  --ok:          oklch(0.48 0.12 142);
+  --warn:        oklch(0.56 0.14 70);
+  --r-sm: 2px; --r: 4px; --r-lg: 6px;
 
-  // ── Borders (cool light grays) ────────────────────────────────────────
-  --rule:        oklch(0.856 0.008 255);  // cool gray rule
-  --rule-soft:   oklch(0.918 0.005 258);  // very subtle divider
-
-  // ── Ink (cool charcoal) ───────────────────────────────────────────────
-  --ink:         oklch(0.165 0.015 258);  // deep cool near-black
-  --ink-2:       oklch(0.300 0.014 255);  // secondary
-  --ink-3:       oklch(0.480 0.011 252);  // tertiary / muted
-  --ink-4:       oklch(0.640 0.009 250);  // ultra-muted labels
-
-  // ── Accent (editorial blue) ───────────────────────────────────────────
-  --accent:      oklch(0.500 0.145 255);  // deep editorial blue
-  --accent-soft: oklch(0.500 0.145 255 / 0.10);
-  --accent-ink:  oklch(0.360 0.150 258);  // dark blue — readable on white
-
-  // ── Semantic ──────────────────────────────────────────────────────────
-  --ok:          oklch(0.490 0.110 145);
-  --warn:        oklch(0.560 0.130 70);
-
-  // ── Radii (default — keep Paper defaults) ─────────────────────────────
-  --r-sm: 4px;
-  --r:    6px;
-  --r-lg: 10px;
+  --font-serif: "Inter Tight", Inter, system-ui, sans-serif;
+  --font-body:  "Inter", system-ui, sans-serif;
 }

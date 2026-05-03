@@ -1,21 +1,27 @@
 // ── Hot Press — variables ─────────────────────────────────────────────────
-// Near-pure white · near-pure black ink · vivid indigo accent · sharp corners.
-// Hot-press paper — perfectly smooth, precise, high-contrast.
+// Near-pure white · vivid indigo · razor-sharp high-contrast.
+// Era: Swiss International Style / Modernist.
+// Display: Space Grotesk · Body: Inter
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  --paper:       oklch(0.994 0.002 100);   // near-pure white
-  --paper-2:     oklch(0.976 0.003 96);
-  --paper-3:     oklch(0.955 0.004 94);
-  --rule:        oklch(0.876 0.004 92);
-  --rule-soft:   oklch(0.928 0.003 94);
-  --ink:         oklch(0.125 0.008 280);   // near-pure black, faint cool cast
-  --ink-2:       oklch(0.248 0.007 278);
-  --ink-3:       oklch(0.412 0.006 276);
-  --ink-4:       oklch(0.578 0.005 274);
-  --accent:      oklch(0.545 0.210 284);   // vivid indigo-purple
-  --accent-soft: oklch(0.545 0.210 284 / 0.10);
-  --accent-ink:  oklch(0.408 0.215 286);
-  --ok:          oklch(0.480 0.120 142);
-  --warn:        oklch(0.560 0.140 68);
-  --r-sm: 2px; --r: 4px; --r-lg: 6px;
+  --paper:       oklch(0.99 0.002 280);
+  --paper-2:     oklch(0.97 0.003 280);
+  --paper-3:     oklch(0.94 0.004 280);
+  --rule:        oklch(0.82 0.006 280);
+  --rule-soft:   oklch(0.92 0.004 280);
+  --ink:         oklch(0.14 0.020 280);
+  --ink-2:       oklch(0.30 0.022 280);
+  --ink-3:       oklch(0.48 0.020 280);
+  --ink-4:       oklch(0.62 0.016 280);
+  --accent:      oklch(0.42 0.24 285);
+  --accent-soft: oklch(0.42 0.24 285 / 0.12);
+  --accent-ink:  oklch(0.36 0.24 285);
+  --ok:          oklch(0.46 0.12 142);
+  --warn:        oklch(0.54 0.14 68);
+  --r-sm: 1px; --r: 2px; --r-lg: 3px;
+
+  --font-serif: "Space Grotesk", Inter, system-ui, sans-serif;
+  --font-body:  "Inter", system-ui, sans-serif;
 }

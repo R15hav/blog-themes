@@ -1,20 +1,27 @@
 // ── Washi — variables ─────────────────────────────────────────────────────
-// Organic white with green tint · green-hinted ink · mossy accent · rounded.
+// Organic white + green tint · mossy green · handmade · rounded.
+// Era: Edo-period Japan.
+// Display: Shippori Mincho · Body: Noto Serif
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif:ital,opsz,wght@0,8..16,300..700;1,8..16,300..700&display=swap');
 
 :root {
-  --paper:       oklch(0.962 0.014 92);    // organic washi white, slight warmth
-  --paper-2:     oklch(0.942 0.016 106);   // hint of green-grey
-  --paper-3:     oklch(0.918 0.018 110);
-  --rule:        oklch(0.832 0.020 120);
-  --rule-soft:   oklch(0.882 0.016 115);
-  --ink:         oklch(0.195 0.022 128);   // deep green-tinted dark
-  --ink-2:       oklch(0.318 0.020 132);
-  --ink-3:       oklch(0.480 0.017 136);
-  --ink-4:       oklch(0.630 0.013 140);
-  --accent:      oklch(0.510 0.115 148);   // mossy green
-  --accent-soft: oklch(0.510 0.115 148 / 0.13);
-  --accent-ink:  oklch(0.380 0.118 150);
-  --ok:          oklch(0.510 0.125 148);
-  --warn:        oklch(0.600 0.125 78);
-  --r-sm: 5px; --r: 7px; --r-lg: 12px;
+  --paper:       oklch(0.965 0.018 132);
+  --paper-2:     oklch(0.94 0.022 130);
+  --paper-3:     oklch(0.91 0.024 130);
+  --rule:        oklch(0.80 0.026 128);
+  --rule-soft:   oklch(0.88 0.022 130);
+  --ink:         oklch(0.26 0.030 130);
+  --ink-2:       oklch(0.40 0.028 130);
+  --ink-3:       oklch(0.54 0.024 130);
+  --ink-4:       oklch(0.66 0.020 130);
+  --accent:      oklch(0.45 0.10 130);
+  --accent-soft: oklch(0.45 0.10 130 / 0.14);
+  --accent-ink:  oklch(0.36 0.10 130);
+  --ok:          oklch(0.50 0.12 142);
+  --warn:        oklch(0.60 0.13 76);
+  --r-sm: 8px; --r: 14px; --r-lg: 22px;
+
+  --font-serif: "Shippori Mincho", "Noto Serif", serif;
+  --font-body:  "Noto Serif", "Source Serif 4", Georgia, serif;
 }

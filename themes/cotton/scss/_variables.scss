@@ -1,20 +1,27 @@
 // ── Cotton (Rag) — variables ──────────────────────────────────────────────
-// Soft warm off-white · warm ink · archival steel-blue accent.
+// Soft off-white · archival steel blue · neutral archival.
+// Era: Library / archival tradition.
+// Display + Body: Libre Caslon Text (same face throughout)
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --paper:       oklch(0.960 0.018 86);    // soft warm cotton white
-  --paper-2:     oklch(0.940 0.016 88);
-  --paper-3:     oklch(0.916 0.015 86);
-  --rule:        oklch(0.840 0.016 84);
-  --rule-soft:   oklch(0.888 0.013 86);
-  --ink:         oklch(0.185 0.018 74);    // warm near-black
-  --ink-2:       oklch(0.305 0.016 72);
-  --ink-3:       oklch(0.465 0.013 70);
-  --ink-4:       oklch(0.610 0.010 68);
-  --accent:      oklch(0.440 0.118 252);   // archival steel blue
-  --accent-soft: oklch(0.440 0.118 252 / 0.12);
-  --accent-ink:  oklch(0.328 0.122 255);
-  --ok:          oklch(0.490 0.115 142);
-  --warn:        oklch(0.590 0.130 72);
+  --paper:       oklch(0.97 0.008 90);
+  --paper-2:     oklch(0.95 0.010 90);
+  --paper-3:     oklch(0.92 0.012 90);
+  --rule:        oklch(0.84 0.012 90);
+  --rule-soft:   oklch(0.91 0.010 90);
+  --ink:         oklch(0.24 0.018 240);
+  --ink-2:       oklch(0.38 0.020 240);
+  --ink-3:       oklch(0.52 0.018 240);
+  --ink-4:       oklch(0.66 0.014 240);
+  --accent:      oklch(0.46 0.07 240);
+  --accent-soft: oklch(0.46 0.07 240 / 0.12);
+  --accent-ink:  oklch(0.38 0.07 240);
+  --ok:          oklch(0.48 0.11 142);
+  --warn:        oklch(0.58 0.13 70);
   --r-sm: 4px; --r: 6px; --r-lg: 10px;
+
+  --font-serif: "Libre Caslon Text", "Source Serif 4", Charter, Georgia, serif;
+  --font-body:  "Libre Caslon Text", "Source Serif 4", Charter, Georgia, serif;
 }

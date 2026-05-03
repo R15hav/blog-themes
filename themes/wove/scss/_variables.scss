@@ -1,21 +1,27 @@
 // ── Wove Paper — variables ────────────────────────────────────────────────
-// Near-white with slight warm tint · cool dark ink · sky blue accent.
-// Uniform, textureless surface — clean and modern.
+// Near-white faint warm · sky blue · smooth uniform.
+// Era: Late 19th-century publishing.
+// Display: Playfair Display · Body: Source Serif 4
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap');
 
 :root {
-  --paper:       oklch(0.978 0.008 94);    // near-white, faint warm tint
-  --paper-2:     oklch(0.960 0.007 92);
-  --paper-3:     oklch(0.938 0.007 90);
-  --rule:        oklch(0.860 0.008 88);
-  --rule-soft:   oklch(0.912 0.006 90);
-  --ink:         oklch(0.178 0.012 252);   // cool dark near-black
-  --ink-2:       oklch(0.298 0.011 250);
-  --ink-3:       oklch(0.458 0.009 248);
-  --ink-4:       oklch(0.608 0.007 246);
-  --accent:      oklch(0.520 0.130 230);   // sky blue
-  --accent-soft: oklch(0.520 0.130 230 / 0.11);
-  --accent-ink:  oklch(0.390 0.133 232);
-  --ok:          oklch(0.490 0.115 142);
-  --warn:        oklch(0.580 0.130 70);
-  --r-sm: 4px; --r: 6px; --r-lg: 10px;
+  --paper:       oklch(0.98 0.006 88);
+  --paper-2:     oklch(0.96 0.008 88);
+  --paper-3:     oklch(0.93 0.010 88);
+  --rule:        oklch(0.86 0.010 88);
+  --rule-soft:   oklch(0.93 0.008 88);
+  --ink:         oklch(0.22 0.014 70);
+  --ink-2:       oklch(0.36 0.016 70);
+  --ink-3:       oklch(0.52 0.014 70);
+  --ink-4:       oklch(0.66 0.010 70);
+  --accent:      oklch(0.66 0.14 230);
+  --accent-soft: oklch(0.66 0.14 230 / 0.14);
+  --accent-ink:  oklch(0.48 0.14 230);
+  --ok:          oklch(0.48 0.11 142);
+  --warn:        oklch(0.57 0.13 70);
+  --r-sm: 5px; --r: 8px; --r-lg: 12px;
+
+  --font-serif: "Playfair Display", "Source Serif 4", Charter, Georgia, serif;
+  --font-body:  "Source Serif 4", Charter, Georgia, serif;
 }
