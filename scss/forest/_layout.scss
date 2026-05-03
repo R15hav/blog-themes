@@ -1,0 +1,48 @@
+// ── Forest — layout overrides ─────────────────────────────────────────────
+// Frosted-glass header, amber accent gradient footer rule.
+
+header {
+  backdrop-filter: blur(12px) saturate(1.4);
+  background: color-mix(in oklch, var(--color-bg) 85%, transparent);
+}
+
+footer {
+  background: var(--color-bg-subtle);
+  border-top-color: var(--color-border);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-accent) 50%,
+      transparent 100%
+    );
+    opacity: 0.4;
+  }
+}
+
+.wordmark {
+  letter-spacing: -0.02em;
+}
+
+.avatar {
+  border: 2px solid var(--color-border);
+  box-shadow: 0 0 0 3px var(--color-accent-bg);
+}
+
+.tag {
+  background: var(--color-bg-muted);
+  border-color: var(--color-border-soft);
+  color: var(--color-text-3);
+
+  &:hover {
+    background: var(--color-accent-bg);
+    border-color: var(--color-accent);
+    color: var(--color-accent-text);
+  }
+}

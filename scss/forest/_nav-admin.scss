@@ -1,0 +1,36 @@
+// ── Forest — admin sidebar overrides ──────────────────────────────────────
+// Subtle vertical gradient on the sidebar + amber active state.
+
+.admin-shell {
+  background: var(--color-bg);
+}
+
+.admin-side {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-subtle) 0%,
+    var(--color-bg) 100%
+  );
+  border-right-color: var(--color-border-soft);
+}
+
+.admin-nav-link {
+  color: var(--color-text-3);
+  border-left: 3px solid transparent;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-left-color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text-2);
+    background: var(--color-bg-muted);
+    border-left-color: var(--color-border);
+  }
+
+  &.active {
+    color: var(--color-accent-text);
+    background: var(--color-accent-bg);
+    border-left-color: var(--color-accent);
+  }
+}

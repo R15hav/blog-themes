@@ -1,0 +1,49 @@
+// ── Forest — button overrides ──────────────────────────────────────────────
+// Amber gradient primary button; forest-tinted ghost hover.
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-hover) 100%
+  );
+  border-color: transparent;
+  color: var(--color-accent-fg);
+  box-shadow: 0 2px 8px oklch(0.73 0.148 78 / 0.30);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-hover) 0%,
+      var(--color-accent-text) 100%
+    );
+    box-shadow: 0 4px 14px oklch(0.73 0.148 78 / 0.42);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px oklch(0.73 0.148 78 / 0.25);
+  }
+}
+
+.btn-ghost {
+  &:hover:not(:disabled) {
+    background: var(--color-accent-bg);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+  }
+}
+
+// Shared amber focus ring for all interactive elements
+.btn,
+.btn-primary,
+.btn-ghost,
+.icon-btn,
+.rail-btn {
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-focus);
+  }
+}

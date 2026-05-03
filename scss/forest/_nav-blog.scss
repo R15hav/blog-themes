@@ -1,0 +1,36 @@
+// ── Forest — blog nav overrides ───────────────────────────────────────────
+// Semi-transparent frosted-glass nav bar + amber progress fill.
+
+.nav {
+  backdrop-filter: blur(12px) saturate(1.4);
+  background: color-mix(in oklch, var(--color-bg) 85%, transparent);
+  border-bottom-color: var(--color-border-soft);
+}
+
+.nav-link {
+  color: var(--color-text-3);
+
+  &:hover,
+  &.active {
+    color: var(--color-text);
+  }
+}
+
+.nav-search {
+  background: var(--color-bg-muted);
+  border-color: var(--color-border);
+
+  &:focus-within {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-focus);
+  }
+}
+
+// Amber-to-gold reading progress bar
+.progress-fill {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-text) 100%
+  );
+}

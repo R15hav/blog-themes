@@ -1,0 +1,41 @@
+// ── Forest — feed overrides ───────────────────────────────────────────────
+// Hero with forest gradient; list items with amber left-border hover reveal.
+
+.hero {
+  background: linear-gradient(
+    160deg,
+    oklch(0.18 0.028 148) 0%,
+    var(--color-bg) 65%
+  );
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.list-item {
+  border-bottom-color: var(--color-border-soft);
+  border-left: 3px solid transparent;
+  transition:
+    background var(--transition-fast),
+    border-left-color var(--transition-fast),
+    padding-left var(--transition-fast);
+
+  &:hover {
+    background: color-mix(in oklch, var(--color-accent-bg) 55%, transparent);
+    border-left-color: var(--color-accent);
+  }
+}
+
+.section-eyebrow {
+  color: var(--color-accent-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.search-page {
+  input[type="search"],
+  input[type="text"] {
+    &:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-focus);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// ── Forest — table overrides ──────────────────────────────────────────────
+// Amber-underlined header; forest-tinted alt rows and hover.
+
+table.dataset,
+.dashboard-table {
+  thead tr {
+    background: var(--color-bg-muted);
+    border-bottom: 2px solid var(--color-accent);
+
+    th {
+      color: var(--color-text-2);
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom-color: var(--color-border-soft);
+
+      &:nth-child(even) {
+        background: color-mix(in oklch, var(--color-bg-subtle) 55%, transparent);
+      }
+
+      &:hover {
+        background: var(--color-accent-bg);
+      }
+    }
+
+    td {
+      color: var(--color-text-2);
+    }
+  }
+}

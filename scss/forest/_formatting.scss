@@ -1,0 +1,59 @@
+// ── Forest — EditorJS block output overrides ──────────────────────────────
+// Forest code blocks with amber-tinted inline code; amber quote accent.
+
+.formatting-code {
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+
+  code {
+    color: var(--color-accent-text);
+    font-family: var(--font-mono);
+  }
+}
+
+.formatting-quote {
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-bg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+
+  .formatting-quote-caption {
+    color: var(--color-text-3);
+    font-style: italic;
+  }
+}
+
+.formatting-warning {
+  border-left: 3px solid var(--color-warn);
+  background: var(--color-warn-bg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+
+  .formatting-warning-title {
+    color: var(--color-warn-text);
+  }
+}
+
+.formatting-delimiter {
+  color: var(--color-accent);
+  opacity: 0.65;
+  letter-spacing: 0.4em;
+}
+
+.formatting-table {
+  th {
+    background: var(--color-bg-muted);
+    color: var(--color-accent-text);
+    border-color: var(--color-border-soft);
+  }
+
+  td {
+    border-color: var(--color-border-soft);
+  }
+}
+
+.formatting-checklist-item {
+  &.checked .formatting-checklist-checkbox {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+}
