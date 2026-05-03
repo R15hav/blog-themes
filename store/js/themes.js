@@ -13,6 +13,8 @@ const THEMES = [
     bodyFont: "Source Serif 4",
     googleFonts: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap",
     version: "1.0.0",
+    fontSerif: '"Cormorant Garamond", "Source Serif 4", Charter, Georgia, serif',
+    fontBody:  '"Source Serif 4", Charter, Georgia, serif',
     t: {
       paper:      "oklch(0.21 0.030 158)",
       paper2:     "oklch(0.26 0.034 158)",
@@ -43,6 +45,8 @@ const THEMES = [
     bodyFont: "Inter",
     googleFonts: "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
     version: "1.0.0",
+    fontSerif: '"Inter Tight", Inter, system-ui, sans-serif',
+    fontBody:  '"Inter", system-ui, sans-serif',
     t: {
       paper:      "oklch(0.995 0.001 250)",
       paper2:     "oklch(0.975 0.003 250)",
@@ -73,6 +77,8 @@ const THEMES = [
     bodyFont: "EB Garamond",
     googleFonts: "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap",
     version: "1.0.0",
+    fontSerif: '"Cinzel", "EB Garamond", Garamond, serif',
+    fontBody:  '"EB Garamond", Garamond, Georgia, serif',
     t: {
       paper:      "oklch(0.86 0.060 88)",
       paper2:     "oklch(0.82 0.064 86)",
@@ -103,6 +109,8 @@ const THEMES = [
     bodyFont: "Noto Serif",
     googleFonts: "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif:ital,opsz,wght@0,8..16,300..700;1,8..16,300..700&display=swap",
     version: "1.0.0",
+    fontSerif: '"Shippori Mincho", "Noto Serif", serif',
+    fontBody:  '"Noto Serif", serif',
     t: {
       paper:      "oklch(0.965 0.018 132)",
       paper2:     "oklch(0.94 0.022 130)",
@@ -133,6 +141,8 @@ const THEMES = [
     bodyFont: "Libre Caslon Text",
     googleFonts: "https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap",
     version: "1.0.0",
+    fontSerif: '"Libre Caslon Text", "Source Serif 4", Charter, Georgia, serif',
+    fontBody:  '"Libre Caslon Text", "Source Serif 4", Georgia, serif',
     t: {
       paper:      "oklch(0.97 0.008 90)",
       paper2:     "oklch(0.95 0.010 90)",
@@ -163,6 +173,8 @@ const THEMES = [
     bodyFont: "Source Serif 4",
     googleFonts: "https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap",
     version: "1.0.0",
+    fontSerif: '"IM Fell English", "Source Serif 4", Charter, Georgia, serif',
+    fontBody:  '"Source Serif 4", Charter, Georgia, serif',
     t: {
       paper:      "oklch(0.94 0.030 90)",
       paper2:     "oklch(0.92 0.032 88)",
@@ -193,6 +205,8 @@ const THEMES = [
     bodyFont: "Source Serif 4",
     googleFonts: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap",
     version: "1.0.0",
+    fontSerif: '"Playfair Display", "Source Serif 4", Charter, Georgia, serif',
+    fontBody:  '"Source Serif 4", Charter, Georgia, serif',
     t: {
       paper:      "oklch(0.98 0.006 88)",
       paper2:     "oklch(0.96 0.008 88)",
@@ -223,6 +237,8 @@ const THEMES = [
     bodyFont: "Cormorant Infant",
     googleFonts: "https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Infant:ital,wght@0,400;0,500;1,400;1,500&display=swap",
     version: "1.0.0",
+    fontSerif: '"Italiana", "Cormorant Infant", Georgia, serif',
+    fontBody:  '"Cormorant Infant", "Source Serif 4", Georgia, serif',
     t: {
       paper:      "oklch(0.94 0.022 88)",
       paper2:     "oklch(0.92 0.024 88)",
@@ -253,6 +269,8 @@ const THEMES = [
     bodyFont: "Inter",
     googleFonts: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
     version: "1.0.0",
+    fontSerif: '"Space Grotesk", Inter, system-ui, sans-serif',
+    fontBody:  '"Inter", system-ui, sans-serif',
     t: {
       paper:      "oklch(0.99 0.002 280)",
       paper2:     "oklch(0.97 0.003 280)",
@@ -283,6 +301,8 @@ const THEMES = [
     bodyFont: "Inter",
     googleFonts: "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
     version: "1.0.0",
+    fontSerif: '"Bodoni Moda", "Playfair Display", Georgia, serif',
+    fontBody:  '"Inter", system-ui, sans-serif',
     t: {
       paper:      "oklch(0.985 0.004 240)",
       paper2:     "oklch(0.96 0.006 240)",
@@ -313,6 +333,8 @@ const THEMES = [
     bodyFont: "Source Serif 4",
     googleFonts: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap",
     version: "1.0.0",
+    fontSerif: '"Fraunces", "Source Serif 4", Charter, Georgia, serif',
+    fontBody:  '"Source Serif 4", Charter, Georgia, serif',
     t: {
       paper:      "oklch(0.965 0.012 90)",
       paper2:     "oklch(0.945 0.014 88)",
@@ -343,6 +365,8 @@ const THEMES = [
     bodyFont: "Inter",
     googleFonts: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
     version: "1.0.0",
+    fontSerif: '"Outfit", Inter, system-ui, sans-serif',
+    fontBody:  '"Inter", system-ui, sans-serif',
     t: {
       paper:      "oklch(0.92 0.004 230)",
       paper2:     "oklch(0.90 0.006 230)",
@@ -371,26 +395,16 @@ function cdnUrl(theme) {
   return `https://cdn.jsdelivr.net/gh/R15hav/blog-themes@main/themes/${theme.id}/${theme.id}.${theme.version}.css`;
 }
 
-// Inject scoped CSS vars onto a given element for the blog mockup
-function applyThemeVars(el, theme) {
+// Build the scoped inline-style string for a theme preview container
+function themeScope(theme) {
   const t = theme.t;
-  el.style.cssText += `
-    --paper:       ${t.paper};
-    --paper-2:     ${t.paper2};
-    --paper-3:     ${t.paper3};
-    --rule:        ${t.rule};
-    --rule-soft:   ${t.ruleSoft};
-    --ink:         ${t.ink};
-    --ink-2:       ${t.ink2};
-    --ink-3:       ${t.ink3};
-    --ink-4:       ${t.ink4};
-    --accent:      ${t.accent};
-    --accent-soft: ${t.accentSoft};
-    --accent-ink:  ${t.accentInk};
-    --ok:          ${t.ok};
-    --warn:        ${t.warn};
-    --r-sm:        ${t.rSm};
-    --r:           ${t.r};
-    --r-lg:        ${t.rLg};
-  `;
+  return [
+    `--paper:${t.paper}`, `--paper-2:${t.paper2}`, `--paper-3:${t.paper3}`,
+    `--rule:${t.rule}`, `--rule-soft:${t.ruleSoft}`,
+    `--ink:${t.ink}`, `--ink-2:${t.ink2}`, `--ink-3:${t.ink3}`, `--ink-4:${t.ink4}`,
+    `--accent:${t.accent}`, `--accent-soft:${t.accentSoft}`, `--accent-ink:${t.accentInk}`,
+    `--ok:${t.ok}`, `--warn:${t.warn}`,
+    `--r-sm:${t.rSm}`, `--r:${t.r}`, `--r-lg:${t.rLg}`,
+    `--font-serif:${theme.fontSerif}`, `--font-body:${theme.fontBody}`,
+  ].join(';');
 }

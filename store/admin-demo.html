@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Demo — Blog Theme Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin-base.css">
+  <!-- active theme injected here by JS -->
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ── Sidebar ──────────────────────────────────────────────────── -->
+  <aside class="admin-side">
+    <div class="admin-side-brand">
+      <a href="index.html" class="wordmark">Blog<span class="dot"></span></a>
+      <div class="admin-side-version">Admin · Demo</div>
+    </div>
+
+    <div class="admin-nav" id="js-nav">
+      <a href="#" class="active" data-panel="dashboard">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="1" width="6" height="6" rx="1"/>
+          <rect x="9" y="1" width="6" height="6" rx="1"/>
+          <rect x="1" y="9" width="6" height="6" rx="1"/>
+          <rect x="9" y="9" width="6" height="6" rx="1"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="#" data-panel="articles">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 4h12M2 8h8M2 12h6"/>
+        </svg>
+        Articles
+      </a>
+      <a href="#" data-panel="comments">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 10a2 2 0 0 1-2 2H5l-3 3V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6z"/>
+        </svg>
+        Comments
+      </a>
+      <a href="#" data-panel="theme">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="8" r="2"/>
+          <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.22 3.22l1.42 1.42M11.36 11.36l1.42 1.42M3.22 12.78l1.42-1.42M11.36 4.64l1.42-1.42"/>
+        </svg>
+        Theme
+      </a>
+      <a href="#" data-panel="users">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M1 14c0-3.31 3.13-6 7-6s7 2.69 7 6"/>
+        </svg>
+        Users
+      </a>
+    </div>
+
+    <div class="admin-side-spacer" style="flex:1;"></div>
+    <div style="padding:14px 22px; border-top:1px solid var(--rule-soft);">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="avatar">R</div>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--ink);">R15hav</div>
+          <div style="font-size:11px;color:var(--ink-4);">Admin</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── Main ─────────────────────────────────────────────────────── -->
+  <main class="admin-main" id="js-main">
+
+    <!-- ════════════════════════════════════ DASHBOARD ════ -->
+    <section id="panel-dashboard">
+      <div class="admin-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Welcome back, R15hav. Here's what's happening.</p>
+        </div>
+        <a href="index.html" class="btn btn-ghost btn-sm">← Back to Store</a>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">Total Articles</div>
+          <div class="kpi-value">47</div>
+          <div class="kpi-delta">+3 this week</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Published</div>
+          <div class="kpi-value">38</div>
+          <div class="kpi-delta">81% of total</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Comments</div>
+          <div class="kpi-value">124</div>
+          <div class="kpi-delta">+11 this week</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Active Users</div>
+          <div class="kpi-value">8</div>
+          <div class="kpi-delta">2 admins</div>
+        </div>
+      </div>
+
+      <!-- Site Settings -->
+      <h2 class="admin-section-title">Site Settings</h2>
+      <form class="admin-settings-form" onsubmit="return false;">
+        <div>
+          <label for="site-title">Blog Title</label>
+          <input type="text" id="site-title" value="My Blog" placeholder="Your blog name">
+        </div>
+        <div>
+          <label for="site-desc">Description</label>
+          <input type="text" id="site-desc" value="Thoughts on design, code, and culture." placeholder="Short description">
+        </div>
+        <div>
+          <label for="site-url">Blog URL</label>
+          <input type="url" id="site-url" value="https://myblog.example.com" placeholder="https://...">
+        </div>
+        <div>
+          <label for="site-logo">Logo</label>
+          <input type="file" id="site-logo" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Save Settings</button>
+      </form>
+
+      <!-- Open Graph -->
+      <h2 class="admin-section-title">Open Graph / SEO</h2>
+      <div class="og-section" style="display:flex;gap:32px;align-items:flex-start;">
+        <form class="admin-settings-form" onsubmit="return false;" style="flex:0 0 auto;">
+          <div>
+            <label>OG Title</label>
+            <input type="text" value="My Blog — Design &amp; Code">
+          </div>
+          <div>
+            <label>OG Description</label>
+            <input type="text" value="Thoughts on design, code, and culture.">
+          </div>
+          <div>
+            <label>OG Image URL</label>
+            <input type="url" value="https://myblog.example.com/og-image.png">
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm">Save OG Data</button>
+        </form>
+        <div class="og-preview" style="flex:1;min-width:280px;max-width:420px;">
+          <div style="font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px;">Link preview</div>
+          <div style="border:1px solid var(--rule);border-radius:var(--r-lg);overflow:hidden;">
+            <div style="height:130px;background:var(--paper-3);display:flex;align-items:center;justify-content:center;color:var(--ink-4);font-size:13px;">OG Image</div>
+            <div style="padding:12px 14px;background:var(--paper-2);">
+              <div style="font-size:11px;color:var(--ink-4);margin-bottom:3px;">myblog.example.com</div>
+              <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px);">My Blog — Design &amp; Code</div>
+              <div style="font-size:12px;color:var(--ink-3);">Thoughts on design, code, and culture.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════ ARTICLES ════ -->
+    <section id="panel-articles" style="display:none;">
+      <div class="admin-header">
+        <div>
+          <h1>Articles</h1>
+          <p>Manage all posts — edit, publish, or delete.</p>
+        </div>
+        <button class="btn btn-primary btn-sm">+ New Article</button>
+      </div>
+
+      <div class="kpi-row" style="grid-template-columns:repeat(3,1fr);">
+        <div class="kpi">
+          <div class="kpi-label">Total</div>
+          <div class="kpi-value">47</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Published</div>
+          <div class="kpi-value">38</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Drafts</div>
+          <div class="kpi-value">9</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-bottom:16px;align-items:center;">
+        <input type="text" placeholder="Search articles…" style="flex:1;padding:8px 12px;border:1px solid var(--rule);border-radius:var(--r);background:var(--paper-2);font-family:var(--font-sans);font-size:13.5px;color:var(--ink);outline:0;" oninput="filterArticles(this.value)">
+        <select style="padding:8px 12px;border:1px solid var(--rule);border-radius:var(--r);background:var(--paper-2);font-family:var(--font-sans);font-size:13.5px;color:var(--ink);outline:0;cursor:pointer;">
+          <option>All</option>
+          <option>Published</option>
+          <option>Draft</option>
+        </select>
+      </div>
+
+      <div style="border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;">
+        <table class="dataset" id="articles-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">The Architecture of Meaning in Typography</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">R</div>R15hav</div></td>
+              <td><span class="status">Design</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Apr 15, 2025</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">The Grammar of Colour</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">R</div>R15hav</div></td>
+              <td><span class="status">Colour</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Mar 22, 2025</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">On Reading Slowly</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">A</div>Ananya</div></td>
+              <td><span class="status">Essay</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Mar 10, 2025</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">Design Tokens at Scale</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">R</div>R15hav</div></td>
+              <td><span class="status">Design</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Apr 8, 2025</td>
+              <td><span class="status warn"><span class="dot"></span>Draft</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">Writing for Developers</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">K</div>Kaveh</div></td>
+              <td><span class="status">Writing</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Feb 28, 2025</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">Why Whitespace Is Never Wasted</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">R</div>R15hav</div></td>
+              <td><span class="status">Design</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Feb 14, 2025</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">The Unreliable Narrator of UX Copy</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">A</div>Ananya</div></td>
+              <td><span class="status">Writing</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Jan 30, 2025</td>
+              <td><span class="status warn"><span class="dot"></span>Draft</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">oklch: A Colour Space Worth Understanding</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">K</div>Kaveh</div></td>
+              <td><span class="status">Colour</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Jan 18, 2025</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">Building a Personal Knowledge System</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">R</div>R15hav</div></td>
+              <td><span class="status">Process</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Jan 4, 2025</td>
+              <td><span class="status warn"><span class="dot"></span>Draft</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td style="color:var(--ink);font-weight:500;">Handwriting and the Digital Page</td>
+              <td><div style="display:flex;align-items:center;gap:7px;"><div class="avatar sm">A</div>Ananya</div></td>
+              <td><span class="status">Essay</span></td>
+              <td style="white-space:nowrap;color:var(--ink-4);font-size:12px;">Dec 20, 2024</td>
+              <td><span class="status ok"><span class="dot"></span>Published</span></td>
+              <td style="text-align:right;white-space:nowrap;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+        <span style="font-size:13px;color:var(--ink-4);">Showing 10 of 47 articles</span>
+        <div style="display:flex;gap:6px;">
+          <button class="btn btn-ghost btn-sm" disabled>← Prev</button>
+          <button class="btn btn-ghost btn-sm">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════ COMMENTS ════ -->
+    <section id="panel-comments" style="display:none;">
+      <div class="admin-header">
+        <div>
+          <h1>Comments</h1>
+          <p>Moderate reader comments across all articles.</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-ghost btn-sm">Approve All</button>
+          <button class="btn btn-ghost btn-sm" style="color:oklch(0.46 0.13 70);border-color:color-mix(in oklch,var(--warn),transparent 60%);">Delete Spam</button>
+        </div>
+      </div>
+
+      <div class="kpi-row" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px;">
+        <div class="kpi">
+          <div class="kpi-label">Total</div>
+          <div class="kpi-value">124</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">This week</div>
+          <div class="kpi-value">11</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Pending</div>
+          <div class="kpi-value">3</div>
+        </div>
+      </div>
+
+      <div class="tab-row" style="margin-bottom:20px;">
+        <button class="tab active" onclick="filterComments('all',this)">All <span class="tab-badge">124</span></button>
+        <button class="tab" onclick="filterComments('approved',this)">Approved <span class="tab-badge">121</span></button>
+        <button class="tab" onclick="filterComments('pending',this)">Pending <span class="tab-badge">3</span></button>
+      </div>
+
+      <div id="comments-list" style="display:flex;flex-direction:column;gap:10px;">
+        <!-- comment cards rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════ THEME ════ -->
+    <section id="panel-theme" style="display:none;">
+      <div class="admin-header">
+        <div>
+          <h1>Theme Management</h1>
+          <p>Activate a theme by pasting a CDN URL — changes apply instantly, no redeploy needed.</p>
+        </div>
+      </div>
+
+      <!-- Demo notice -->
+      <div style="padding:12px 16px;background:var(--accent-soft);border:1px solid color-mix(in oklch,var(--accent),transparent 70%);border-radius:var(--r);margin-bottom:22px;display:flex;align-items:center;gap:10px;">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="7"/><path d="M8 7v4M8 5v.5"/></svg>
+        <span style="font-size:13px;color:var(--accent-ink);">This panel is <strong>fully functional</strong>. Paste any CDN CSS URL to see live theme changes on this page. Themes are saved to localStorage.</span>
+      </div>
+
+      <!-- Add theme form -->
+      <div class="add-theme" id="js-add-theme-form">
+        <span class="lbl">Name</span>
+        <input type="text" id="add-name" placeholder="Forest" style="width:130px;" oninput="clearFormMsg()">
+        <input type="url" id="add-url" placeholder="https://cdn.jsdelivr.net/gh/R15hav/blog-themes@main/themes/forest/forest.1.0.0.css" oninput="clearFormMsg()">
+        <button class="btn btn-primary btn-sm" onclick="addTheme()">Add Theme</button>
+      </div>
+      <div id="js-form-msg" style="margin-bottom:12px;min-height:18px;font-size:13px;"></div>
+
+      <!-- Saved themes -->
+      <div id="js-theme-list"></div>
+
+      <!-- Remove confirm modal -->
+      <div class="modal-overlay" id="js-delete-modal" style="display:none;">
+        <div class="modal">
+          <div class="modal-icon">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 4.5 14 11.5 14 13 6"/><path d="M1 6h14M6 6V3h4v3"/>
+            </svg>
+          </div>
+          <h3>Remove theme?</h3>
+          <p>This will remove the theme from your saved list. If it's currently active, the page will revert to the default style.</p>
+          <div class="modal-actions">
+            <button class="btn btn-ghost btn-sm" onclick="closeDeleteModal()">Cancel</button>
+            <button class="btn btn-sm" id="js-confirm-delete" style="background:oklch(0.46 0.13 70);color:white;">Remove</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════ USERS ════ -->
+    <section id="panel-users" style="display:none;">
+      <div class="admin-header">
+        <div>
+          <h1>Users</h1>
+          <p>Manage registered accounts and roles.</p>
+        </div>
+        <button class="btn btn-primary btn-sm">Invite User</button>
+      </div>
+
+      <div style="border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;">
+        <table class="dataset">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Joined</th>
+              <th>Articles</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:9px;"><div class="avatar">R</div><span style="font-weight:600;color:var(--ink);">R15hav</span></div></td>
+              <td style="color:var(--ink-3);font-size:12.5px;">r15hav@example.com</td>
+              <td><span class="status accent"><span class="dot"></span>Admin</span></td>
+              <td style="color:var(--ink-4);font-size:12px;white-space:nowrap;">Jan 1, 2024</td>
+              <td style="color:var(--ink-3);">24</td>
+              <td><span class="status ok"><span class="dot"></span>Active</span></td>
+              <td style="text-align:right;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:9px;"><div class="avatar">A</div><span style="font-weight:600;color:var(--ink);">Ananya</span></div></td>
+              <td style="color:var(--ink-3);font-size:12.5px;">ananya@example.com</td>
+              <td><span class="status accent"><span class="dot"></span>Admin</span></td>
+              <td style="color:var(--ink-4);font-size:12px;white-space:nowrap;">Mar 15, 2024</td>
+              <td style="color:var(--ink-3);">12</td>
+              <td><span class="status ok"><span class="dot"></span>Active</span></td>
+              <td style="text-align:right;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:9px;"><div class="avatar">K</div><span style="font-weight:600;color:var(--ink);">Kaveh</span></div></td>
+              <td style="color:var(--ink-3);font-size:12.5px;">kaveh@example.com</td>
+              <td><span class="status"><span class="dot"></span>Editor</span></td>
+              <td style="color:var(--ink-4);font-size:12px;white-space:nowrap;">Jun 3, 2024</td>
+              <td style="color:var(--ink-3);">8</td>
+              <td><span class="status ok"><span class="dot"></span>Active</span></td>
+              <td style="text-align:right;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:9px;"><div class="avatar">M</div><span style="font-weight:600;color:var(--ink);">Mira</span></div></td>
+              <td style="color:var(--ink-3);font-size:12.5px;">mira@example.com</td>
+              <td><span class="status"><span class="dot"></span>Author</span></td>
+              <td style="color:var(--ink-4);font-size:12px;white-space:nowrap;">Sep 22, 2024</td>
+              <td style="color:var(--ink-3);">3</td>
+              <td><span class="status ok"><span class="dot"></span>Active</span></td>
+              <td style="text-align:right;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:9px;"><div class="avatar">T</div><span style="font-weight:600;color:var(--ink);">Tomás</span></div></td>
+              <td style="color:var(--ink-3);font-size:12.5px;">tomas@example.com</td>
+              <td><span class="status"><span class="dot"></span>Author</span></td>
+              <td style="color:var(--ink-4);font-size:12px;white-space:nowrap;">Nov 8, 2024</td>
+              <td style="color:var(--ink-3);">0</td>
+              <td><span class="status warn"><span class="dot"></span>Inactive</span></td>
+              <td style="text-align:right;"><button class="btn btn-ghost btn-sm">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* ── Panel navigation ──────────────────────────────────────────────── */
+const ALL_PANELS = ['dashboard','articles','comments','theme','users'];
+
+document.getElementById('js-nav').addEventListener('click', function(e) {
+  const link = e.target.closest('a[data-panel]');
+  if (!link) return;
+  e.preventDefault();
+  showPanel(link.dataset.panel);
+  document.querySelectorAll('#js-nav a').forEach(a => a.classList.remove('active'));
+  link.classList.add('active');
+});
+
+function showPanel(id) {
+  ALL_PANELS.forEach(p => {
+    document.getElementById('panel-' + p).style.display = p === id ? '' : 'none';
+  });
+}
+
+/* ── Comments dummy data ───────────────────────────────────────────── */
+const COMMENTS = [
+  { author:'Lucas B.', initials:'L', article:'The Architecture of Meaning in Typography', body:'This completely changed how I think about typeface selection. The point about reader emotional response is something I\'ve felt intuitively but never seen articulated so clearly.', date:'Apr 17, 2025', approved:true },
+  { author:'Sara O.', initials:'S', article:'The Grammar of Colour', body:'The oklch explanation was exactly what I needed. I\'ve been fumbling with hue shifts forever and now it finally clicks. Would love a follow-up on chroma budgets.', date:'Mar 24, 2025', approved:true },
+  { author:'James T.', initials:'J', article:'On Reading Slowly', body:'Beautifully written. I sent this to three people the same day I read it. The comparison between physical and digital marginalia is something I keep returning to.', date:'Mar 12, 2025', approved:true },
+  { author:'Priya N.', initials:'P', article:'Why Whitespace Is Never Wasted', body:'The grid diagrams here are fantastic. Clear and purposeful. Any chance of a companion post on vertical rhythm?', date:'Feb 16, 2025', approved:true },
+  { author:'Chris W.', initials:'C', article:'The Architecture of Meaning in Typography', body:'Great piece but I\'d push back on the serif-for-long-form argument — plenty of evidence that well-set sans can match comprehension rates at comfortable sizes.', date:'Apr 20, 2025', approved:true },
+  { author:'Unknown', initials:'?', article:'Handwriting and the Digital Page', body:'Buy cheap watches at discountwatch.biz — great prices!!', date:'Apr 22, 2025', approved:false },
+  { author:'Nadia K.', initials:'N', article:'Writing for Developers', body:'The section on imperative vs declarative docs is going into our team wiki verbatim (with credit, of course).', date:'Mar 1, 2025', approved:true },
+  { author:'Eli R.', initials:'E', article:'oklch: A Colour Space Worth Understanding', body:'Been waiting for someone in the design community to write this. P3-gamut colours on modern displays are genuinely stunning when the math is right.', date:'Jan 20, 2025', approved:false },
+  { author:'Fiona M.', initials:'F', article:'Building a Personal Knowledge System', body:'How do you handle the tension between capturing everything and the cost of retrieval? I find I note things then never surface them again.', date:'Jan 6, 2025', approved:false },
+];
+
+let currentCommentFilter = 'all';
+
+function filterComments(filter, btn) {
+  currentCommentFilter = filter;
+  document.querySelectorAll('#panel-comments .tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderComments();
+}
+
+function renderComments() {
+  const list = document.getElementById('comments-list');
+  const shown = COMMENTS.filter(c => {
+    if (currentCommentFilter === 'approved') return c.approved;
+    if (currentCommentFilter === 'pending') return !c.approved;
+    return true;
+  });
+  list.innerHTML = shown.map(c => `
+<div style="border:1px solid var(--rule);border-radius:var(--r);padding:16px 18px;background:var(--paper);${!c.approved?'border-left:3px solid var(--warn);':''}">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="avatar">${c.initials}</div>
+      <div>
+        <div style="font-size:13.5px;font-weight:600;color:var(--ink);">${c.author}</div>
+        <div style="font-size:12px;color:var(--ink-4);">on <span style="color:var(--ink-3);">${c.article}</span> · ${c.date}</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;flex-shrink:0;">
+      ${!c.approved ? `<span class="status warn"><span class="dot"></span>Pending</span>` : `<span class="status ok"><span class="dot"></span>Approved</span>`}
+      <button class="btn btn-ghost btn-sm" style="color:oklch(0.46 0.13 70);">Delete</button>
+    </div>
+  </div>
+  <p style="font-family:var(--font-serif);font-size:15px;color:var(--ink-2);line-height:1.6;margin:0;">${c.body}</p>
+</div>`).join('');
+}
+
+/* ── Theme management ──────────────────────────────────────────────── */
+const LS_KEY = 'blog-demo-themes';
+let deleteTarget = null;
+
+function loadThemes() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+  catch { return []; }
+}
+
+function saveThemes(themes) {
+  localStorage.setItem(LS_KEY, JSON.stringify(themes));
+}
+
+function getActiveId() {
+  const link = document.getElementById('demo-theme-link');
+  return link ? link.dataset.themeId : null;
+}
+
+function applyTheme(id) {
+  const themes = loadThemes();
+  const theme = themes.find(t => t.id === id);
+  if (!theme) return;
+  let link = document.getElementById('demo-theme-link');
+  if (!link) {
+    link = document.createElement('link');
+    link.id = 'demo-theme-link';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }
+  link.href = theme.url;
+  link.dataset.themeId = id;
+  renderThemeList();
+}
+
+function deactivateTheme() {
+  const link = document.getElementById('demo-theme-link');
+  if (link) link.remove();
+  renderThemeList();
+}
+
+function addTheme() {
+  const nameEl = document.getElementById('add-name');
+  const urlEl  = document.getElementById('add-url');
+  const msgEl  = document.getElementById('js-form-msg');
+  const name = nameEl.value.trim();
+  const url  = urlEl.value.trim();
+
+  if (!name) { msgEl.className = 'msg-error'; msgEl.textContent = 'Please enter a theme name.'; return; }
+  if (!url)  { msgEl.className = 'msg-error'; msgEl.textContent = 'Please enter a CDN URL.'; return; }
+  if (!url.startsWith('http')) { msgEl.className = 'msg-error'; msgEl.textContent = 'URL must start with http(s)://'; return; }
+
+  const themes = loadThemes();
+  const id = 'theme-' + Date.now();
+  themes.push({ id, name, url });
+  saveThemes(themes);
+  nameEl.value = '';
+  urlEl.value = '';
+  msgEl.className = 'msg-success';
+  msgEl.textContent = `Theme "${name}" added.`;
+  renderThemeList();
+  applyTheme(id);
+}
+
+function clearFormMsg() {
+  document.getElementById('js-form-msg').textContent = '';
+}
+
+function renderThemeList() {
+  const themes = loadThemes();
+  const activeId = getActiveId();
+  const list = document.getElementById('js-theme-list');
+
+  if (!themes.length) {
+    list.innerHTML = `<div style="padding:28px;text-align:center;color:var(--ink-4);font-size:13.5px;border:1px dashed var(--rule);border-radius:var(--r);">No themes saved yet. Add one above.</div>`;
+    return;
+  }
+
+  list.innerHTML = themes.map(t => {
+    const isActive = t.id === activeId;
+    return `
+<div class="theme-card ${isActive ? 'active' : ''}">
+  <div>
+    <h4>
+      ${t.name}
+      ${isActive ? `<span class="status accent" style="font-size:11px;"><span class="dot"></span>Active</span>` : ''}
+    </h4>
+    <div class="theme-url">${t.url}</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:7px;align-items:flex-end;flex-shrink:0;">
+    ${isActive
+      ? `<button class="btn btn-ghost btn-sm" onclick="deactivateTheme()">Deactivate</button>`
+      : `<button class="btn btn-primary btn-sm" onclick="applyTheme('${t.id}')">Activate</button>`
+    }
+    <button class="btn btn-ghost btn-sm" style="color:oklch(0.46 0.13 70);border-color:transparent;" onclick="openDeleteModal('${t.id}')">Remove</button>
+  </div>
+</div>`;
+  }).join('');
+}
+
+function openDeleteModal(id) {
+  deleteTarget = id;
+  document.getElementById('js-delete-modal').style.display = 'flex';
+  document.getElementById('js-confirm-delete').onclick = function() {
+    confirmDelete();
+  };
+}
+
+function closeDeleteModal() {
+  deleteTarget = null;
+  document.getElementById('js-delete-modal').style.display = 'none';
+}
+
+function confirmDelete() {
+  if (!deleteTarget) return;
+  const activeId = getActiveId();
+  if (deleteTarget === activeId) deactivateTheme();
+  let themes = loadThemes().filter(t => t.id !== deleteTarget);
+  saveThemes(themes);
+  deleteTarget = null;
+  closeDeleteModal();
+  renderThemeList();
+}
+
+/* close modal on overlay click */
+document.getElementById('js-delete-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeDeleteModal();
+});
+
+/* ── Articles search ───────────────────────────────────────────────── */
+function filterArticles(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#articles-table tbody tr').forEach(tr => {
+    const title = tr.querySelector('td:first-child').textContent.toLowerCase();
+    tr.style.display = title.includes(q) ? '' : 'none';
+  });
+}
+
+/* ── Init ──────────────────────────────────────────────────────────── */
+(function init() {
+  renderComments();
+  renderThemeList();
+
+  /* restore active theme from DOM (link tag present = active) */
+  /* (nothing to restore on fresh load — link tag is injected by applyTheme) */
+})();
+</script>
+</body>
+</html>

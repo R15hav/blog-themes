@@ -4,67 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Theme Store — CSS themes for your blog</title>
-  <meta name="description" content="12 handcrafted CSS themes for the blog platform. One URL. No redeploy. Delivered via jsDelivr CDN.">
+  <meta name="description" content="12 handcrafted CSS themes for the blog platform. One CDN URL. No rebuild, no redeploy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/blog-base.css">
   <link rel="stylesheet" href="css/store.css">
 </head>
 <body>
 
-<header class="store-header">
-  <a href="index.html" class="store-logo">
-    <span class="store-logo-mark">B</span>
-    Theme Store
-  </a>
-  <nav class="store-nav">
-    <a href="index.html">Themes</a>
-    <a href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">Docs</a>
-  </nav>
-  <div class="store-header-right">
-    <a class="btn-gh" href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a>
+<!-- ── Nav ──────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-bar">
+    <div class="nav-left">
+      <a href="index.html" class="wordmark">
+        Blog<span class="dot"></span>Themes
+      </a>
+      <div class="nav-desktop-links">
+        <a href="index.html" class="nav-link active">Themes</a>
+        <a href="https://github.com/R15hav/blog-themes" class="nav-link" target="_blank" rel="noopener">Docs</a>
+        <a href="admin-demo.html" class="nav-link">Admin Demo</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="https://github.com/R15hav/blog-themes" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a href="admin-demo.html" class="btn btn-primary btn-sm">Try Admin Demo</a>
+    </div>
   </div>
-</header>
+</nav>
 
-<section class="store-hero">
-  <div class="hero-eyebrow">
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-    Open source · MIT license
-  </div>
-  <h1>CSS themes for your <span>blog</span></h1>
-  <p>Handcrafted paper-inspired themes. Paste one CDN URL in the admin — no rebuild, no deploy.</p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-num" id="js-count">12</span>
-      <div class="hero-stat-label">themes</div>
+<!-- ── Hero ─────────────────────────────────────────────────────────── -->
+<div class="store-hero">
+  <div class="store-hero-eyebrow">Open source · MIT · 12 themes</div>
+  <h1>CSS themes for your blog.</h1>
+  <p>Handcrafted paper-inspired themes. Paste one CDN URL in the admin — no rebuild, no redeploy needed.</p>
+  <div class="store-hero-stats">
+    <div>
+      <span class="store-stat-num" id="js-count">12</span>
+      <div class="store-stat-label">Themes</div>
     </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">0</span>
-      <div class="hero-stat-label">JS dependencies</div>
+    <div>
+      <span class="store-stat-num">0</span>
+      <div class="store-stat-label">JS dependencies</div>
     </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">1</span>
-      <div class="hero-stat-label">URL to install</div>
+    <div>
+      <span class="store-stat-num">1</span>
+      <div class="store-stat-label">URL to install</div>
     </div>
   </div>
-</section>
+</div>
 
+<!-- ── Filter bar ────────────────────────────────────────────────────── -->
 <div class="gallery-bar">
-  <div class="filter-tabs" id="js-filters">
-    <button class="filter-tab active" data-filter="all">All</button>
-    <button class="filter-tab" data-filter="dark">Dark</button>
-    <button class="filter-tab" data-filter="light">Light</button>
-    <button class="filter-tab" data-filter="serif">Serif</button>
-    <button class="filter-tab" data-filter="sans">Sans</button>
-    <button class="filter-tab" data-filter="vintage">Vintage</button>
-    <button class="filter-tab" data-filter="editorial">Editorial</button>
-    <button class="filter-tab" data-filter="minimal">Minimal</button>
+  <div class="section-eyebrow" style="margin:0; display:flex; gap:4px; flex-wrap:wrap;" id="js-filters">
+    <button class="tab active" data-filter="all" style="font-size:13px;">All themes</button>
+    <button class="tab" data-filter="dark" style="font-size:13px;">Dark</button>
+    <button class="tab" data-filter="light" style="font-size:13px;">Light</button>
+    <button class="tab" data-filter="serif" style="font-size:13px;">Serif</button>
+    <button class="tab" data-filter="sans" style="font-size:13px;">Sans</button>
+    <button class="tab" data-filter="vintage" style="font-size:13px;">Vintage</button>
+    <button class="tab" data-filter="editorial" style="font-size:13px;">Editorial</button>
+    <button class="tab" data-filter="minimal" style="font-size:13px;">Minimal</button>
   </div>
   <span class="gallery-count" id="js-gallery-count">12 themes</span>
 </div>
 
+<!-- ── Gallery ───────────────────────────────────────────────────────── -->
 <div class="gallery" id="js-gallery"></div>
 
+<!-- ── Footer ────────────────────────────────────────────────────────── -->
 <footer class="store-footer">
   <span>&copy; 2025 R15hav · MIT license</span>
   <span>
@@ -81,87 +91,115 @@
 (function () {
   const gallery = document.getElementById('js-gallery');
   const countEl = document.getElementById('js-gallery-count');
-  let currentFilter = 'all';
 
+  /* Mini blog-like mockup inside each card ─────────────────────────── */
   function miniMock(theme) {
-    const t = theme.t;
+    const scope = themeScope(theme);
     return `
-      <div class="mini-mock" style="
-        --paper:${t.paper}; --paper-2:${t.paper2}; --paper-3:${t.paper3};
-        --rule:${t.rule}; --ink:${t.ink}; --ink-2:${t.ink2}; --ink-3:${t.ink3}; --ink-4:${t.ink4};
-        --accent:${t.accent}; --accent-soft:${t.accentSoft}; --r-sm:${t.rSm}; --r:${t.r}; --r-lg:${t.rLg};
-      ">
-        <div class="mini-nav" style="background:var(--paper-2); border-color:var(--rule);">
-          <div class="mini-wordmark" style="color:var(--ink);">◆ Blog</div>
-          <div class="mini-nav-link" style="color:var(--ink-3);">Home</div>
-          <div class="mini-nav-link" style="color:var(--ink-3);">Articles</div>
-          <div class="mini-nav-link" style="color:var(--ink-3);">About</div>
-          <div class="mini-nav-btn" style="background:var(--accent); border-color:var(--accent); color:var(--paper); border-radius:var(--r-sm);">Write</div>
+<div class="card-preview-scaler theme-scope" style="${scope}">
+  <nav class="nav" style="position:relative;">
+    <div class="nav-bar" style="padding:14px 32px;">
+      <div class="nav-left">
+        <a class="wordmark" style="font-size:20px;">Blog<span class="dot"></span></a>
+        <div class="nav-desktop-links">
+          <span class="nav-link">Home</span>
+          <span class="nav-link">Articles</span>
+          <span class="nav-link">About</span>
         </div>
-        <div class="mini-body" style="background:var(--paper);">
-          <div class="mini-hero" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r-lg);">
-            <div class="mini-hero-eye" style="color:var(--accent);">Featured · 8 min read</div>
-            <div class="mini-hero-title" style="color:var(--ink);">The Architecture of Meaning in Typography</div>
-            <div class="mini-hero-excerpt" style="color:var(--ink-2);">How typeface shapes the reader's emotional relationship with content.</div>
-            <div class="mini-cta" style="background:var(--accent); color:var(--paper); border-radius:var(--r);">Read Article →</div>
-          </div>
-          <div class="mini-cards">
-            <div class="mini-card" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r);">
-              <div class="mini-card-title" style="color:var(--ink);">Design Tokens at Scale</div>
-              <div class="mini-card-meta" style="color:var(--ink-4);">Apr 15 · 5 min</div>
-            </div>
-            <div class="mini-card" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r);">
-              <div class="mini-card-title" style="color:var(--ink);">Writing for Developers</div>
-              <div class="mini-card-meta" style="color:var(--ink-4);">Apr 8 · 4 min</div>
-            </div>
-            <div class="mini-card" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r);">
-              <div class="mini-card-title" style="color:var(--ink);">The Grammar of Colour</div>
-              <div class="mini-card-meta" style="color:var(--ink-4);">Mar 22 · 6 min</div>
-            </div>
-          </div>
+      </div>
+      <div class="nav-right">
+        <span class="btn btn-ghost btn-sm">Search</span>
+        <span class="btn btn-primary btn-sm">Write</span>
+      </div>
+    </div>
+  </nav>
+  <div class="feed" style="padding:28px 32px 20px;">
+    <div class="hero" style="padding-bottom:24px;">
+      <div>
+        <span class="tag">Featured</span>
+        <h2 class="hero-title" style="font-size:34px; margin:10px 0 12px;">The Architecture of Meaning in Typography</h2>
+        <p class="hero-deck">How typeface shapes the reader's emotional relationship with content — and why it matters more than ever.</p>
+        <div class="hero-meta">
+          <div class="avatar">R</div>
+          <span class="meta">Apr 15, 2025</span>
+          <span class="dot-sep"></span>
+          <span class="meta">8 min read</span>
         </div>
-      </div>`;
+      </div>
+      <div class="hero-side">
+        <h4>Also in this issue</h4>
+        <div class="side-item">
+          <span class="meta">Design</span>
+          <h5>Design Tokens at Scale</h5>
+          <span class="meta">Apr 8 · 5 min</span>
+        </div>
+        <div class="side-item">
+          <span class="meta">Writing</span>
+          <h5>Writing for Developers</h5>
+          <span class="meta">Mar 22 · 4 min</span>
+        </div>
+      </div>
+    </div>
+    <div class="section-eyebrow">Recent</div>
+    <div class="list">
+      <div class="list-item">
+        <span class="list-num">01</span>
+        <div>
+          <h3 class="list-title" style="font-size:20px; margin:0 0 6px;">The Grammar of Colour</h3>
+          <p class="list-deck" style="font-size:14px; margin:0 0 8px;">Understanding oklch and why it produces better palettes than sRGB.</p>
+          <div class="list-meta"><span class="tag">Colour</span><span class="meta">Mar 22</span></div>
+        </div>
+        <span class="list-aside">6 min</span>
+      </div>
+      <div class="list-item">
+        <span class="list-num">02</span>
+        <div>
+          <h3 class="list-title" style="font-size:20px; margin:0 0 6px;">On Reading Slowly</h3>
+          <p class="list-deck" style="font-size:14px; margin:0 0 8px;">What digital reading has lost and how design can restore it.</p>
+          <div class="list-meta"><span class="tag">Essay</span><span class="meta">Mar 10</span></div>
+        </div>
+        <span class="list-aside">9 min</span>
+      </div>
+    </div>
+  </div>
+</div>`;
   }
 
   function renderCard(theme) {
     return `
-      <article class="theme-card" onclick="location.href='theme.html?id=${theme.id}'">
-        <div class="card-preview">
-          <div class="card-preview-inner">${miniMock(theme)}</div>
-        </div>
-        <div class="card-body">
-          <div class="card-name">${theme.name}</div>
-          <div class="card-tagline">${theme.tagline}</div>
-          <div class="card-era">${theme.era}</div>
-          <div class="card-fonts">${theme.displayFont} · ${theme.bodyFont}</div>
-          <div class="card-row">
-            <div class="card-tags">
-              ${theme.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
-            </div>
-            <button class="card-view-btn">View →</button>
-          </div>
-        </div>
-      </article>`;
+<article class="store-card" onclick="location.href='theme.html?id=${theme.id}'" data-tags="${theme.tags.join(' ')}">
+  <div class="card-preview-box">${miniMock(theme)}</div>
+  <div class="store-card-body">
+    <div class="store-card-name">${theme.name}</div>
+    <div class="store-card-tagline">${theme.tagline}</div>
+    <div class="store-card-era">${theme.era}</div>
+    <div class="store-card-fonts">${theme.displayFont} · ${theme.bodyFont}</div>
+    <div class="store-card-row">
+      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+        ${theme.tags.map(t => `<span class="tag" style="font-size:10px;">${t}</span>`).join('')}
+      </div>
+      <span class="btn btn-ghost btn-sm" style="white-space:nowrap;">View →</span>
+    </div>
+  </div>
+</article>`;
   }
 
   function renderGallery(filter) {
-    const filtered = filter === 'all'
-      ? THEMES
-      : THEMES.filter(t => t.tags.includes(filter));
+    const filtered = filter === 'all' ? THEMES : THEMES.filter(t => t.tags.includes(filter));
     gallery.innerHTML = filtered.map(renderCard).join('');
-    countEl.textContent = `${filtered.length} theme${filtered.length === 1 ? '' : 's'}`;
+    countEl.textContent = `${filtered.length} theme${filtered.length !== 1 ? 's' : ''}`;
   }
 
   document.getElementById('js-filters').addEventListener('click', function (e) {
-    const btn = e.target.closest('.filter-tab');
+    const btn = e.target.closest('.tab');
     if (!btn) return;
-    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#js-filters .tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    renderGallery(currentFilter);
+    renderGallery(btn.dataset.filter);
   });
 
   renderGallery('all');
+  document.getElementById('js-count').textContent = THEMES.length;
 })();
 </script>
 </body>
