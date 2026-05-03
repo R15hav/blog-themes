@@ -1,0 +1,20 @@
+// ── Washi — variables ─────────────────────────────────────────────────────
+// Organic white with green tint · green-hinted ink · mossy accent · rounded.
+
+:root {
+  --paper:       oklch(0.962 0.014 92);    // organic washi white, slight warmth
+  --paper-2:     oklch(0.942 0.016 106);   // hint of green-grey
+  --paper-3:     oklch(0.918 0.018 110);
+  --rule:        oklch(0.832 0.020 120);
+  --rule-soft:   oklch(0.882 0.016 115);
+  --ink:         oklch(0.195 0.022 128);   // deep green-tinted dark
+  --ink-2:       oklch(0.318 0.020 132);
+  --ink-3:       oklch(0.480 0.017 136);
+  --ink-4:       oklch(0.630 0.013 140);
+  --accent:      oklch(0.510 0.115 148);   // mossy green
+  --accent-soft: oklch(0.510 0.115 148 / 0.13);
+  --accent-ink:  oklch(0.380 0.118 150);
+  --ok:          oklch(0.510 0.125 148);
+  --warn:        oklch(0.600 0.125 78);
+  --r-sm: 5px; --r: 7px; --r-lg: 12px;
+}

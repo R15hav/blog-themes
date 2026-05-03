@@ -1,0 +1,13 @@
+// ── White Paper — admin ───────────────────────────────────────────────────
+// .tab.active → var(--accent) border-bottom ✓ (automatic)
+// .tab-badge → var(--accent-soft) / var(--accent-ink) ✓ (automatic)
+// .theme-card.active → var(--accent) border ✓ (automatic)
+
+// Subtle top-border accent on KPI cards
+.kpi {
+  border-top: 2px solid color-mix(
+    in oklch,
+    var(--accent) 20%,
+    var(--rule) 80%
+  );
+}

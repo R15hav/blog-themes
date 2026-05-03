@@ -1,0 +1,23 @@
+// ── Cold Press theme — entry point
+// Compile:
+//   npm run release:cold-press
+// or manually:
+//   npx sass themes/cold-press/cold-press.scss themes/cold-press/cold-press.1.0.0.css \
+//     --style=compressed --no-source-map
+
+@use 'scss/variables';
+@use 'scss/layout';
+@use 'scss/nav-blog';
+@use 'scss/nav-admin';
+@use 'scss/buttons';
+@use 'scss/forms';
+@use 'scss/tables';
+@use 'scss/alerts';
+@use 'scss/feed';
+@use 'scss/article';
+@use 'scss/formatting';
+@use 'scss/editor';
+@use 'scss/admin';
+@use 'scss/auth';
+@use 'scss/profile';
+@use 'scss/responsive';

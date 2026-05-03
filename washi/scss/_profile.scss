@@ -1,0 +1,17 @@
+// ── White Paper — profile ─────────────────────────────────────────────────
+// .profile-modal border-top → var(--accent) ✓ (automatic)
+// .profile-field input/select/textarea:focus → var(--accent) ✓ (automatic)
+
+// Subtle blue left accent on experience cards
+.exp-card {
+  border-left: 3px solid color-mix(
+    in oklch,
+    var(--accent) 30%,
+    var(--rule-soft) 70%
+  );
+
+  &:hover {
+    border-left-color: var(--accent);
+    background: color-mix(in oklch, var(--paper-2) 75%, var(--accent-soft) 25%);
+  }
+}

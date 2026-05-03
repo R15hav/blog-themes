@@ -1,0 +1,38 @@
+// ── Laid Paper — layout ───────────────────────────────────────────────────
+// Horizontal chain-line texture on the page surface (simulates laid paper).
+// Footer retains a subtle accent hairline.
+
+// Chain-line spacing: ~24px apart, 1px rule, color-mix for token-relative opacity.
+body {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--rule) 30%, transparent) 0px,
+    color-mix(in oklch, var(--rule) 30%, transparent) 1px,
+    transparent 1px,
+    transparent 24px
+  );
+}
+
+
+footer {
+  background: var(--paper-2);
+  border-top-color: var(--rule-soft);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--accent) 50%,
+      transparent 100%
+    );
+    opacity: 0.30;
+  }
+}
+
+// .wordmark .dot → var(--accent) → editorial blue ✓ (automatic)
+// .tag → var(--accent-soft) / var(--accent-ink) ✓ (automatic)

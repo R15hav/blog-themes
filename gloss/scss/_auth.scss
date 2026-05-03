@@ -1,0 +1,10 @@
+// ── White Paper — auth ────────────────────────────────────────────────────
+// .notice → var(--accent-soft) / var(--accent-ink) ✓ (automatic)
+// .field input:focus border-bottom → var(--accent) ✓ (automatic)
+// .auth-divider a → var(--accent-ink) ✓ (automatic)
+
+// Cool-white marketing panel
+.auth-marketing {
+  background: var(--paper-2);
+  border-right-color: var(--rule);
+}

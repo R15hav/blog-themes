@@ -1,0 +1,21 @@
+// ── Stone Paper — variables ───────────────────────────────────────────────
+// Light cool grey · deep charcoal ink · teal accent · very rounded corners.
+// Stone paper — mineral smooth, cool neutral ground.
+
+:root {
+  --paper:       oklch(0.936 0.010 238);   // light cool grey
+  --paper-2:     oklch(0.912 0.011 236);
+  --paper-3:     oklch(0.884 0.012 234);
+  --rule:        oklch(0.800 0.012 232);
+  --rule-soft:   oklch(0.856 0.010 234);
+  --ink:         oklch(0.165 0.018 240);   // deep cool charcoal
+  --ink-2:       oklch(0.285 0.016 238);
+  --ink-3:       oklch(0.445 0.013 236);
+  --ink-4:       oklch(0.608 0.010 234);
+  --accent:      oklch(0.548 0.155 215);   // teal
+  --accent-soft: oklch(0.548 0.155 215 / 0.12);
+  --accent-ink:  oklch(0.415 0.158 217);
+  --ok:          oklch(0.502 0.120 148);
+  --warn:        oklch(0.590 0.130 72);
+  --r-sm: 6px; --r: 10px; --r-lg: 16px;
+}

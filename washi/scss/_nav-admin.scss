@@ -1,0 +1,8 @@
+// ── White Paper — admin sidebar ───────────────────────────────────────────
+// Slightly cooler sidebar background to separate it from main content.
+// .admin-nav a.active → var(--accent) border-left ✓ (automatic)
+
+.admin-side {
+  background: var(--paper-2);
+  border-right-color: var(--rule);
+}

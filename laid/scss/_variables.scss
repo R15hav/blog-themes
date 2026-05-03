@@ -1,0 +1,21 @@
+// ── Laid Paper — variables ────────────────────────────────────────────────
+// Traditional cream · warm ink · deep printing-press red accent.
+// Horizontal chain-line texture applied in _layout.scss.
+
+:root {
+  --paper:       oklch(0.948 0.022 89);    // traditional laid cream
+  --paper-2:     oklch(0.924 0.020 87);
+  --paper-3:     oklch(0.898 0.019 85);
+  --rule:        oklch(0.820 0.022 82);
+  --rule-soft:   oklch(0.870 0.018 84);
+  --ink:         oklch(0.188 0.022 68);    // warm dark brown-black
+  --ink-2:       oklch(0.308 0.020 66);
+  --ink-3:       oklch(0.468 0.016 64);
+  --ink-4:       oklch(0.618 0.013 62);
+  --accent:      oklch(0.465 0.145 32);    // deep printing red
+  --accent-soft: oklch(0.465 0.145 32 / 0.13);
+  --accent-ink:  oklch(0.345 0.148 28);
+  --ok:          oklch(0.490 0.118 142);
+  --warn:        oklch(0.580 0.132 68);
+  --r-sm: 2px; --r: 4px; --r-lg: 6px;
+}

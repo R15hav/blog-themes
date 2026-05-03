@@ -1,0 +1,21 @@
+// ── Gloss — variables ─────────────────────────────────────────────────────
+// Brilliant cool white · deep cool ink · vivid magenta accent.
+// Glossy nav reflective effect applied in _nav-blog.scss.
+
+:root {
+  --paper:       oklch(0.998 0.002 200);   // brilliant cool white
+  --paper-2:     oklch(0.980 0.004 210);
+  --paper-3:     oklch(0.958 0.006 215);
+  --rule:        oklch(0.880 0.006 220);
+  --rule-soft:   oklch(0.932 0.004 218);
+  --ink:         oklch(0.130 0.016 248);   // deep cool near-black
+  --ink-2:       oklch(0.255 0.014 246);
+  --ink-3:       oklch(0.418 0.011 244);
+  --ink-4:       oklch(0.582 0.009 242);
+  --accent:      oklch(0.580 0.220 330);   // vivid magenta
+  --accent-soft: oklch(0.580 0.220 330 / 0.10);
+  --accent-ink:  oklch(0.440 0.225 332);
+  --ok:          oklch(0.490 0.118 142);
+  --warn:        oklch(0.580 0.138 68);
+  --r-sm: 3px; --r: 5px; --r-lg: 8px;
+}

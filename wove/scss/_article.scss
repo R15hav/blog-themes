@@ -1,0 +1,22 @@
+// ── White Paper — article ─────────────────────────────────────────────────
+// .article-body blockquote → var(--accent) blue left border ✓ (automatic)
+// .toc-list li.active → var(--accent) border-left ✓ (automatic)
+// .reaction-btn--liked → var(--accent) ✓ (automatic)
+// .profile-modal border-top → var(--accent) ✓ (automatic)
+
+// Blue-tinted inline code label
+.article-body code:not(pre code) {
+  color: var(--accent-ink);
+}
+
+// Blue hover on TOC tab
+.toc-tab:hover {
+  border-color: color-mix(in oklch, var(--accent), var(--rule) 65%);
+  color: var(--accent-ink);
+}
+
+// Blue hover on article rail buttons
+.rail-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}

@@ -1,0 +1,16 @@
+// ── White Paper — blog nav ────────────────────────────────────────────────
+// Crisp sticky nav with a sharper drop-shadow instead of a visible border.
+// Blue gradient on the reading progress bar.
+
+.nav {
+  border-bottom-color: var(--rule-soft);
+  box-shadow: 0 1px 0 var(--rule-soft);
+}
+
+.progress-fill {
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent-ink) 100%
+  );
+}
