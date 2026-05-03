@@ -1,46 +1,14 @@
 // ── Cold Press — layout ───────────────────────────────────────────────────
-// Bumpy "toothy" / "Not" surface texture using four SVG feTurbulence layers:
-//
-//   ① Coarse tooth shadows  — type='turbulence' (sharp-edged bumps, not smooth)
-//                              crevice-shadow color at 10% opacity
-//   ② Tooth peak highlights — same freq band, slightly shifted; near-white at 5%
-//                              the shadow+highlight pair creates the 3D bump illusion
-//   ③ Mid-scale fill        — fractalNoise at medium freq; fills between coarse bumps
-//   ④ Fine surface grain    — fractalNoise at high freq; the micro-roughness of the pulp
-//
-// Using type='turbulence' for layers ① and ② is the key difference from smooth paper
-// textures: turbulence produces sharp, discontinuous transitions — the actual "tooth".
+// Toothy dot-field surface: two offset dot grids simulate the bumpy "Not"
+// texture where pigment settles into the crevices of watercolour paper.
 
 body {
   background-color: var(--paper);
   background-image:
-    // ① Coarse tooth — sharp bumps, crevice shadows (warm dark)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.038 0.032' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.38 0 0 0 0 0.30 0 0 0 0 0.22 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"),
-    // ② Tooth peak highlights — slightly offset freq, near-white warm
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.042 0.036' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.97 0 0 0 0 0.95 0 0 0 0 0.91 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"),
-    // ③ Mid-scale texture — fractalNoise fills between the coarse bumps
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.18 0.14' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.42 0 0 0 0 0.34 0 0 0 0 0.26 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"),
-    // ④ Fine grain — micro-roughness of the cellulose pulp
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.40 0 0 0 0 0.32 0 0 0 0 0.24 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-
-  background-size:
-    300px 300px,  // ① coarse tooth
-    300px 300px,  // ② highlights
-    240px 240px,  // ③ mid fill
-    200px 200px;  // ④ fine grain
-  background-attachment: fixed, fixed, fixed, fixed;
-}
-
-// Content containers: semi-transparent so the tooth bleeds through.
-// Watercolour paper texture should be visible behind the type column.
-main,
-.feed,
-.article-shell,
-.auth-shell,
-.admin-shell,
-.editor-shell,
-.profile-page {
-  background: color-mix(in oklch, var(--paper) 88%, transparent);
+    radial-gradient(rgba(120,90,40,0.10) 1px, transparent 1.4px),
+    radial-gradient(rgba(120,90,40,0.06) 1px, transparent 1.4px);
+  background-size: 4px 4px, 7px 7px;
+  background-position: 0 0, 2px 3px;
 }
 
 footer {

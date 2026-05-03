@@ -1,84 +1,12 @@
 // ── Papyrus — layout ──────────────────────────────────────────────────────
-// Replicates the physical structure of papyrus:
-//   - Pith cut into strips, laid horizontally then vertically and pressed.
-//   - Each strip has its own seam edge (top + bottom shadow = ribbing).
-//   - Longitudinal cell walls run along the direction of each strip.
-//   - Horizontal strips are the PRIMARY layer (more opaque).
-//   - Vertical cross-strips are the SECONDARY layer (pressed underneath).
-//   - SVG fractalNoise softens the gradient edges so seams look hand-cut.
-//
-// Layers (painter's order — last in list = bottom):
-//   ① SVG grain        — hand-cut organic irregularity
-//   ② H strip seams    — 12px: top edge dark, bottom edge soft (ribbing)
-//   ③ H cell walls     — fine pith-cell lines along each horizontal strip
-//   ④ V cross-strip seams — 18px, 60% of H opacity (secondary layer)
-//   ⑤ V cell walls     — fine lines along each vertical cross-strip
+// Pith-strip weave: horizontal seam lines (9px repeat) + vertical cross-strips
+// (14px repeat) — the two-layer structure of pressed papyrus pith.
 
 body {
   background-color: var(--paper);
   background-image:
-    // ① Organic grain — wide, low-frequency noise makes edges look hand-cut
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.40 0.35' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.55 0 0 0 0 0.35 0 0 0 0 0.10 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E"),
-    // ② Horizontal pith strip seams — PRIMARY layer, 12px repeat
-    // Top edge is the strip junction (darkest). Bottom edge is the return
-    // shadow of the next strip's raised edge. Together they give visible ribbing.
-    repeating-linear-gradient(
-      to bottom,
-      color-mix(in oklch, var(--ink-4) 40%, transparent) 0px,    // seam junction
-      color-mix(in oklch, var(--ink-4) 16%, transparent) 2px,    // shadow fall-off
-      transparent                                          4px,   // strip surface
-      transparent                                         10px,   // strip surface
-      color-mix(in oklch, var(--ink-4) 12%, transparent) 10px,   // bottom return shadow
-      transparent                                         12px
-    ),
-    // ③ Fine horizontal cell walls — pith cells run the length of each strip
-    // 89.5° ≈ horizontal but with 0.5° drift — looks hand-cut, not mechanical
-    repeating-linear-gradient(
-      89.5deg,
-      transparent                                          0px,
-      transparent                                          2px,
-      color-mix(in oklch, var(--rule) 12%, transparent)   2px,
-      transparent                                          3px
-    ),
-    // ④ Vertical cross-strip seams — SECONDARY layer (pressed underneath), 18px repeat
-    // Same anatomy as horizontal but at ~55% opacity
-    repeating-linear-gradient(
-      to right,
-      color-mix(in oklch, var(--ink-4) 22%, transparent)  0px,   // seam
-      color-mix(in oklch, var(--ink-4) 8%, transparent)   2px,   // shadow
-      transparent                                          4px,   // strip surface
-      transparent                                         16px,
-      color-mix(in oklch, var(--ink-4) 7%, transparent)  16px,   // return shadow
-      transparent                                         18px
-    ),
-    // ⑤ Fine vertical cell walls — pith cells run the length of each cross-strip
-    // 0.5° off vertical — same slight-drift trick as ③
-    repeating-linear-gradient(
-      0.5deg,
-      transparent                                          0px,
-      transparent                                          3px,
-      color-mix(in oklch, var(--rule) 8%, transparent)    3px,
-      transparent                                          4px
-    );
-
-  background-size: 256px 256px, auto, auto, auto, auto;
-  background-attachment:
-    fixed,    // grain stays put — organic irregularity from a fixed physical surface
-    scroll,
-    scroll,
-    scroll,
-    scroll;
-}
-
-// Content containers: semi-transparent so the pith-strip structure shows through.
-main,
-.feed,
-.article-shell,
-.auth-shell,
-.admin-shell,
-.editor-shell,
-.profile-page {
-  background: color-mix(in oklch, var(--paper) 88%, transparent);
+    repeating-linear-gradient(0deg, rgba(120,80,30,0.07) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(90deg, rgba(120,80,30,0.05) 0 1px, transparent 1px 14px);
 }
 
 footer {

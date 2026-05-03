@@ -1,5 +1,14 @@
-// ── White Paper — layout ──────────────────────────────────────────────────
-// Clean footer with a blue accent hairline at top.
+// ── Washi — layout ────────────────────────────────────────────────────────
+// Handmade cloud splotches — the pigment-density variation characteristic of
+// hand-laid washi paper where kozo fibres cluster unevenly.
+
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(420px 260px at 12% 18%, rgba(90,107,58,0.05), transparent 60%),
+    radial-gradient(380px 240px at 82% 70%, rgba(90,107,58,0.045), transparent 60%),
+    radial-gradient(300px 200px at 45% 95%, rgba(90,107,58,0.04), transparent 60%);
+}
 
 footer {
   background: var(--paper-2);
@@ -20,6 +29,3 @@ footer {
     opacity: 0.30;
   }
 }
-
-// .wordmark .dot → var(--accent) → editorial blue ✓ (automatic)
-// .tag → var(--accent-soft) / var(--accent-ink) ✓ (automatic)

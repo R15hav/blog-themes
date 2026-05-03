@@ -1,5 +1,13 @@
-// ── White Paper — layout ──────────────────────────────────────────────────
-// Clean footer with a blue accent hairline at top.
+// ── Matte — layout ────────────────────────────────────────────────────────
+// Flat micro-grain: minimal 3px dot pattern for a non-reflective coated surface.
+// No directional light — the defining quality of matte paper is its absence of sheen.
+
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(60,40,20,0.04) 1px, transparent 1.2px);
+  background-size: 3px 3px;
+}
 
 footer {
   background: var(--paper-2);
@@ -20,6 +28,3 @@ footer {
     opacity: 0.30;
   }
 }
-
-// .wordmark .dot → var(--accent) → editorial blue ✓ (automatic)
-// .tag → var(--accent-soft) / var(--accent-ink) ✓ (automatic)

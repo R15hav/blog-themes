@@ -1,5 +1,12 @@
-// ── Forest — layout overrides ─────────────────────────────────────────────
-// Amber gradient rule above footer. Nav/header frosted glass is in _nav-blog.
+// ── Forest — layout ───────────────────────────────────────────────────────
+// Subtle vertical-fibre grain + warm amber highlight above the fold.
+
+body {
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px),
+    radial-gradient(1200px 600px at 50% -10%, rgba(212,154,62,0.06), transparent 70%);
+}
 
 footer {
   background: var(--paper-2);
@@ -20,6 +27,3 @@ footer {
     opacity: 0.35;
   }
 }
-
-// .wordmark .dot already references var(--accent) — amber automatically
-// .tag already references var(--accent-soft) / var(--accent-ink) — automatic

@@ -1,18 +1,13 @@
 // ── Laid Paper — layout ───────────────────────────────────────────────────
-// Horizontal chain-line texture on the page surface (simulates laid paper).
-// Footer retains a subtle accent hairline.
+// Horizontal chain-lines (22px repeat) + faint vertical wire lines (5px repeat).
+// Replicates the twin-wire mould structure visible when laid paper is held to light.
 
-// Chain-line spacing: ~24px apart, 1px rule, color-mix for token-relative opacity.
 body {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    color-mix(in oklch, var(--rule) 30%, transparent) 0px,
-    color-mix(in oklch, var(--rule) 30%, transparent) 1px,
-    transparent 1px,
-    transparent 24px
-  );
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(80,40,20,0.06) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(90deg, rgba(80,40,20,0.025) 0 1px, transparent 1px 5px);
 }
-
 
 footer {
   background: var(--paper-2);
@@ -33,6 +28,3 @@ footer {
     opacity: 0.30;
   }
 }
-
-// .wordmark .dot → var(--accent) → editorial blue ✓ (automatic)
-// .tag → var(--accent-soft) / var(--accent-ink) ✓ (automatic)
