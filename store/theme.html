@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme — Blog Theme Store</title>
+  <link rel="stylesheet" href="css/store.css">
+  <style>
+    /* Injected by JS */
+  </style>
+</head>
+<body>
+
+<header class="store-header">
+  <a href="index.html" class="store-logo">
+    <span class="store-logo-mark">B</span>
+    Theme Store
+  </a>
+  <nav class="store-nav">
+    <a href="index.html">Themes</a>
+    <a href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">Docs</a>
+  </nav>
+  <div class="store-header-right">
+    <a class="btn-gh" href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<div id="js-page">
+  <div style="padding:80px; text-align:center; color:#555;">Loading…</div>
+</div>
+
+<footer class="store-footer">
+  <span>&copy; 2025 R15hav · MIT license</span>
+  <span>
+    <a href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">blog-themes on GitHub</a>
+    &nbsp;·&nbsp;
+    Served via <a href="https://www.jsdelivr.com" target="_blank" rel="noopener">jsDelivr CDN</a>
+  </span>
+</footer>
+
+<script src="js/themes.js"></script>
+<script>
+(function () {
+  /* ── helpers ───────────────────────────────────────────────── */
+  const $ = id => document.getElementById(id);
+  const qs = sel => document.querySelector(sel);
+
+  function getParam(name) {
+    return new URLSearchParams(location.search).get(name);
+  }
+
+  function blogMockNav(theme) {
+    return `
+      <div class="bm-nav">
+        <span class="bm-wordmark">◆ Blog</span>
+        <span class="bm-nav-link">Home</span>
+        <span class="bm-nav-link">Articles</span>
+        <span class="bm-nav-link">About</span>
+        <div class="bm-nav-actions">
+          <button class="bm-btn">Search</button>
+          <button class="bm-btn bm-btn-primary">Write</button>
+        </div>
+      </div>`;
+  }
+
+  function panelFeed() {
+    return `
+      ${blogMockNav()}
+      <div class="bm-feed">
+        <div class="bm-hero">
+          <div class="bm-eyebrow">Featured · 8 min read</div>
+          <div class="bm-hero-title">The Architecture of Meaning in Typography</div>
+          <div class="bm-hero-excerpt">How the choice of typeface shapes the reader's emotional relationship with content — and why it matters more now than ever before in the age of digital reading.</div>
+          <span class="bm-cta">Read Article →</span>
+        </div>
+        <div class="bm-cards">
+          <div class="bm-card">
+            <div class="bm-eyebrow">Design</div>
+            <div class="bm-card-title">Design Tokens at Scale</div>
+            <div class="bm-card-excerpt">Building a systematic approach to visual decisions across a growing product team.</div>
+            <div class="bm-card-meta">Apr 15 · 5 min read</div>
+          </div>
+          <div class="bm-card">
+            <div class="bm-eyebrow">Writing</div>
+            <div class="bm-card-title">Writing for Developers</div>
+            <div class="bm-card-excerpt">Documentation that readers actually want to read — and why most technical writing fails.</div>
+            <div class="bm-card-meta">Apr 8 · 4 min read</div>
+          </div>
+          <div class="bm-card">
+            <div class="bm-eyebrow">Colour</div>
+            <div class="bm-card-title">The Grammar of Colour</div>
+            <div class="bm-card-excerpt">Understanding the perceptual logic behind oklch and why it produces better palettes.</div>
+            <div class="bm-card-meta">Mar 22 · 6 min read</div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function panelArticle() {
+    return `
+      ${blogMockNav()}
+      <div class="bm-article-wrap">
+        <div>
+          <div class="bm-article-tag">Design</div>
+          <div class="bm-article-title">The Architecture of Meaning in Typography</div>
+          <div class="bm-article-byline">R15hav · Apr 15, 2025 · 8 min read</div>
+          <hr class="bm-rule">
+          <p class="bm-article-p">Typography is not decoration. It is the architecture through which meaning is communicated. Before a reader processes a single word, they have already received a signal — from the weight of the strokes, the rhythm of the spacing, the mood of the letterforms.</p>
+          <p class="bm-article-p">The choice between a sharp sans-serif and a warmly imperfect slab is not merely aesthetic. It is a claim about authority, intimacy, era, and intention. The reader decodes it subconsciously, instantly.</p>
+          <p class="bm-article-p">This article traces that decoding process — how typefaces carry cultural memory, why some feel formal and others conversational, and how designers can exploit this to serve their readers better.</p>
+        </div>
+        <aside class="bm-toc">
+          <div class="bm-toc-title">Contents</div>
+          <div class="bm-toc-item active">Introduction</div>
+          <div class="bm-toc-item">Historical Context</div>
+          <div class="bm-toc-item">The Emotional Register</div>
+          <div class="bm-toc-item">Practical Choices</div>
+          <div class="bm-toc-item">Conclusion</div>
+        </aside>
+      </div>`;
+  }
+
+  function panelAuth() {
+    return `
+      ${blogMockNav()}
+      <div class="bm-auth-wrap">
+        <div class="bm-auth-card">
+          <div class="bm-auth-title">Sign in</div>
+          <div class="bm-auth-sub">Welcome back to your blog</div>
+          <div class="bm-field">
+            <label class="bm-label">Email address</label>
+            <input class="bm-input" type="email" value="you@example.com" readonly>
+          </div>
+          <div class="bm-field">
+            <label class="bm-label">Password</label>
+            <input class="bm-input" type="password" value="password" readonly>
+          </div>
+          <button class="bm-submit">Sign in</button>
+          <div class="bm-auth-footer">Don't have an account? <span style="color:var(--accent-ink)">Create one →</span></div>
+        </div>
+      </div>`;
+  }
+
+  function panelAdmin() {
+    return `
+      <div class="bm-admin-wrap">
+        <aside class="bm-admin-side">
+          <div class="bm-admin-logo">◆ Blog Admin</div>
+          <div class="bm-admin-link active"><span class="bm-admin-icon">▦</span> Dashboard</div>
+          <div class="bm-admin-link"><span class="bm-admin-icon">✦</span> Articles</div>
+          <div class="bm-admin-link"><span class="bm-admin-icon">◎</span> Comments</div>
+          <div class="bm-admin-link"><span class="bm-admin-icon">◈</span> Themes</div>
+          <div class="bm-admin-link"><span class="bm-admin-icon">◉</span> Profile</div>
+          <div class="bm-admin-link"><span class="bm-admin-icon">⊙</span> Settings</div>
+        </aside>
+        <div class="bm-admin-content">
+          <div class="bm-kpi-grid">
+            <div class="bm-kpi">
+              <div class="bm-kpi-label">Articles</div>
+              <div class="bm-kpi-val">24</div>
+              <div class="bm-kpi-delta">+3 this month</div>
+            </div>
+            <div class="bm-kpi">
+              <div class="bm-kpi-label">Views</div>
+              <div class="bm-kpi-val">4.2k</div>
+              <div class="bm-kpi-delta">+18% this week</div>
+            </div>
+            <div class="bm-kpi">
+              <div class="bm-kpi-label">Comments</div>
+              <div class="bm-kpi-val">87</div>
+              <div class="bm-kpi-delta">+12 this week</div>
+            </div>
+            <div class="bm-kpi">
+              <div class="bm-kpi-label">Reactions</div>
+              <div class="bm-kpi-val">312</div>
+              <div class="bm-kpi-delta">+44 this month</div>
+            </div>
+          </div>
+          <div class="bm-admin-table">
+            <div class="bm-admin-table-head">
+              <span class="bm-ath">Title</span>
+              <span class="bm-ath">Date</span>
+              <span class="bm-ath">Views</span>
+              <span class="bm-ath">Status</span>
+            </div>
+            <div class="bm-admin-row">
+              <span class="bm-atd">The Architecture of Typography</span>
+              <span class="bm-atd" style="color:var(--ink-4)">Apr 15</span>
+              <span class="bm-atd">1,204</span>
+              <span class="bm-badge bm-badge-pub">Published</span>
+            </div>
+            <div class="bm-admin-row">
+              <span class="bm-atd">Design Tokens at Scale</span>
+              <span class="bm-atd" style="color:var(--ink-4)">Apr 8</span>
+              <span class="bm-atd">876</span>
+              <span class="bm-badge bm-badge-pub">Published</span>
+            </div>
+            <div class="bm-admin-row">
+              <span class="bm-atd">Writing for Developers (draft)</span>
+              <span class="bm-atd" style="color:var(--ink-4)">—</span>
+              <span class="bm-atd">—</span>
+              <span class="bm-badge bm-badge-dft">Draft</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  /* ── Token table rows ──────────────────────────────────────── */
+  const TOKEN_ROLES = [
+    ['--paper',       'Primary page background'],
+    ['--paper-2',     'Cards, sidebar, secondary surfaces'],
+    ['--paper-3',     'Hover tints, muted fills'],
+    ['--rule',        'Default border / divider'],
+    ['--rule-soft',   'Subtle secondary divider'],
+    ['--ink',         'Primary text'],
+    ['--ink-2',       'Secondary text'],
+    ['--ink-3',       'Tertiary / muted text'],
+    ['--ink-4',       'Ultra-muted labels, timestamps'],
+    ['--accent',      'Brand color — buttons, links, highlights'],
+    ['--accent-soft', 'Tinted accent background'],
+    ['--accent-ink',  'Darker accent — readable on --paper'],
+    ['--ok',          'Success states'],
+    ['--warn',        'Warning states'],
+    ['--r-sm',        'Radius — small elements (badges, chips)'],
+    ['--r',           'Radius — default (buttons, inputs, cards)'],
+    ['--r-lg',        'Radius — large surfaces (modals, panels)'],
+  ];
+
+  const TOKEN_KEYS = {
+    '--paper':       'paper',
+    '--paper-2':     'paper2',
+    '--paper-3':     'paper3',
+    '--rule':        'rule',
+    '--rule-soft':   'ruleSoft',
+    '--ink':         'ink',
+    '--ink-2':       'ink2',
+    '--ink-3':       'ink3',
+    '--ink-4':       'ink4',
+    '--accent':      'accent',
+    '--accent-soft': 'accentSoft',
+    '--accent-ink':  'accentInk',
+    '--ok':          'ok',
+    '--warn':        'warn',
+    '--r-sm':        'rSm',
+    '--r':           'r',
+    '--r-lg':        'rLg',
+  };
+
+  /* ── Render page ───────────────────────────────────────────── */
+  function render(theme) {
+    document.title = `${theme.name} — Blog Theme Store`;
+
+    const url = cdnUrl(theme);
+
+    const themeCssVars = Object.entries(theme.t).map(([k, v]) => `--${k}: ${v};`).join(' ');
+    // not used directly; vars applied per-section
+
+    const t = theme.t;
+    const scopeStyle = `
+      --paper:${t.paper}; --paper-2:${t.paper2}; --paper-3:${t.paper3};
+      --rule:${t.rule}; --rule-soft:${t.ruleSoft};
+      --ink:${t.ink}; --ink-2:${t.ink2}; --ink-3:${t.ink3}; --ink-4:${t.ink4};
+      --accent:${t.accent}; --accent-soft:${t.accentSoft}; --accent-ink:${t.accentInk};
+      --ok:${t.ok}; --warn:${t.warn};
+      --r-sm:${t.rSm}; --r:${t.r}; --r-lg:${t.rLg};
+    `;
+
+    /* ── Token table rows ─────────────────────────────────────── */
+    const tokenRows = TOKEN_ROLES.map(([name, role]) => {
+      const key = TOKEN_KEYS[name];
+      const val = t[key];
+      const isRadius = name.startsWith('--r');
+      const swatch = isRadius
+        ? `<span class="tok-swatch" style="background:transparent; border-color:transparent; width:auto; font-size:12px; font-family:monospace; color:var(--s-text-3);">${val}</span>`
+        : `<span class="tok-swatch" style="background:${val};"></span>`;
+      return `
+        <tr>
+          <td><span class="tok-name">${name}</span></td>
+          <td>${swatch}<span class="tok-val">${val}</span></td>
+          <td>${role}</td>
+        </tr>`;
+    }).join('');
+
+    $('js-page').innerHTML = `
+    <div class="theme-page">
+
+      <div class="theme-page-head">
+        <div>
+          <a href="index.html" class="back-link">← All themes</a>
+          <div class="theme-title">${theme.name}</div>
+          <div class="theme-tagline">${theme.tagline}</div>
+          <div class="theme-badges">
+            ${theme.tags.map(tag => `<span class="theme-badge">${tag}</span>`).join('')}
+          </div>
+          <div class="theme-era" style="margin-top:10px;">Era: ${theme.era}</div>
+          <div class="theme-era">Display: ${theme.displayFont} · Body: ${theme.bodyFont}</div>
+        </div>
+        <div class="cdn-box">
+          <div class="cdn-label">CDN install URL</div>
+          <div class="cdn-url" id="cdn-url-text">${url}</div>
+          <button class="cdn-copy-btn" id="cdn-copy-btn" onclick="copyUrl('${url}')">Copy URL</button>
+        </div>
+      </div>
+
+      <!-- ── Mockup ─────────────────────────────────────────── -->
+      <section class="mockup-section">
+        <div class="section-heading">Live preview</div>
+        <div class="mockup-tabs">
+          <button class="mockup-tab active" data-panel="feed">Feed</button>
+          <button class="mockup-tab" data-panel="article">Article</button>
+          <button class="mockup-tab" data-panel="auth">Auth</button>
+          <button class="mockup-tab" data-panel="admin">Admin</button>
+        </div>
+
+        <div id="panel-feed" class="mock-panel active">
+          <div class="browser">
+            <div class="browser-bar">
+              <div class="browser-dots"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div></div>
+              <div class="browser-addr">yourblog.com</div>
+            </div>
+            <div class="blog-mock" style="${scopeStyle}">${panelFeed()}</div>
+          </div>
+        </div>
+
+        <div id="panel-article" class="mock-panel">
+          <div class="browser">
+            <div class="browser-bar">
+              <div class="browser-dots"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div></div>
+              <div class="browser-addr">yourblog.com/articles/typography</div>
+            </div>
+            <div class="blog-mock" style="${scopeStyle}">${panelArticle()}</div>
+          </div>
+        </div>
+
+        <div id="panel-auth" class="mock-panel">
+          <div class="browser">
+            <div class="browser-bar">
+              <div class="browser-dots"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div></div>
+              <div class="browser-addr">yourblog.com/login</div>
+            </div>
+            <div class="blog-mock" style="${scopeStyle}">${panelAuth()}</div>
+          </div>
+        </div>
+
+        <div id="panel-admin" class="mock-panel">
+          <div class="browser">
+            <div class="browser-bar">
+              <div class="browser-dots"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div></div>
+              <div class="browser-addr">yourblog.com/admin</div>
+            </div>
+            <div class="blog-mock" style="${scopeStyle}">${panelAdmin()}</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── How to use ──────────────────────────────────────── -->
+      <section class="how-section">
+        <h2>How to use this theme</h2>
+        <p>Four steps from zero to a fully themed blog — no rebuild, no redeploy.</p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <div class="step-title">Copy the CDN URL</div>
+              <div class="step-desc">The compiled CSS is hosted on jsDelivr and served directly from this GitHub repository. Each release is versioned so the URL is immutable — the CDN will never silently change under you.</div>
+              <div class="code-block">${url}</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <div class="step-title">Open Admin → Themes</div>
+              <div class="step-desc">Sign in to your blog admin, navigate to <strong>Admin → Theme Management</strong>, and paste the URL into the active theme field.</div>
+              <div class="code-block"><span class="hl">POST</span> /api/v1/theme/active
+Content-Type: application/json
+
+{ "url": "<span class="hl">${url}</span>" }</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <div class="step-title">Save — the theme loads instantly</div>
+              <div class="step-desc">The blog backend stores the URL. On every page load, the frontend injects it as a <code style="font-family:monospace; font-size:12px;">&lt;link&gt;</code> tag <em>after</em> <code style="font-family:monospace; font-size:12px;">globals.css</code>, so theme rules automatically override the platform defaults — no <code style="font-family:monospace; font-size:12px;">!important</code>, no hacks.</div>
+              <div class="code-block">&lt;!-- injected by layout.js on every page --&gt;
+&lt;link rel="stylesheet" href="<span class="hl">https://.../${theme.id}.${theme.version}.css</span>"&gt;</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <div class="step-title">To switch themes, repeat from step 1</div>
+              <div class="step-desc">Pick any theme from the store, copy its CDN URL, and paste it into the admin. The old theme is replaced immediately. No server restart. No build step. The Google Fonts import inside each theme CSS loads automatically.</div>
+              <div class="code-block"># Remove the theme entirely (revert to globals.css defaults):
+<span class="hl">DELETE</span> /api/v1/theme/active</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">5</div>
+            <div>
+              <div class="step-title">Upgrading to a new version</div>
+              <div class="step-desc">When a theme releases a new version, the version number in the filename changes. Update the URL in the admin to the new version to get the latest styles and cache-bust the CDN.</div>
+              <div class="code-block"># Old version (cached by CDN):
+https://cdn.jsdelivr.net/gh/R15hav/blog-themes@main/themes/${theme.id}/${theme.id}.1.0.0.css
+
+# New version (fresh fetch):
+https://cdn.jsdelivr.net/gh/R15hav/blog-themes@main/themes/${theme.id}/${theme.id}.1.1.0.css</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">6</div>
+            <div>
+              <div class="step-title">Build your own theme (optional)</div>
+              <div class="step-desc">Scaffold a new theme from an existing one, edit only <code style="font-family:monospace; font-size:12px;">_variables.scss</code> to define your palette, compile with <code style="font-family:monospace; font-size:12px;">npm run release:my-theme</code>, and push. The CDN URL is printed to the terminal.</div>
+              <div class="code-block">git clone https://github.com/R15hav/blog-themes.git
+cd blog-themes && npm install
+
+# Scaffold from ${theme.id}
+cp -r themes/${theme.id} themes/my-theme
+
+# Edit scss/_variables.scss — the ONLY file with hardcoded values
+
+# Compile and generate CDN URL
+npm run release:my-theme</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Design tokens ───────────────────────────────────── -->
+      <section class="token-section">
+        <h2>Design tokens</h2>
+        <p>These CSS custom properties are set by this theme. Every component reads them via <code style="font-family:monospace; font-size:12px;">var(--token)</code>.</p>
+        <table class="token-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Value</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>${tokenRows}</tbody>
+        </table>
+      </section>
+
+    </div>`;
+
+    /* ── Tab switching ────────────────────────────────────────── */
+    document.querySelectorAll('.mockup-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.mockup-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.mock-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+      });
+    });
+  }
+
+  /* ── Copy URL ──────────────────────────────────────────────── */
+  window.copyUrl = function (url) {
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('cdn-copy-btn');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy URL';
+        btn.classList.remove('copied');
+      }, 2200);
+    });
+  };
+
+  /* ── Init ──────────────────────────────────────────────────── */
+  const id = getParam('id');
+  const theme = themeById(id);
+
+  if (!theme) {
+    $('js-page').innerHTML = `
+      <div style="padding:80px; text-align:center;">
+        <div style="font-size:15px; color:#666; margin-bottom:16px;">Theme not found: <code>${id || '(no id)'}</code></div>
+        <a href="index.html" style="color:#5b7cfa;">← Back to gallery</a>
+      </div>`;
+  } else {
+    // Load Google Font for this theme
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = theme.googleFonts;
+    document.head.appendChild(link);
+    render(theme);
+  }
+})();
+</script>
+</body>
+</html>

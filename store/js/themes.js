@@ -1,0 +1,396 @@
+// Blog Theme Store — theme registry
+
+const THEMES = [
+  {
+    id: "forest",
+    name: "Forest",
+    tagline: "Deep forest green · warm amber · dark editorial",
+    era: "18th-century colonial reading room",
+    character: "Dark editorial",
+    isDark: true,
+    tags: ["dark", "serif", "editorial"],
+    displayFont: "Cormorant Garamond",
+    bodyFont: "Source Serif 4",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.21 0.030 158)",
+      paper2:     "oklch(0.26 0.034 158)",
+      paper3:     "oklch(0.32 0.036 158)",
+      rule:       "oklch(0.40 0.030 158)",
+      ruleSoft:   "oklch(0.30 0.026 158)",
+      ink:        "oklch(0.94 0.018 90)",
+      ink2:       "oklch(0.82 0.022 88)",
+      ink3:       "oklch(0.66 0.022 86)",
+      ink4:       "oklch(0.52 0.022 84)",
+      accent:     "oklch(0.74 0.14 75)",
+      accentSoft: "oklch(0.74 0.14 75 / 0.16)",
+      accentInk:  "oklch(0.82 0.13 75)",
+      ok:         "oklch(0.62 0.14 145)",
+      warn:       "oklch(0.74 0.14 80)",
+      rSm: "4px", r: "6px", rLg: "10px"
+    }
+  },
+  {
+    id: "white-paper",
+    name: "White Paper",
+    tagline: "Crisp white · editorial blue · clean typographic",
+    era: "Modern technical / corporate",
+    character: "Clean typographic",
+    isDark: false,
+    tags: ["light", "sans", "minimal"],
+    displayFont: "Inter Tight",
+    bodyFont: "Inter",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.995 0.001 250)",
+      paper2:     "oklch(0.975 0.003 250)",
+      paper3:     "oklch(0.95 0.005 250)",
+      rule:       "oklch(0.86 0.008 250)",
+      ruleSoft:   "oklch(0.93 0.005 250)",
+      ink:        "oklch(0.18 0.018 260)",
+      ink2:       "oklch(0.34 0.020 260)",
+      ink3:       "oklch(0.50 0.018 260)",
+      ink4:       "oklch(0.66 0.014 260)",
+      accent:     "oklch(0.50 0.18 260)",
+      accentSoft: "oklch(0.50 0.18 260 / 0.10)",
+      accentInk:  "oklch(0.42 0.18 260)",
+      ok:         "oklch(0.48 0.12 142)",
+      warn:       "oklch(0.56 0.14 70)",
+      rSm: "2px", r: "4px", rLg: "6px"
+    }
+  },
+  {
+    id: "papyrus",
+    name: "Papyrus",
+    tagline: "Sandy gold · terracotta · pith-strip texture",
+    era: "Antiquity — ancient Egypt & Rome",
+    character: "Ancient",
+    isDark: false,
+    tags: ["light", "serif", "vintage"],
+    displayFont: "Cinzel",
+    bodyFont: "EB Garamond",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.86 0.060 88)",
+      paper2:     "oklch(0.82 0.064 86)",
+      paper3:     "oklch(0.78 0.068 86)",
+      rule:       "oklch(0.62 0.060 78)",
+      ruleSoft:   "oklch(0.74 0.050 82)",
+      ink:        "oklch(0.28 0.050 50)",
+      ink2:       "oklch(0.40 0.050 52)",
+      ink3:       "oklch(0.54 0.046 56)",
+      ink4:       "oklch(0.66 0.040 60)",
+      accent:     "oklch(0.52 0.16 38)",
+      accentSoft: "oklch(0.52 0.16 38 / 0.14)",
+      accentInk:  "oklch(0.42 0.16 38)",
+      ok:         "oklch(0.48 0.12 140)",
+      warn:       "oklch(0.58 0.14 68)",
+      rSm: "0px", r: "0px", rLg: "0px"
+    }
+  },
+  {
+    id: "washi",
+    name: "Washi",
+    tagline: "Organic white + green tint · mossy green · handmade",
+    era: "Edo-period Japan",
+    character: "Handmade Japanese",
+    isDark: false,
+    tags: ["light", "serif", "organic"],
+    displayFont: "Shippori Mincho",
+    bodyFont: "Noto Serif",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif:ital,opsz,wght@0,8..16,300..700;1,8..16,300..700&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.965 0.018 132)",
+      paper2:     "oklch(0.94 0.022 130)",
+      paper3:     "oklch(0.91 0.024 130)",
+      rule:       "oklch(0.80 0.026 128)",
+      ruleSoft:   "oklch(0.88 0.022 130)",
+      ink:        "oklch(0.26 0.030 130)",
+      ink2:       "oklch(0.40 0.028 130)",
+      ink3:       "oklch(0.54 0.024 130)",
+      ink4:       "oklch(0.66 0.020 130)",
+      accent:     "oklch(0.45 0.10 130)",
+      accentSoft: "oklch(0.45 0.10 130 / 0.14)",
+      accentInk:  "oklch(0.36 0.10 130)",
+      ok:         "oklch(0.50 0.12 142)",
+      warn:       "oklch(0.60 0.13 76)",
+      rSm: "8px", r: "14px", rLg: "22px"
+    }
+  },
+  {
+    id: "cotton",
+    name: "Cotton",
+    tagline: "Soft off-white · archival steel blue · neutral archival",
+    era: "Library / archival tradition",
+    character: "Archival",
+    isDark: false,
+    tags: ["light", "serif", "minimal"],
+    displayFont: "Libre Caslon Text",
+    bodyFont: "Libre Caslon Text",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.97 0.008 90)",
+      paper2:     "oklch(0.95 0.010 90)",
+      paper3:     "oklch(0.92 0.012 90)",
+      rule:       "oklch(0.84 0.012 90)",
+      ruleSoft:   "oklch(0.91 0.010 90)",
+      ink:        "oklch(0.24 0.018 240)",
+      ink2:       "oklch(0.38 0.020 240)",
+      ink3:       "oklch(0.52 0.018 240)",
+      ink4:       "oklch(0.66 0.014 240)",
+      accent:     "oklch(0.46 0.07 240)",
+      accentSoft: "oklch(0.46 0.07 240 / 0.12)",
+      accentInk:  "oklch(0.38 0.07 240)",
+      ok:         "oklch(0.48 0.11 142)",
+      warn:       "oklch(0.58 0.13 70)",
+      rSm: "4px", r: "6px", rLg: "10px"
+    }
+  },
+  {
+    id: "laid",
+    name: "Laid",
+    tagline: "Traditional cream · printing-press red · chain-lines",
+    era: "Early letterpress — Gutenberg era",
+    character: "Letterpress",
+    isDark: false,
+    tags: ["light", "serif", "vintage"],
+    displayFont: "IM Fell English",
+    bodyFont: "Source Serif 4",
+    googleFonts: "https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.94 0.030 90)",
+      paper2:     "oklch(0.92 0.032 88)",
+      paper3:     "oklch(0.89 0.034 86)",
+      rule:       "oklch(0.78 0.030 84)",
+      ruleSoft:   "oklch(0.86 0.026 86)",
+      ink:        "oklch(0.22 0.022 60)",
+      ink2:       "oklch(0.36 0.022 60)",
+      ink3:       "oklch(0.52 0.020 60)",
+      ink4:       "oklch(0.66 0.016 62)",
+      accent:     "oklch(0.50 0.20 25)",
+      accentSoft: "oklch(0.50 0.20 25 / 0.12)",
+      accentInk:  "oklch(0.42 0.20 25)",
+      ok:         "oklch(0.48 0.11 142)",
+      warn:       "oklch(0.57 0.13 68)",
+      rSm: "2px", r: "3px", rLg: "5px"
+    }
+  },
+  {
+    id: "wove",
+    name: "Wove",
+    tagline: "Near-white · sky blue · smooth uniform",
+    era: "Late 19th-century publishing",
+    character: "Classic publishing",
+    isDark: false,
+    tags: ["light", "serif", "editorial"],
+    displayFont: "Playfair Display",
+    bodyFont: "Source Serif 4",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.98 0.006 88)",
+      paper2:     "oklch(0.96 0.008 88)",
+      paper3:     "oklch(0.93 0.010 88)",
+      rule:       "oklch(0.86 0.010 88)",
+      ruleSoft:   "oklch(0.93 0.008 88)",
+      ink:        "oklch(0.22 0.014 70)",
+      ink2:       "oklch(0.36 0.016 70)",
+      ink3:       "oklch(0.52 0.014 70)",
+      ink4:       "oklch(0.66 0.010 70)",
+      accent:     "oklch(0.66 0.14 230)",
+      accentSoft: "oklch(0.66 0.14 230 / 0.14)",
+      accentInk:  "oklch(0.48 0.14 230)",
+      ok:         "oklch(0.48 0.11 142)",
+      warn:       "oklch(0.57 0.13 70)",
+      rSm: "5px", r: "8px", rLg: "12px"
+    }
+  },
+  {
+    id: "cold-press",
+    name: "Cold Press",
+    tagline: "Warm natural white · cerulean blue · watercolour surface",
+    era: "Belle Époque — Impressionist studio",
+    character: "Impressionist",
+    isDark: false,
+    tags: ["light", "serif", "artistic"],
+    displayFont: "Italiana",
+    bodyFont: "Cormorant Infant",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Infant:ital,wght@0,400;0,500;1,400;1,500&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.94 0.022 88)",
+      paper2:     "oklch(0.92 0.024 88)",
+      paper3:     "oklch(0.89 0.026 86)",
+      rule:       "oklch(0.78 0.024 84)",
+      ruleSoft:   "oklch(0.87 0.020 86)",
+      ink:        "oklch(0.24 0.020 70)",
+      ink2:       "oklch(0.38 0.022 70)",
+      ink3:       "oklch(0.52 0.020 70)",
+      ink4:       "oklch(0.66 0.016 70)",
+      accent:     "oklch(0.50 0.16 240)",
+      accentSoft: "oklch(0.50 0.16 240 / 0.14)",
+      accentInk:  "oklch(0.42 0.16 240)",
+      ok:         "oklch(0.49 0.11 142)",
+      warn:       "oklch(0.58 0.13 70)",
+      rSm: "4px", r: "6px", rLg: "10px"
+    }
+  },
+  {
+    id: "hot-press",
+    name: "Hot Press",
+    tagline: "Near-pure white · vivid indigo · razor-sharp high-contrast",
+    era: "Swiss International Style — Modernist",
+    character: "Modernist",
+    isDark: false,
+    tags: ["light", "sans", "modernist"],
+    displayFont: "Space Grotesk",
+    bodyFont: "Inter",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.99 0.002 280)",
+      paper2:     "oklch(0.97 0.003 280)",
+      paper3:     "oklch(0.94 0.004 280)",
+      rule:       "oklch(0.82 0.006 280)",
+      ruleSoft:   "oklch(0.92 0.004 280)",
+      ink:        "oklch(0.14 0.020 280)",
+      ink2:       "oklch(0.30 0.022 280)",
+      ink3:       "oklch(0.48 0.020 280)",
+      ink4:       "oklch(0.62 0.016 280)",
+      accent:     "oklch(0.42 0.24 285)",
+      accentSoft: "oklch(0.42 0.24 285 / 0.12)",
+      accentInk:  "oklch(0.36 0.24 285)",
+      ok:         "oklch(0.46 0.12 142)",
+      warn:       "oklch(0.54 0.14 68)",
+      rSm: "1px", r: "2px", rLg: "3px"
+    }
+  },
+  {
+    id: "gloss",
+    name: "Gloss",
+    tagline: "Brilliant cool white · vivid magenta · reflective mineral",
+    era: "1990s magazine / high-gloss editorial",
+    character: "Magazine gloss",
+    isDark: false,
+    tags: ["light", "mixed", "editorial"],
+    displayFont: "Bodoni Moda",
+    bodyFont: "Inter",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.985 0.004 240)",
+      paper2:     "oklch(0.96 0.006 240)",
+      paper3:     "oklch(0.93 0.008 240)",
+      rule:       "oklch(0.84 0.010 240)",
+      ruleSoft:   "oklch(0.92 0.008 240)",
+      ink:        "oklch(0.18 0.018 260)",
+      ink2:       "oklch(0.34 0.020 260)",
+      ink3:       "oklch(0.50 0.018 260)",
+      ink4:       "oklch(0.66 0.014 260)",
+      accent:     "oklch(0.58 0.24 340)",
+      accentSoft: "oklch(0.58 0.24 340 / 0.12)",
+      accentInk:  "oklch(0.48 0.24 340)",
+      ok:         "oklch(0.48 0.11 142)",
+      warn:       "oklch(0.57 0.13 68)",
+      rSm: "6px", r: "10px", rLg: "16px"
+    }
+  },
+  {
+    id: "matte",
+    name: "Matte",
+    tagline: "Warm near-white · deep rich blue · flat no-sheen",
+    era: "Mid-century modern print design",
+    character: "Mid-century print",
+    isDark: false,
+    tags: ["light", "mixed", "editorial"],
+    displayFont: "Fraunces",
+    bodyFont: "Source Serif 4",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.965 0.012 90)",
+      paper2:     "oklch(0.945 0.014 88)",
+      paper3:     "oklch(0.92 0.016 88)",
+      rule:       "oklch(0.84 0.016 88)",
+      ruleSoft:   "oklch(0.92 0.012 88)",
+      ink:        "oklch(0.22 0.018 70)",
+      ink2:       "oklch(0.36 0.020 70)",
+      ink3:       "oklch(0.52 0.018 70)",
+      ink4:       "oklch(0.66 0.014 70)",
+      accent:     "oklch(0.34 0.14 260)",
+      accentSoft: "oklch(0.34 0.14 260 / 0.12)",
+      accentInk:  "oklch(0.30 0.14 260)",
+      ok:         "oklch(0.48 0.11 142)",
+      warn:       "oklch(0.57 0.13 70)",
+      rSm: "3px", r: "5px", rLg: "8px"
+    }
+  },
+  {
+    id: "stone",
+    name: "Stone",
+    tagline: "Light cool grey · teal · mineral grain · very rounded",
+    era: "Futurist mineral / near-future brutalism",
+    character: "Mineral brutalist",
+    isDark: false,
+    tags: ["light", "sans", "modern"],
+    displayFont: "Outfit",
+    bodyFont: "Inter",
+    googleFonts: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+    version: "1.0.0",
+    t: {
+      paper:      "oklch(0.92 0.004 230)",
+      paper2:     "oklch(0.90 0.006 230)",
+      paper3:     "oklch(0.87 0.008 230)",
+      rule:       "oklch(0.78 0.008 230)",
+      ruleSoft:   "oklch(0.86 0.006 230)",
+      ink:        "oklch(0.22 0.014 230)",
+      ink2:       "oklch(0.36 0.016 230)",
+      ink3:       "oklch(0.52 0.014 230)",
+      ink4:       "oklch(0.66 0.012 230)",
+      accent:     "oklch(0.52 0.10 195)",
+      accentSoft: "oklch(0.52 0.10 195 / 0.14)",
+      accentInk:  "oklch(0.40 0.10 195)",
+      ok:         "oklch(0.50 0.12 148)",
+      warn:       "oklch(0.58 0.13 70)",
+      rSm: "10px", r: "16px", rLg: "24px"
+    }
+  }
+];
+
+function themeById(id) {
+  return THEMES.find(t => t.id === id) || null;
+}
+
+function cdnUrl(theme) {
+  return `https://cdn.jsdelivr.net/gh/R15hav/blog-themes@main/themes/${theme.id}/${theme.id}.${theme.version}.css`;
+}
+
+// Inject scoped CSS vars onto a given element for the blog mockup
+function applyThemeVars(el, theme) {
+  const t = theme.t;
+  el.style.cssText += `
+    --paper:       ${t.paper};
+    --paper-2:     ${t.paper2};
+    --paper-3:     ${t.paper3};
+    --rule:        ${t.rule};
+    --rule-soft:   ${t.ruleSoft};
+    --ink:         ${t.ink};
+    --ink-2:       ${t.ink2};
+    --ink-3:       ${t.ink3};
+    --ink-4:       ${t.ink4};
+    --accent:      ${t.accent};
+    --accent-soft: ${t.accentSoft};
+    --accent-ink:  ${t.accentInk};
+    --ok:          ${t.ok};
+    --warn:        ${t.warn};
+    --r-sm:        ${t.rSm};
+    --r:           ${t.r};
+    --r-lg:        ${t.rLg};
+  `;
+}

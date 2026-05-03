@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Theme Store — CSS themes for your blog</title>
+  <meta name="description" content="12 handcrafted CSS themes for the blog platform. One URL. No redeploy. Delivered via jsDelivr CDN.">
+  <link rel="stylesheet" href="css/store.css">
+</head>
+<body>
+
+<header class="store-header">
+  <a href="index.html" class="store-logo">
+    <span class="store-logo-mark">B</span>
+    Theme Store
+  </a>
+  <nav class="store-nav">
+    <a href="index.html">Themes</a>
+    <a href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">Docs</a>
+  </nav>
+  <div class="store-header-right">
+    <a class="btn-gh" href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<section class="store-hero">
+  <div class="hero-eyebrow">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+    Open source · MIT license
+  </div>
+  <h1>CSS themes for your <span>blog</span></h1>
+  <p>Handcrafted paper-inspired themes. Paste one CDN URL in the admin — no rebuild, no deploy.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num" id="js-count">12</span>
+      <div class="hero-stat-label">themes</div>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">0</span>
+      <div class="hero-stat-label">JS dependencies</div>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">1</span>
+      <div class="hero-stat-label">URL to install</div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery-bar">
+  <div class="filter-tabs" id="js-filters">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="dark">Dark</button>
+    <button class="filter-tab" data-filter="light">Light</button>
+    <button class="filter-tab" data-filter="serif">Serif</button>
+    <button class="filter-tab" data-filter="sans">Sans</button>
+    <button class="filter-tab" data-filter="vintage">Vintage</button>
+    <button class="filter-tab" data-filter="editorial">Editorial</button>
+    <button class="filter-tab" data-filter="minimal">Minimal</button>
+  </div>
+  <span class="gallery-count" id="js-gallery-count">12 themes</span>
+</div>
+
+<div class="gallery" id="js-gallery"></div>
+
+<footer class="store-footer">
+  <span>&copy; 2025 R15hav · MIT license</span>
+  <span>
+    <a href="https://github.com/R15hav/blog-themes" target="_blank" rel="noopener">blog-themes on GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/R15hav/blog" target="_blank" rel="noopener">blog platform</a>
+    &nbsp;·&nbsp;
+    Served via <a href="https://www.jsdelivr.com" target="_blank" rel="noopener">jsDelivr CDN</a>
+  </span>
+</footer>
+
+<script src="js/themes.js"></script>
+<script>
+(function () {
+  const gallery = document.getElementById('js-gallery');
+  const countEl = document.getElementById('js-gallery-count');
+  let currentFilter = 'all';
+
+  function miniMock(theme) {
+    const t = theme.t;
+    return `
+      <div class="mini-mock" style="
+        --paper:${t.paper}; --paper-2:${t.paper2}; --paper-3:${t.paper3};
+        --rule:${t.rule}; --ink:${t.ink}; --ink-2:${t.ink2}; --ink-3:${t.ink3}; --ink-4:${t.ink4};
+        --accent:${t.accent}; --accent-soft:${t.accentSoft}; --r-sm:${t.rSm}; --r:${t.r}; --r-lg:${t.rLg};
+      ">
+        <div class="mini-nav" style="background:var(--paper-2); border-color:var(--rule);">
+          <div class="mini-wordmark" style="color:var(--ink);">◆ Blog</div>
+          <div class="mini-nav-link" style="color:var(--ink-3);">Home</div>
+          <div class="mini-nav-link" style="color:var(--ink-3);">Articles</div>
+          <div class="mini-nav-link" style="color:var(--ink-3);">About</div>
+          <div class="mini-nav-btn" style="background:var(--accent); border-color:var(--accent); color:var(--paper); border-radius:var(--r-sm);">Write</div>
+        </div>
+        <div class="mini-body" style="background:var(--paper);">
+          <div class="mini-hero" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r-lg);">
+            <div class="mini-hero-eye" style="color:var(--accent);">Featured · 8 min read</div>
+            <div class="mini-hero-title" style="color:var(--ink);">The Architecture of Meaning in Typography</div>
+            <div class="mini-hero-excerpt" style="color:var(--ink-2);">How typeface shapes the reader's emotional relationship with content.</div>
+            <div class="mini-cta" style="background:var(--accent); color:var(--paper); border-radius:var(--r);">Read Article →</div>
+          </div>
+          <div class="mini-cards">
+            <div class="mini-card" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r);">
+              <div class="mini-card-title" style="color:var(--ink);">Design Tokens at Scale</div>
+              <div class="mini-card-meta" style="color:var(--ink-4);">Apr 15 · 5 min</div>
+            </div>
+            <div class="mini-card" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r);">
+              <div class="mini-card-title" style="color:var(--ink);">Writing for Developers</div>
+              <div class="mini-card-meta" style="color:var(--ink-4);">Apr 8 · 4 min</div>
+            </div>
+            <div class="mini-card" style="background:var(--paper-2); border-color:var(--rule); border-radius:var(--r);">
+              <div class="mini-card-title" style="color:var(--ink);">The Grammar of Colour</div>
+              <div class="mini-card-meta" style="color:var(--ink-4);">Mar 22 · 6 min</div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderCard(theme) {
+    return `
+      <article class="theme-card" onclick="location.href='theme.html?id=${theme.id}'">
+        <div class="card-preview">
+          <div class="card-preview-inner">${miniMock(theme)}</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">${theme.name}</div>
+          <div class="card-tagline">${theme.tagline}</div>
+          <div class="card-era">${theme.era}</div>
+          <div class="card-fonts">${theme.displayFont} · ${theme.bodyFont}</div>
+          <div class="card-row">
+            <div class="card-tags">
+              ${theme.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+            </div>
+            <button class="card-view-btn">View →</button>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function renderGallery(filter) {
+    const filtered = filter === 'all'
+      ? THEMES
+      : THEMES.filter(t => t.tags.includes(filter));
+    gallery.innerHTML = filtered.map(renderCard).join('');
+    countEl.textContent = `${filtered.length} theme${filtered.length === 1 ? '' : 's'}`;
+  }
+
+  document.getElementById('js-filters').addEventListener('click', function (e) {
+    const btn = e.target.closest('.filter-tab');
+    if (!btn) return;
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderGallery(currentFilter);
+  });
+
+  renderGallery('all');
+})();
+</script>
+</body>
+</html>
