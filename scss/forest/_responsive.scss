@@ -1,39 +1,14 @@
 // ── Forest — responsive overrides ────────────────────────────────────────
-// Forest-specific mobile adjustments; disable blur effects on small screens.
+// Drop backdrop-filter on mobile (perf + Safari quirks on some devices).
 
 @media (max-width: 768px) {
-  // Drop backdrop-filter on mobile (perf + Safari quirks)
-  .nav,
-  header {
+  .nav {
     backdrop-filter: none;
-    background: var(--color-bg);
+    background: var(--paper);
   }
 
-  // Flatten auth backdrop on small screens
-  .auth-shell {
-    background: var(--color-bg);
-  }
-
-  // Compact profile header padding
-  .profile-page .profile-header {
-    padding: var(--space-8) var(--space-4);
-  }
-
-  // Reduce KPI card gradient to solid for legibility
-  .kpi-card {
-    background: var(--color-bg-subtle);
-  }
-}
-
-@media (max-width: 480px) {
-  // Thinner hover border on very small screens
-  .list-item:hover {
-    border-left-width: 2px;
-  }
-
-  // Ensure exp-cards don't clip on narrow viewports
-  .exp-card {
-    border-left-width: 2px;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  // Flatten auth gradient on small screens (marketing panel hidden anyway)
+  .auth-marketing {
+    background: var(--paper-2);
   }
 }

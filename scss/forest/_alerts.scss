@@ -1,45 +1,5 @@
-// ── Forest — alerts / badges overrides ───────────────────────────────────
-// Coloured left-border alerts; fading gradient end-of-feed divider.
-
-[role="alert"] {
-  border-left: 3px solid var(--color-warn);
-  background: var(--color-warn-bg);
-  color: var(--color-warn-text);
-}
-
-.msg-success {
-  border-left-color: var(--color-ok);
-  background: var(--color-ok-bg);
-  color: var(--color-ok-text);
-}
-
-.msg-error {
-  border-left-color: var(--color-error);
-}
-
-.dash-badge {
-  &.ok    { background: var(--color-ok-bg);   color: var(--color-ok-text); }
-  &.warn  { background: var(--color-warn-bg);  color: var(--color-warn-text); }
-  &.error { background: oklch(0.70 0.165 28 / 0.15); color: var(--color-error); }
-}
-
-.end-of-feed {
-  color: var(--color-text-4);
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-border),
-      transparent
-    );
-  }
-}
+// ── Forest — alerts overrides ──────────────────────────────────────────────
+// .status.ok / .status.warn / .status.accent all reference var(--ok), var(--warn),
+// var(--accent) which cascade automatically from the token overrides.
+// .notice uses var(--accent-soft) / var(--accent-ink) — automatic.
+// Nothing additional needed here beyond token cascade.

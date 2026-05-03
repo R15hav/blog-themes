@@ -1,45 +1,14 @@
 // ── Forest — auth page overrides ──────────────────────────────────────────
-// Radial forest-green vignette backdrop; glass-morphism form card.
+// .notice: var(--accent-soft) background, var(--accent-ink) text → automatic ✓
+// .field input:focus border-bottom: var(--accent) → automatic ✓
+// .auth-divider a: var(--accent-ink) → automatic ✓
 
-.auth-shell {
-  background: radial-gradient(
-    ellipse at 50% 0%,
+// Forest gradient on the left marketing panel
+.auth-marketing {
+  background: linear-gradient(
+    160deg,
     oklch(0.18 0.030 148) 0%,
-    var(--color-bg) 65%
+    var(--paper-2) 100%
   );
-}
-
-.auth-form {
-  background: color-mix(in oklch, var(--color-bg-subtle) 92%, transparent);
-  border: 1px solid var(--color-border-soft);
-  box-shadow:
-    var(--shadow-lg),
-    0 0 0 1px oklch(0.73 0.148 78 / 0.06);
-  backdrop-filter: blur(8px);
-
-  h1,
-  h2 {
-    color: var(--color-text);
-  }
-}
-
-.auth-divider {
-  color: var(--color-text-4);
-
-  &::before,
-  &::after {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-border),
-      transparent
-    );
-  }
-}
-
-.notice {
-  background: var(--color-accent-bg);
-  border: 1px solid oklch(0.73 0.148 78 / 0.28);
-  color: var(--color-accent-text);
-  border-radius: var(--radius-md);
+  border-right-color: var(--rule-soft);
 }

@@ -1,84 +1,22 @@
 // ── Forest — admin panel overrides ────────────────────────────────────────
-// Forest glass KPI cards; amber active tabs; accent-bordered theme cards.
+// .tab.active: border-bottom-color var(--accent) → amber ✓ (automatic)
+// .tab-badge: var(--accent-soft) / var(--accent-ink) → automatic ✓
+// .theme-card.active: var(--accent) border → automatic ✓
+// .status.ok / .warn / .accent: partially automatic ✓
 
-.kpi-card {
+// Subtle gradient on KPI and stat cards
+.kpi {
   background: linear-gradient(
     135deg,
-    var(--color-bg-subtle) 0%,
-    var(--color-bg-muted) 100%
+    var(--paper-2) 0%,
+    var(--paper) 100%
   );
-  border: 1px solid var(--color-border-soft);
-  box-shadow: var(--shadow-md);
-
-  .kpi-value {
-    color: var(--color-accent-text);
-  }
-
-  .kpi-label {
-    color: var(--color-text-3);
-  }
 }
 
-// Tab bar
-.admin-tab {
-  color: var(--color-text-3);
-  border-bottom: 2px solid transparent;
-  transition:
-    color var(--transition-fast),
-    border-bottom-color var(--transition-fast),
-    background var(--transition-fast);
-
-  &:hover:not(.active) {
-    color: var(--color-text-2);
-    background: var(--color-bg-muted);
-  }
-
-  &.active {
-    color: var(--color-accent-text);
-    border-bottom-color: var(--color-accent);
-  }
-}
-
-// Theme management cards
-.theme-card {
-  border-color: var(--color-border-soft);
-  background: var(--color-bg-subtle);
-  transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
-
-  &:hover {
-    border-color: var(--color-accent);
-  }
-
-  &.active {
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-accent-bg);
-  }
-}
-
-// Confirmation modal
-.admin-modal {
-  background: var(--color-bg-subtle);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(8px);
-}
-
-// Pagination
-.pagination-btn {
-  background: var(--color-bg-muted);
-  border-color: var(--color-border);
-  color: var(--color-text-3);
-
-  &:hover:not(:disabled) {
-    border-color: var(--color-accent);
-    color: var(--color-accent-text);
-  }
-
-  &.current {
-    background: var(--color-accent-bg);
-    border-color: var(--color-accent);
-    color: var(--color-accent-text);
-  }
+.stat-card {
+  background: linear-gradient(
+    135deg,
+    var(--paper-2) 0%,
+    var(--paper) 100%
+  );
 }

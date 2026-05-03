@@ -1,49 +1,35 @@
 // ── Forest — button overrides ──────────────────────────────────────────────
-// Amber gradient primary button; forest-tinted ghost hover.
+// The default btn-primary uses --ink background (cream in Forest).
+// Override to use amber accent so it reads as "primary action" on dark bg.
 
 .btn-primary {
   background: linear-gradient(
     135deg,
-    var(--color-accent) 0%,
-    var(--color-accent-hover) 100%
+    var(--accent) 0%,
+    var(--accent-ink) 100%
   );
+  color: oklch(0.10 0.015 150);   // dark forest text on amber surface
   border-color: transparent;
-  color: var(--color-accent-fg);
-  box-shadow: 0 2px 8px oklch(0.73 0.148 78 / 0.30);
+  box-shadow: 0 2px 8px oklch(0.73 0.148 78 / 0.28);
 
-  &:hover:not(:disabled) {
+  &:hover {
     background: linear-gradient(
       135deg,
-      var(--color-accent-hover) 0%,
-      var(--color-accent-text) 100%
+      var(--accent-ink) 0%,
+      oklch(0.84 0.132 81) 100%
     );
-    box-shadow: 0 4px 14px oklch(0.73 0.148 78 / 0.42);
+    box-shadow: 0 4px 14px oklch(0.73 0.148 78 / 0.40);
     transform: translateY(-1px);
   }
 
-  &:active:not(:disabled) {
+  &:active {
     transform: translateY(0);
-    box-shadow: 0 1px 4px oklch(0.73 0.148 78 / 0.25);
+    box-shadow: none;
   }
 }
 
-.btn-ghost {
-  &:hover:not(:disabled) {
-    background: var(--color-accent-bg);
-    color: var(--color-accent-text);
-    border-color: var(--color-accent);
-  }
-}
-
-// Shared amber focus ring for all interactive elements
-.btn,
-.btn-primary,
-.btn-ghost,
-.icon-btn,
-.rail-btn {
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px var(--color-focus);
-  }
+.btn-ghost:hover {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border-color: var(--accent);
 }

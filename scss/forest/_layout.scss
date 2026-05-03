@@ -1,14 +1,9 @@
 // ── Forest — layout overrides ─────────────────────────────────────────────
-// Frosted-glass header, amber accent gradient footer rule.
-
-header {
-  backdrop-filter: blur(12px) saturate(1.4);
-  background: color-mix(in oklch, var(--color-bg) 85%, transparent);
-}
+// Amber gradient rule above footer. Nav/header frosted glass is in _nav-blog.
 
 footer {
-  background: var(--color-bg-subtle);
-  border-top-color: var(--color-border);
+  background: var(--paper-2);
+  border-top-color: var(--rule-soft);
   position: relative;
 
   &::before {
@@ -19,30 +14,12 @@ footer {
     background: linear-gradient(
       90deg,
       transparent 0%,
-      var(--color-accent) 50%,
+      var(--accent) 50%,
       transparent 100%
     );
-    opacity: 0.4;
+    opacity: 0.35;
   }
 }
 
-.wordmark {
-  letter-spacing: -0.02em;
-}
-
-.avatar {
-  border: 2px solid var(--color-border);
-  box-shadow: 0 0 0 3px var(--color-accent-bg);
-}
-
-.tag {
-  background: var(--color-bg-muted);
-  border-color: var(--color-border-soft);
-  color: var(--color-text-3);
-
-  &:hover {
-    background: var(--color-accent-bg);
-    border-color: var(--color-accent);
-    color: var(--color-accent-text);
-  }
-}
+// .wordmark .dot already references var(--accent) — amber automatically
+// .tag already references var(--accent-soft) / var(--accent-ink) — automatic

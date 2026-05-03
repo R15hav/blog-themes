@@ -1,60 +1,30 @@
 // ── Forest — article overrides ────────────────────────────────────────────
-// Amber TOC markers; amber blockquote accent; reaction buttons with forest hover.
+// Most article styles cascade through tokens.
+// - .article-body blockquote: already uses var(--accent) → amber left border ✓
+// - .toc-list li.active: already uses var(--accent) for border-left ✓
+// - .reaction-btn--liked: already uses var(--accent) ✓
+// - .profile-modal: border-top: 3px solid var(--accent) ✓
 
-.toc-link {
-  color: var(--color-text-3);
-
-  &::before {
-    background: var(--color-accent);
-    opacity: 0.6;
-  }
-
-  &:hover,
-  &.active {
-    color: var(--color-accent-text);
-
-    &::before {
-      opacity: 1;
-    }
-  }
+// Amber-tinted inline code
+.article-body code:not(pre code) {
+  color: var(--accent-ink);
 }
 
-.article-body {
-  blockquote {
-    border-left: 3px solid var(--color-accent);
-    background: var(--color-accent-bg);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  }
-}
-
-.byline {
-  color: var(--color-text-3);
-  border-bottom: 1px solid var(--color-border-soft);
-}
-
-.reaction-btn {
-  background: var(--color-bg-muted);
-  border-color: var(--color-border);
-  color: var(--color-text-3);
-
+// Subtle amber hover on the TOC tab
+.toc-tab {
   &:hover {
-    background: var(--color-accent-bg);
-    color: var(--color-accent-text);
-    border-color: var(--color-accent);
-  }
-
-  &.liked {
-    color: var(--color-liked);
-    border-color: var(--color-liked);
-    background: oklch(0.68 0.220 25 / 0.12);
+    border-color: color-mix(in oklch, var(--accent), var(--rule) 60%);
+    color: var(--accent-ink);
   }
 }
 
-.comment {
-  border-left: 2px solid var(--color-border-soft);
-  transition: border-left-color var(--transition-fast);
+// Amber hover on the TOC popover panel border
+.toc-panel {
+  border-color: var(--rule-soft);
+}
 
-  &:hover {
-    border-left-color: var(--color-accent);
-  }
+// Rail buttons: amber hover
+.rail-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
 }
