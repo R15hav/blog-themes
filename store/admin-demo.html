@@ -530,7 +530,8 @@ function renderComments() {
 }
 
 /* ── Theme management ──────────────────────────────────────────────── */
-const LS_KEY = 'blog-demo-themes';
+const LS_KEY        = 'blog-demo-themes';
+const LS_ACTIVE_KEY = 'blog-demo-active';
 let deleteTarget = null;
 
 function loadThemes() {
@@ -543,14 +544,10 @@ function saveThemes(themes) {
 }
 
 function getActiveId() {
-  const link = document.getElementById('demo-theme-link');
-  return link ? link.dataset.themeId : null;
+  return localStorage.getItem(LS_ACTIVE_KEY);
 }
 
-function applyTheme(id) {
-  const themes = loadThemes();
-  const theme = themes.find(t => t.id === id);
-  if (!theme) return;
+function injectLink(url) {
   let link = document.getElementById('demo-theme-link');
   if (!link) {
     link = document.createElement('link');
@@ -558,14 +555,26 @@ function applyTheme(id) {
     link.rel = 'stylesheet';
     document.head.appendChild(link);
   }
-  link.href = theme.url;
-  link.dataset.themeId = id;
+  link.href = url;
+}
+
+function removeLink() {
+  const link = document.getElementById('demo-theme-link');
+  if (link) link.remove();
+}
+
+function applyTheme(id) {
+  const themes = loadThemes();
+  const theme = themes.find(t => t.id === id);
+  if (!theme) return;
+  localStorage.setItem(LS_ACTIVE_KEY, id);
+  injectLink(theme.url);
   renderThemeList();
 }
 
 function deactivateTheme() {
-  const link = document.getElementById('demo-theme-link');
-  if (link) link.remove();
+  localStorage.removeItem(LS_ACTIVE_KEY);
+  removeLink();
   renderThemeList();
 }
 
@@ -587,8 +596,7 @@ function addTheme() {
   nameEl.value = '';
   urlEl.value = '';
   msgEl.className = 'msg-success';
-  msgEl.textContent = `Theme "${name}" added.`;
-  renderThemeList();
+  msgEl.textContent = `Theme "${name}" added and activated.`;
   applyTheme(id);
 }
 
@@ -643,10 +651,11 @@ function closeDeleteModal() {
 
 function confirmDelete() {
   if (!deleteTarget) return;
-  const activeId = getActiveId();
-  if (deleteTarget === activeId) deactivateTheme();
-  let themes = loadThemes().filter(t => t.id !== deleteTarget);
-  saveThemes(themes);
+  if (deleteTarget === getActiveId()) {
+    localStorage.removeItem(LS_ACTIVE_KEY);
+    removeLink();
+  }
+  saveThemes(loadThemes().filter(t => t.id !== deleteTarget));
   deleteTarget = null;
   closeDeleteModal();
   renderThemeList();
@@ -669,10 +678,19 @@ function filterArticles(query) {
 /* ── Init ──────────────────────────────────────────────────────────── */
 (function init() {
   renderComments();
-  renderThemeList();
 
-  /* restore active theme from DOM (link tag present = active) */
-  /* (nothing to restore on fresh load — link tag is injected by applyTheme) */
+  /* restore persisted active theme on page load */
+  const savedActiveId = getActiveId();
+  if (savedActiveId) {
+    const theme = loadThemes().find(t => t.id === savedActiveId);
+    if (theme) {
+      injectLink(theme.url);
+    } else {
+      localStorage.removeItem(LS_ACTIVE_KEY); /* stale id — clean up */
+    }
+  }
+
+  renderThemeList();
 })();
 </script>
 </body>

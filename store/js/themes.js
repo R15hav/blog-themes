@@ -398,6 +398,11 @@ function cdnUrl(theme) {
 // Build the scoped inline-style string for a theme preview container
 function themeScope(theme) {
   const t = theme.t;
+  // For sans-only themes (Inter Tight, Space Grotesk, Outfit…) use the display
+  // font as --font-sans so nav links, meta labels, and buttons switch too.
+  const fontSans = theme.tags.includes('sans')
+    ? theme.fontSerif   /* display font acts as the "sans" for these themes */
+    : theme.fontBody;   /* serif themes: keep Inter as sans */
   return [
     `--paper:${t.paper}`, `--paper-2:${t.paper2}`, `--paper-3:${t.paper3}`,
     `--rule:${t.rule}`, `--rule-soft:${t.ruleSoft}`,
@@ -405,6 +410,8 @@ function themeScope(theme) {
     `--accent:${t.accent}`, `--accent-soft:${t.accentSoft}`, `--accent-ink:${t.accentInk}`,
     `--ok:${t.ok}`, `--warn:${t.warn}`,
     `--r-sm:${t.rSm}`, `--r:${t.r}`, `--r-lg:${t.rLg}`,
-    `--font-serif:${theme.fontSerif}`, `--font-body:${theme.fontBody}`,
+    `--font-serif:${theme.fontSerif}`,
+    `--font-body:${theme.fontBody}`,
+    `--font-sans:${fontSans}`,
   ].join(';');
 }

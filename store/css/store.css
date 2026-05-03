@@ -367,10 +367,11 @@
   font-family: var(--font-body);
 }
 
-/* Ensure mockup nav overrides scroll behavior */
+/* Ensure mockup nav does not compete with the real store nav */
 .theme-scope .nav {
   position: relative;
   top: auto;
+  z-index: auto;
 }
 
 /* Clamp article shell height in preview */

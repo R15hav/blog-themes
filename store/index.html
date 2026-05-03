@@ -22,7 +22,6 @@
       <div class="nav-desktop-links">
         <a href="index.html" class="nav-link active">Themes</a>
         <a href="https://github.com/R15hav/blog-themes" class="nav-link" target="_blank" rel="noopener">Docs</a>
-        <a href="admin-demo.html" class="nav-link">Admin Demo</a>
       </div>
     </div>
     <div class="nav-right">
@@ -87,6 +86,21 @@
 </footer>
 
 <script src="js/themes.js"></script>
+<script>
+/* Inject one <link> per unique Google Fonts URL so every card preview
+   renders in its theme's actual typeface (font-display:swap handles FOUT) */
+(function loadThemeFonts() {
+  const seen = new Set();
+  THEMES.forEach(function(t) {
+    if (seen.has(t.googleFonts)) return;
+    seen.add(t.googleFonts);
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = t.googleFonts;
+    document.head.appendChild(link);
+  });
+})();
+</script>
 <script>
 (function () {
   const gallery = document.getElementById('js-gallery');
