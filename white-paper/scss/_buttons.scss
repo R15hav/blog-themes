@@ -1,0 +1,19 @@
+// ── White Paper — buttons ─────────────────────────────────────────────────
+// Override btn-primary to use blue accent instead of dark ink,
+// giving a standard "web blue" primary action on the white surface.
+
+.btn-primary {
+  background: var(--accent);
+  color: oklch(0.99 0.003 95);   // near-white text on blue
+  border-color: transparent;
+
+  &:hover {
+    background: var(--accent-ink);
+  }
+}
+
+.btn-ghost:hover {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}

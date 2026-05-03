@@ -1,0 +1,14 @@
+// ── White Paper — forms ───────────────────────────────────────────────────
+// Blue focus glow on inputs.
+// Border-color changes to var(--accent) on focus are already in globals.css.
+
+.field input:focus {
+  box-shadow: 0 2px 0 -1px oklch(0.500 0.145 255 / 0.25);
+}
+
+.search-page input:focus,
+.comment-form textarea:focus,
+.add-theme input:focus,
+.admin-settings-form input:focus {
+  box-shadow: 0 0 0 3px oklch(0.500 0.145 255 / 0.18);
+}

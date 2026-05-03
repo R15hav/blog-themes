@@ -1,0 +1,25 @@
+// ── White Paper theme — entry point ──────────────────────────────────────
+// Crisp white backgrounds · deep editorial blue accent · cool charcoal ink.
+//
+// Compile:
+//   npm run release:white-paper
+// or manually:
+//   npx sass themes/white-paper/white-paper.scss themes/white-paper/white-paper.1.0.0.css \
+//     --style=compressed --no-source-map
+
+@use 'scss/variables';
+@use 'scss/layout';
+@use 'scss/nav-blog';
+@use 'scss/nav-admin';
+@use 'scss/buttons';
+@use 'scss/forms';
+@use 'scss/tables';
+@use 'scss/alerts';
+@use 'scss/feed';
+@use 'scss/article';
+@use 'scss/formatting';
+@use 'scss/editor';
+@use 'scss/admin';
+@use 'scss/auth';
+@use 'scss/profile';
+@use 'scss/responsive';
