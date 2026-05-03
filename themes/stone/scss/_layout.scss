@@ -1,0 +1,66 @@
+// ── Stone Paper — layout ──────────────────────────────────────────────────
+// Three SVG feTurbulence layers for a mineral stone-paper surface:
+//   ① Large-scale mineral patches (slow crystalline variation)
+//   ② Fine crystalline surface grain
+//   ③ Mineral sparkle highlights (calcium carbonate micro-reflections)
+// All fixed-attachment so the texture behaves like a physical slab.
+// Radial gradient darkens the edges — light falls on a flat stone surface.
+
+body {
+  background-color: var(--paper);
+  background-image:
+    // ① Mineral patches — large crystalline structure variation
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.022 0.016' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.48 0 0 0 0 0.50 0 0 0 0 0.60 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"),
+    // ② Fine crystalline grain — micro surface texture
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.44 0 0 0 0 0.46 0 0 0 0 0.56 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"),
+    // ③ Mineral sparkle highlights — CaCO₃ crystal micro-reflections
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.90' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.95 0 0 0 0 0.96 0 0 0 0 0.99 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),
+    // ④ Slab edge darkening — light falls flat, edges recede
+    radial-gradient(
+      ellipse 85% 75% at 50% 40%,
+      transparent 40%,
+      color-mix(in oklch, var(--rule) 14%, transparent) 100%
+    );
+
+  background-size:
+    300px 300px,  // ① mineral patches
+    200px 200px,  // ② fine grain
+    160px 160px,  // ③ sparkle
+    100% 100%;    // ④ slab gradient
+  background-attachment:
+    fixed,   // stone doesn't scroll — it's a fixed slab
+    fixed,
+    fixed,
+    scroll;
+}
+
+// Content containers: semi-transparent so the stone texture bleeds through.
+main,
+.feed,
+.article-shell,
+.auth-shell,
+.admin-shell,
+.editor-shell,
+.profile-page {
+  background: color-mix(in oklch, var(--paper) 85%, transparent);
+}
+
+footer {
+  background: var(--paper-2);
+  border-top-color: var(--rule-soft);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--accent) 50%,
+      transparent 100%
+    );
+    opacity: 0.28;
+  }
+}

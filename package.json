@@ -1,0 +1,23 @@
+{
+  "name": "blog-themes",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "release:forest":      "node scripts/release.js forest",
+    "release:white-paper": "node scripts/release.js white-paper",
+    "release:papyrus":     "node scripts/release.js papyrus",
+    "release:parchment":   "node scripts/release.js parchment",
+    "release:washi":       "node scripts/release.js washi",
+    "release:cotton":      "node scripts/release.js cotton",
+    "release:laid":        "node scripts/release.js laid",
+    "release:wove":        "node scripts/release.js wove",
+    "release:cold-press":  "node scripts/release.js cold-press",
+    "release:hot-press":   "node scripts/release.js hot-press",
+    "release:gloss":       "node scripts/release.js gloss",
+    "release:matte":       "node scripts/release.js matte",
+    "release:stone":       "node scripts/release.js stone"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
